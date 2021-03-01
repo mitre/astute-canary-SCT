@@ -54,5 +54,8 @@ export default {
     webpackFinal (config) {
       return config
     }
-  }
+  },
+
+  // This is required for a static site - may need to change if you change to non static
+  target: 'static'
 }
