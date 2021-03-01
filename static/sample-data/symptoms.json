@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fever_chills",
+    "label": "Fever or Chills",
+    "description": "",
+    "show": true
+  },
+  {
+    "name": "cough",
+    "label": "Cough",
+    "description": "",
+    "show": true
+  },
+  {
+    "name": "shortness_breath_difficulty_breathing",
+    "label": "Shortness of breath or difficulty breathing",
+    "description": "",
+    "show": true
+  },
+  {
+    "name": "fatigue",
+    "label": "Fatigue",
+    "description": "",
+    "show": true
+  },
+  {
+    "name": "muscle_body_aches",
+    "label": "Muscle or body aches",
+    "description": "",
+    "show": true
+  }  
+]

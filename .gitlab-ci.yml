@@ -1,0 +1,23 @@
+image: node
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  script:
+  - npm run generate
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  tags:
+    - pages
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
