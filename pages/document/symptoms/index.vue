@@ -3,7 +3,7 @@
     <div class="mt-8 flex flex-rowmx-auto">
       <Button type="light" @clicked="backToDocumentPage">Back</Button>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated">
+    <div class="w-auto mx-auto p-4 mt-12">
       <survey :json="json" :results="reportedSymptoms" @results="setSymptoms"></survey>
     </div>
   </div>
@@ -12,7 +12,7 @@
 import { mapMutations } from 'vuex'
 import Button from '@/components/Button.vue'
 import Survey from '@/components/Survey.vue'
-
+import symptomJson from '@/static/survey-configs/symptom.json';
 export default {
   head: {
     title: 'Astute Canary | Document Symptoms'
@@ -23,25 +23,14 @@ export default {
   },
   data() {
     return {
-      json: {},
+      json: symptomJson,
       reportedSymptoms: {},
       myCss: {
           navigationButton: "bg-primary text-light-text"   
-      },
-      surveyCreated: false
+      }
     }
   },
   methods: {
-    async createSurvey() {
-      fetch(process.env.baseUrl + '/survey-configs/symptom.json')
-      .then(r => r.json())
-      .then(json => {
-        this.json = json
-        // TODO - Set selected if the user has already entered symptoms 
-
-        this.surveyCreated = true
-      })
-    },
     setSymptoms(symptoms) {
       this.$store.commit('symptoms/SET_TODAY_SYMPTOMS', symptoms)
       this.backToDocumentPage()
@@ -49,10 +38,6 @@ export default {
     backToDocumentPage() {
       this.$router.go(-1);
     }
-  },
-  created () {
-    // this calls the function to get the symptom survey json config file. 
-   this.createSurvey()
   },
   mounted () {
     // Set the header page title 
