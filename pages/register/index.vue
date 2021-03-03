@@ -1,11 +1,55 @@
 <template>
-  <div>
+  <div class="bg-gradient-to-b to-secondary from-primary w-full h-screen flex flex-col items-center">
+    <div class="my-auto">
+      <h1 class="uppercase text-4xl text-light-text font-bold tracking-widest">Astute Canary</h1>
+      <h2 class="text-tertiary font-thin">Sign Up</h2>
+
+      <h3 class="text-lg text-light-text font-thin mt-8">Username and Password</h3>
+      <hr>
+      <form>
+        <fieldset>
+          <div class="mt-4">
+            <label class="text-gray-300" for="username">Enter email or username</label>
+            <input type="text" name="username" class=" border rounded w-full py-2 pl-1 text-sm focus:outline-none" v-model="username" placeholder="Username">
+          </div>
+          <div class="mt-4">
+            <label class="text-gray-300" for="password">Enter password</label>
+            <input type="text" name="password" class=" border rounded w-full py-2 pl-1 text-sm focus:outline-none" v-model="password" placeholder="Password">
+          </div>
+          <div class="mt-4">
+            <label class="text-gray-300" for="confirmPassword">Confirm password</label>
+            <input type="text" name="confirmPassword" class=" border rounded w-full py-2 pl-1 text-sm focus:outline-none" v-model="confirmPassword" placeholder="Password">
+          </div>
+        </fieldset>
+     </form>
+      <div class="flex flex-row justify-center mt-8">
+        <Button type="light" @clicked="cancel" class="mr-8">Cancel</Button>
+        <Button @clicked="register">Sign Up</Button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 export default {
+  layout: 'login',
   head: {
     title: 'Astute Canary | Register'
+  },
+  data () {
+    return {
+      username: undefined,
+      password: undefined,
+      confirmPassword: undefined,
+    }
+  },
+  methods: {
+    cancel () {
+      this.$router.push('/login')
+    },
+    // Function for when your user registers. Put registration logic here
+    register () {
+      this.$router.push('/login')
+    }
   }
 }
 </script>

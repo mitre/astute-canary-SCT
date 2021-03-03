@@ -1,6 +1,6 @@
 <template>
-  <div id="surveyElement" style="display:inline-block;width:100%;" v-if="survey">
-    <survey :survey="survey"/>
+  <div id="surveyElement" class="w-full inline-block">
+    <survey :survey="survey" />
   </div>
 </template>
 <script>
@@ -9,11 +9,16 @@ export default {
   props: {
     json: {
       type: Object
+    },
+    results: {
+      type: Object
     }
   },
   data() {
     const jsonSurvey = this.json;
     const survey = new surveyVue.Model(this.json);
+
+    // style the survey 
     var myCss = {
       headerText: "text-xl",
       navigationButton: "border py-2 px-4 rounded mt-4 right",
@@ -29,10 +34,25 @@ export default {
         itemControl: "ml-1 bg-gray-100 border p-2 rounded checked:bg-secondary checked:border-transparent mr-4"
       }
     };
+    
+    survey.onComplete.add(survey => {
+      this.result = survey.data;
+      this.sendResults()
+    })
+
     survey.css = myCss
     return {
-      survey: survey
+      survey: survey,
+      result: []
     }
+  },
+  methods: {
+    sendResults () {
+      this.$emit('results', this.result)
+    }
+  },
+  created () {
+
   }
 }
 </script>

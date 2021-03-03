@@ -1,15 +1,76 @@
 <template>
-  <div>
-    Profile
+  <div class="w-full">
+    <div class="flex flex-row bg-tertiary items-center w-full">
+      <div class="mx-auto flex flex-row my-24">
+        <div class="w-auto text-dark-text flex-col">
+          <div class="text-2xl font-bold">{{ profile.firstname }} {{ profile.lastname }}</div>
+          <div class="text-xl"> {{ profile.location.city }}, {{ profile.location.state }}</div>
+        </div>
+        <div class="ml-12 w-auto">
+          <Button @clicked="editProfile">Edit</Button>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col mt-8">
+      <div class="mx-auto">
+        <settings-menu-option icon="sign-out-alt" @clicked="logout">
+          <span class="ml-4">Logout</span>
+        </settings-menu-option>
+        <settings-menu-option icon="bell">
+          <span class="ml-4">Notifications</span>
+        </settings-menu-option>
+        <settings-menu-option icon="cog">
+          <span class="ml-4">General</span>
+        </settings-menu-option>
+        <settings-menu-option icon="sign-out-alt" @clicked="editProfile">
+          <span class="ml-4">Account</span>
+        </settings-menu-option>
+        <settings-menu-option icon="lock">
+          <span class="ml-4">Privacy</span>
+        </settings-menu-option>
+        <settings-menu-option icon="question-circle">
+          <span class="ml-4">Help</span>
+        </settings-menu-option>
+      </div>
+    </div>
   </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
+import Button from '@/components/Button.vue'
+import SettingsMenuOption from '@/components/SettingsMenuOption.vue'
 export default {
   head: {
     title: 'Astute Canary | Profile'
+  },
+  components: {
+    Button,
+    SettingsMenuOption
+  },
+  data () {
+    return {
+      profile: undefined
+    }
+  },
+  methods: {
+    editProfile () {
+      console.log ('editing')
+    },
+    logout () {
+      console.log('logout')
+      this.$router.push('/login')
+    }
+  },
+  created () {
+    this.profile = this.$store.state.profile.profile
+    console.log(this.profile)
   },
   mounted () {
     this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Profile/Settings')
   }
 }
 </script>
+<style scoped>
+  
+</style>
+

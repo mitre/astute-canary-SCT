@@ -92,3 +92,6 @@ sw.*
 # Storybook
 .nuxt-storybook
 storybook-static
+
+#test run
+public

@@ -1,3 +1,4 @@
+let development = process.env.NODE_ENV !== 'production'
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -11,22 +12,24 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  
+  env: {
+    baseUrl: development ? 'http://localhost:3000' : 'https://blchen.pages.mitre.org'
+  },
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     {
-      src: '~/plugins/vue-awesome',
-      mode: 'client'
-    },
-    {
       src: '~/plugins/vuex-persist',
       mode: 'client'
     },
     {
       src: '~/plugins/survey',
+      mode: 'client'
+    },
+    {
+      src: '~/plugins/calendar',
       mode: 'client'
     }
   ],
@@ -38,14 +41,23 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+  ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    vendor: ['vue-awesome']
+    standalone: true
+  },
+  // icons
+  fontawesome: {
+    icons: {
+      solid: ['faHome', 'faCalendar', 'faPlusCircle', 'faChartLine', 'faUserCog', 'faBell', 'faCog', 'faUser', 'faSignOutAlt', 'faLock', 'faQuestionCircle']
+    }
   },
 
   // Storybook
@@ -55,6 +67,11 @@ export default {
       return config
     }
   },
+
+  vendor: [
+    'survey-vue',
+    'vuex-persist'
+  ],
 
   // This is required for a static site - may need to change if you change to non static
   target: 'static',

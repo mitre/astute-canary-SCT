@@ -1,0 +1,81 @@
+{
+  "showQuestionNumbers": "off",
+  "pages": [
+   {
+    "name": "page1",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "question1",
+      "title": "What type of vaccine did you receive?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "pfizer",
+        "text": "Pfizer"
+       },
+       {
+        "value": "moderna",
+        "text": "Moderna"
+       },
+       {
+        "value": "astrazeneca",
+        "text": "AstraZeneca"
+       },
+       {
+        "value": "novavax",
+        "text": "Novavax"
+       },
+       {
+        "value": "janssen",
+        "text": "Janssen"
+       }
+      ],
+      "otherText": "Janssen"
+     }
+    ]
+   },
+   {
+    "name": "page2",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "question2",
+      "title": "What dose did you receive of the vaccine?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "first",
+        "text": "First Dose"
+       },
+       {
+        "value": "second",
+        "text": "Second Dose"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "page3",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "question3",
+      "title": "Are you experiencing any side effects?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }

@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="text-center mt-64">
+    <h1 class="text-4xl uppercase text-secondary">THIS PAGE IS UNDER CONSTRUCTION</h1>
   </div>
 </template>
 <script>

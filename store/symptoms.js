@@ -3,7 +3,7 @@ export const state = () => ({
   loggingDuration: 7,
   todaySymptoms: {
     date: undefined,
-    overallFeeling: undefined,
+    feeling: undefined,
     symptoms: []
   },
   historySymptoms: [],

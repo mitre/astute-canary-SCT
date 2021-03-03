@@ -1,12 +1,11 @@
 <template>
-  <div class="flex flex-col justify-center mx-auto w-full md:w-1/2">
+  <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4">
     <div class="mt-8 flex flex-rowmx-auto">
       <Button type="light" @clicked="backToDocumentPage">Back</Button>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="json">
-      <survey :json="json"></survey>
+    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated">
+      <survey :json="json" :results="reportedSymptoms" @results="setSymptoms"></survey>
     </div>
-    
   </div>
 </template>
 <script>
@@ -24,137 +23,42 @@ export default {
   },
   data() {
     return {
-      json: {
-        "showQuestionNumbers": "off",
-        "pages": [
-          {
-          "name": "Symptom Checker",
-          "elements": [
-            {
-            "type": "checkbox",
-            "name": "Symptoms",
-            "title": "Check all the symptoms that you are experiencing:",
-            "choices": [
-              {
-              "value": "Fever or chills",
-              "text": "Fever or chills"
-              },
-              {
-              "value": "Cough",
-              "text": "Cough"
-              },
-              {
-              "value": "Shortness of breath or difficulty breathing",
-              "text": "Shortness of breath or difficulty breathing"
-              },
-              {
-              "value": "Fatigue",
-              "text": "Fatigue"
-              },
-              {
-              "value": "Muscle or body aches",
-              "text": "Muscle or body aches"
-              },
-              {
-              "value": "Headache",
-              "text": "Headache"
-              },
-              {
-              "value": "Sore throat",
-              "text": "Sore throat"
-              },
-              {
-              "value": "New loss of taste or smell",
-              "text": "New loss of taste or smell"
-              },
-              {
-              "value": "Congestion or runny nose",
-              "text": "Congestion or runny nose"
-              },
-              {
-              "value": "Diarrhea",
-              "text": "Diarrhea"
-              },
-              {
-              "value": "Trouble Breathing",
-              "text": "Trouble Breathing"
-              },
-              {
-              "value": "Persistent pain or pressure on the chest",
-              "text": "Persistent pain or pressure on the chest"
-              },
-              {
-              "value": "Nausea or vomiting",
-              "text": "Nausea or vomiting"
-              }
-            ],
-            "hasSelectAll": false
-            }
-          ]
-          },
-          {
-          "name": "Fever Checker",
-          "elements": [
-            {
-            "type": "radiogroup",
-            "name": "Fever",
-            "title": "Do you have a fever?",
-            "choices": [
-              {
-              "value": "yes",
-              "text": "Yes"
-              },
-              {
-              "value": "no",
-              "text": "No"
-              }
-            ]
-            }
-          ],
-          "visibleIf": "{Symptoms} contains 'Fever or chills'"
-          },
-          {
-          "name": "Enter body temp",
-          "elements": [
-            {
-            "type": "text",
-            "name": "question1",
-            "visibleIf": "{Fever} = 'yes'",
-            "title": "Enter your body temperature",
-            "placeHolder": "ex: 97.2"
-            }
-          ]
-          }
-        ]
-      },
-      reportedSymptoms: [],
+      json: {},
+      reportedSymptoms: {},
       myCss: {
           navigationButton: "bg-primary text-light-text"   
-      }
+      },
+      surveyCreated: false
     }
   },
   methods: {
-    async getSymptomOptions () {
-      this.json = this.$store.state.symptoms.symptomOption
+    async createSurvey() {
+      fetch(process.env.baseUrl + '/survey-configs/symptom.json')
+      .then(r => r.json())
+      .then(json => {
+        this.json = json
+        // TODO - Set selected if the user has already entered symptoms 
+
+        this.surveyCreated = true
+      })
     },
-    createSurvey() {
-      this.survey = new surveyVue.Model(this.json);
-    },
-    setSymptoms() {
-      this.$store.commit('symptoms/SET_TODAY_SYMPTOMS', this.reportedSymptoms)
+    setSymptoms(symptoms) {
+      this.$store.commit('symptoms/SET_TODAY_SYMPTOMS', symptoms)
       this.backToDocumentPage()
     },
     backToDocumentPage() {
-      this.$router.push('/document')
+      this.$router.go(-1);
     }
   },
-  computed: {
-    symptomList() {
-      return this.$store.state.symptoms.symptomOptions
-    }
+  created () {
+    // this calls the function to get the symptom survey json config file. 
+   this.createSurvey()
   },
   mounted () {
+    // Set the header page title 
     this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Document - Symptoms')
+
+    // Check if user has reported symptoms today
     this.reportedSymptoms = this.$store.state.symptoms.todaySymptoms.symptoms
   }
 }
