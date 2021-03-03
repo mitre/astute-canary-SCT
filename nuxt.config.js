@@ -13,7 +13,7 @@ export default {
     ]
   },
   env: {
-    baseUrl: development ? 'http://localhost:3000' : 'https://blchen.pages.mitre.org'
+    baseUrl: development ? 'http://localhost:3000' : 'https://blchen.pages.mitre.org/astute-canary'
   },
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
