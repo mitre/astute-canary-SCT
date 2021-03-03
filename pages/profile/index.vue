@@ -63,7 +63,6 @@ export default {
   },
   created () {
     this.profile = this.$store.state.profile.profile
-    console.log(this.profile)
   },
   mounted () {
     this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Profile/Settings')
