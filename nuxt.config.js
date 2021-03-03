@@ -22,10 +22,6 @@ export default {
       mode: 'client'
     },
     {
-      src: '~/plugins/survey',
-      mode: 'client'
-    },
-    {
       src: '~/plugins/calendar',
       mode: 'client'
     }
@@ -66,7 +62,6 @@ export default {
   },
 
   vendor: [
-    'survey-vue',
     'vuex-persist'
   ],
 
