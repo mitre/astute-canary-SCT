@@ -3,8 +3,8 @@
     <div class="mt-8 flex flex-rowmx-auto">
       <Button type="light" @clicked="backToDocumentPage">Back</Button>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12">
-      <survey :json="json" :results="reportedVaccination" @results="setVaccination"></survey>
+    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated">
+      <survey :json="json" :results="reportedVaccination" @resultsCaptured="setVaccination"></survey>
     </div>
   </div>
 </template>
@@ -12,7 +12,8 @@
 import { mapMutations } from 'vuex'
 import Button from '@/components/Button.vue'
 import Survey from '@/components/Survey.vue'
-import vaccinationJson from '@/static/survey-configs/vaccination.json';
+import axios from 'axios'
+
 export default {
   head: {
     title: 'Astute Canary | Document Vaccination'
@@ -23,7 +24,7 @@ export default {
   },
   data() {
     return {
-      json: vaccinationJson,
+      json: {},
       reportedVaccination: {},
       myCss: {
           navigationButton: "bg-primary text-light-text"   
@@ -32,6 +33,17 @@ export default {
     }
   },
   methods: {
+    async createSurvey() {
+      axios.get('/survey-configs/vaccination.json')
+      .then(response => {
+          console.log(response)
+          this.json = response.data
+          this.surveyCreated = true
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    },
     setVaccination(vaccination) {
       this.$store.commit('vaccination/SET_VACCINATION_HISTORY', vaccination)
       this.backToDocumentPage()
@@ -39,6 +51,10 @@ export default {
     backToDocumentPage() {
       this.$router.push('/document')
     }
+  },
+  created () {
+    // this calls the function to get the symptom survey json config file. 
+   this.createSurvey()
   },
   mounted () {
     this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Document - Vaccination')

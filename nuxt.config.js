@@ -12,6 +12,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
@@ -24,7 +25,11 @@ export default {
     {
       src: '~/plugins/calendar',
       mode: 'client'
-    }
+    },
+    {
+      src: '~/plugins/survey-vue',
+      mode: 'client'
+    },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -62,7 +67,8 @@ export default {
   },
 
   vendor: [
-    'vuex-persist'
+    'vuex-persist',
+    'survey-vue'
   ],
 
   // This is required for a static site - may need to change if you change to non static
@@ -70,8 +76,8 @@ export default {
   generate: {
     dir: 'public'
   },
-  router: {
-    base: '/astute-canary/'
-  }
+  // router: {
+  //   base: '/astute-canary/'
+  // }
 
 }

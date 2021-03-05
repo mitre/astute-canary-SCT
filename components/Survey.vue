@@ -1,6 +1,6 @@
 <template>
   <div id="surveyElement" class="w-full inline-block">
-    <survey :survey="survey" />
+      <survey :survey="surveyRender" />
   </div>
 </template>
 <script>
@@ -16,7 +16,7 @@ export default {
   },
   data() {
     const jsonSurvey = this.json;
-    const survey = new surveyVue.Model(this.json);
+    const survey = new surveyVue.Model(jsonSurvey);
 
     // style the survey 
     var myCss = {
@@ -42,13 +42,13 @@ export default {
 
     survey.css = myCss
     return {
-      survey: survey,
+      surveyRender: survey,
       result: []
     }
   },
   methods: {
     sendResults () {
-      this.$emit('results', this.result)
+      this.$emit('resultCaptured', this.result)
     }
   },
   created () {
