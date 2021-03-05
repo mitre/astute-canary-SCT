@@ -13,7 +13,7 @@
 <script>
 import { mapMutations } from 'vuex'
 import Button from '@/components/Button.vue'
-import Survey from '@/components/Survey.vue'
+import Survey from '@/components/SurveyComponent.vue'
 import axios from 'axios'
 export default {
   head: {
