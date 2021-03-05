@@ -76,8 +76,8 @@ export default {
   generate: {
     dir: 'public'
   },
-  // router: {
-  //   base: '/astute-canary/'
-  // }
+  router: {
+    base: '/astute-canary/'
+  }
 
 }
