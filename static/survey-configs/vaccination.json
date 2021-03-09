@@ -1,5 +1,6 @@
 {
   "showQuestionNumbers": "off",
+  "showCompletedPage": "false",
   "pages": [
    {
     "name": "page1",

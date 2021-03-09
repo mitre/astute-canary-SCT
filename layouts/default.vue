@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import Navigation from '../components/Navigation'
-import PageBanner from '../components/PageBanner'
+import Navigation from '../components/AppNavigation'
+import PageBanner from '../components/AppPageBanner'
 export default {
   components: {
     Navigation,

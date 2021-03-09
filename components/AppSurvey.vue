@@ -32,11 +32,16 @@ export default {
       checkbox: {
         label: "flex flex-row items-center",
         itemControl: "ml-1 bg-gray-100 border p-2 rounded checked:bg-secondary checked:border-transparent mr-4"
+      },
+      radiogroup: {
+        label: "radio-toolbar inline-block bg-secondary py-2 px-1 text-white w-full text-center rounded mb-2 hover:bg-primary focus:bg-primary checked:bg-primary",
+        itemControl: "opacity-0 fixed w-0 focus:bg-primary checked:bg-primary"
       }
     };
     
     survey.onComplete.add(survey => {
       this.result = survey.data;
+      console.log('on complete')
       this.sendResults()
     })
 
@@ -48,7 +53,8 @@ export default {
   },
   methods: {
     sendResults () {
-      this.$emit('resultCaptured', this.result)
+      console.log('results captured')
+      this.$emit('resultsCaptured', this.result)
     }
   },
   created () {
@@ -56,3 +62,16 @@ export default {
   }
 }
 </script>
+<style>
+/* Change the selected radio button background color */
+.sv_q_radiogroup.checked > label {
+    background-color: #242348;
+}
+/* Change input text style */
+.sv_q_text_root {
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 5px 3px;
+}
+</style>
+

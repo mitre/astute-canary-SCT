@@ -1,19 +1,23 @@
 <template>
   <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4">
     <div class="mt-8 flex flex-rowmx-auto">
-      <Button type="light" @clicked="backToDocumentPage">Back</Button>
+      <Button type="light" @clicked="goBack">Back</Button>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated">
+    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated && !checkInComplete">
       <client-only>
-        <survey :json="json" :results="reportedSymptoms"></survey>
+        <survey :json="json" :results="reportedSymptoms" @resultsCaptured="setSymptoms"></survey>
       </client-only>
+    </div>
+    <div class="w-auto mx-auto p-4 mt-12" v-if="checkInComplete">
+      <symptoms-complete />
     </div>
   </div>
 </template>
 <script>
 import { mapMutations } from 'vuex'
-import Button from '@/components/Button.vue'
-import Survey from '@/components/SurveyComponent.vue'
+import Button from '@/components/AppButton.vue'
+import Survey from '@/components/AppSurvey.vue'
+import SymptomsComplete from '@/components/AppSymptomsComplete.vue'
 import axios from 'axios'
 export default {
   head: {
@@ -21,12 +25,14 @@ export default {
   },
   components: {
     Button,
-    Survey
+    Survey,
+    SymptomsComplete
   },
   data() {
     return {
       json: {},
       reportedSymptoms: {},
+      checkInComplete: false,
       myCss: {
           navigationButton: "bg-primary text-light-text"   
       },
@@ -49,10 +55,11 @@ export default {
       })
     },
     setSymptoms(symptoms) {
+      console.log('complete')
       this.$store.commit('symptoms/SET_TODAY_SYMPTOMS', symptoms)
-      this.backToDocumentPage()
+      this.checkInComplete = true
     },
-    backToDocumentPage() {
+    goBack() {
       this.$router.go(-1);
     }
   },

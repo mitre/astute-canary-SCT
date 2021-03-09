@@ -37,8 +37,8 @@
 </template>
 <script>
 import { mapMutations } from 'vuex'
-import Button from '@/components/Button.vue'
-import SettingsMenuOption from '@/components/SettingsMenuOption.vue'
+import Button from '@/components/AppButton.vue'
+import SettingsMenuOption from '@/components/AppSettingsMenuOption.vue'
 export default {
   head: {
     title: 'Astute Canary | Profile'

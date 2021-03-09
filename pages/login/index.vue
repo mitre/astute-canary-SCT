@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import Button from '@/components/Button.vue'
+import Button from '@/components/AppButton.vue'
 export default {
   head: {
     title: 'Astute Canary | Login'

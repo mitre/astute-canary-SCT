@@ -1,17 +1,21 @@
 <template>
   <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4">
     <div class="mt-8 flex flex-rowmx-auto">
-      <Button type="light" @clicked="backToDocumentPage">Back</Button>
+      <Button type="light" @clicked="goBack">Back</Button>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated">
+    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated && !checkInComplete">
       <survey :json="json" :results="reportedVaccination" @resultsCaptured="setVaccination"></survey>
+    </div>
+    <div class="w-auto mx-auto p-4 mt-12" v-if="checkInComplete">
+      <vaccination-complete />
     </div>
   </div>
 </template>
 <script>
 import { mapMutations } from 'vuex'
-import Button from '@/components/Button.vue'
-import Survey from '@/components/SurveyComponent.vue'
+import Button from '@/components/AppButton.vue'
+import Survey from '@/components/AppSurvey.vue'
+import VaccinationComplete from '@/components/AppVaccinationsComplete.vue'
 import axios from 'axios'
 
 export default {
@@ -20,7 +24,8 @@ export default {
   },
   components: {
     Button,
-    Survey
+    Survey,
+    VaccinationComplete
   },
   data() {
     return {
@@ -29,7 +34,8 @@ export default {
       myCss: {
           navigationButton: "bg-primary text-light-text"   
       },
-      surveyCreated: false
+      surveyCreated: false,
+      checkInComplete: false
     }
   },
   methods: {
@@ -48,10 +54,10 @@ export default {
     },
     setVaccination(vaccination) {
       this.$store.commit('vaccination/SET_VACCINATION_HISTORY', vaccination)
-      this.backToDocumentPage()
+      this.checkInComplete = true
     },
-    backToDocumentPage() {
-      this.$router.push('/document')
+    goBack() {
+      this.$router.go(-1);
     }
   },
   created () {
