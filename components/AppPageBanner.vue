@@ -1,6 +1,6 @@
 <template>
   <div class="w-full text-center py-4" :class="bannerClass">
-    <h1 class="text-light-text uppercase text-xl font-bold tracking-widest"><slot /></h1>
+    <h1 class="uppercase text-xl font-bold tracking-widest"><slot /></h1>
   </div>
 </template>
 
@@ -10,16 +10,17 @@ export default {
     type: {
       type: String,
       default: 'primary'
+    },
+    textType: {
+      type: String,
+      default: 'light-text'
     }
   },
   computed: {
     bannerClass () {
       const classes = []
-      if (this.type === 'primary') {
-        classes.push('bg-primary')
-      } else if (this.type === 'secondary') {
-        classes.push('bg-secondary')
-      }
+      classes.push('text-' + this.textType)
+      classes.push('bg-' + this.type)
       return classes.join(' ')
     }
   }

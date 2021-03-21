@@ -3,7 +3,7 @@
     <h2 class="text-xl text-dark-text font-bold">Thank you for logging your symptoms.</h2>
     <h2 class="text-xl text-dark-text font-bold mt-4">Would you like to document anything else?</h2>
     <div class="mt-8 w-64">
-      <Button class="w-full" type="blue" @clicked="goToVaccination">Vaccination Experience</Button>
+      <Button class="w-full" tailwind tailwindBackgroundOpacity="500" type="blue" @clicked="goToVaccination">Vaccination Experience</Button>
     </div>
     <div class="mt-4 w-64">
       <Button class="w-full"  type="accent" @clicked="goToTesting">Testing & Diagnosis</Button>

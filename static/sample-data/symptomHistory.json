@@ -1,0 +1,37 @@
+[
+  {
+    "date": "03/01/2021",
+    "overallFeeling": "Poor",
+    "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Fever": "yes", "Temperature": "100.1" },
+    "vaccinationReported": ["Johnson & Johnson first dose"],
+    "testingReported": []
+  },
+  {
+    "date": "03/02/2021",
+    "overallFeeling": "Poor",
+    "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Fever": "yes", "Temperature": "100.1" },
+    "vaccinationReported": [],
+    "testingReported": ["COVID Rapid test: Result negative"]
+  },
+  {
+    "date": "03/13/2021",
+    "overallFeeling": "Poor",
+    "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Fever": "yes", "Temperature": "100.1" },
+    "vaccinationReported": [],
+    "testingReported": []
+  },
+  {
+    "date": "03/15/2021",
+    "overallFeeling": "Good",
+    "symptomsReported": [],
+    "vaccinationReported": ["Johnson & Johnson second dose"],
+    "testingReported": []
+  },
+  {
+    "date": "03/17/2021",
+    "overallFeeling": "Poor",
+    "symptomsReported": { "Symptoms": [ "Fatigue" ]},
+    "vaccinationReported": [],
+    "testingReported": []
+  }
+]

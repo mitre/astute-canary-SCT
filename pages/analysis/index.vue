@@ -5,11 +5,13 @@
 </template>
 <script>
 export default {
-  head: {
-    title: 'Astute Canary | Analysis'
+  head() {
+    return {
+      title: this.$store.state.general.appName + ' | Analysis'
+    }
   },
   mounted () {
-    this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Analysis')
+    this.$store.commit('general/SET_PAGE_TITLE', 'Analysis')
   }
 }
 </script>

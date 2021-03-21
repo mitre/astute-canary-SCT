@@ -7,7 +7,7 @@
     "elements": [
      {
       "type": "radiogroup",
-      "name": "question1",
+      "name": "Vaccination Type",
       "title": "What type of vaccine did you receive?",
       "isRequired": true,
       "choices": [
@@ -41,7 +41,7 @@
     "elements": [
      {
       "type": "radiogroup",
-      "name": "question2",
+      "name": "Dose",
       "title": "What dose did you receive of the vaccine?",
       "isRequired": true,
       "choices": [
@@ -62,7 +62,7 @@
     "elements": [
      {
       "type": "radiogroup",
-      "name": "question3",
+      "name": "Side Effects",
       "title": "Are you experiencing any side effects?",
       "isRequired": true,
       "choices": [

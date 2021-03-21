@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gradient-to-b to-secondary from-primary w-full h-screen flex flex-col items-center">
     <div class="my-auto">
-      <h1 class="uppercase text-4xl text-light-text font-bold tracking-widest">Astute Canary</h1>
+      <h1 class="uppercase text-4xl text-light-text font-bold tracking-widest">{{ appName }}</h1>
       <h2 class="text-tertiary font-thin">Sign Up</h2>
 
       <h3 class="text-lg text-light-text font-thin mt-8">Username and Password</h3>
@@ -23,24 +23,31 @@
         </fieldset>
      </form>
       <div class="flex flex-row justify-center mt-8">
-        <Button type="light" @clicked="cancel" class="mr-8">Cancel</Button>
-        <Button @clicked="register">Sign Up</Button>
+        <app-button type="light" @clicked="cancel" class="mr-8">Cancel</app-button>
+        <app-button @clicked="register">Sign Up</app-button>
       </div>
     </div>
   </div>
 </template>
 <script>
+import AppButton from '@/components/AppButton.vue'
 export default {
   layout: 'login',
-  head: {
-    title: 'Astute Canary | Register'
+  head() {
+    return {
+      title: this.$store.state.general.appName + ' | Register'
+    }
   },
   data () {
     return {
       username: undefined,
       password: undefined,
       confirmPassword: undefined,
+      appName: '',
     }
+  },
+  components: {
+    AppButton
   },
   methods: {
     cancel () {
@@ -50,6 +57,9 @@ export default {
     register () {
       this.$router.push('/login')
     }
+  },
+  mounted () {
+    this.appName = this.$store.state.general.appName
   }
 }
 </script>

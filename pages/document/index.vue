@@ -1,20 +1,28 @@
 <template>
-  <div class="text-center">
-    <h2 class="text-2xl text-dark-text font-bold mt-12" v-if="!loggedSymptoms">What would you like to document today?</h2>
-    <h2 class="text-2xl text-dark-text font-bold mt-12" v-else>Thank you for logging your symptoms. <br> Would you like to document anything else?</h2>
-    <div class="flex flex-col w-64 mx-auto mt-12">
-      <Button round @clicked="reportSymptoms">Report Symptoms</Button>
-      <Button type="blue" round class="mt-8" @clicked="reportVaccination">Vaccination Experience</Button>
-      <Button type="accent" round class="mt-8" @clicked="reportTesting">Testing & Diagnosis</Button>
+  <div class="text-center min-h-screen bg-primary">
+    <div class="max-w-sm mx-auto px-4 md:px-0">
+      <app-powered-by-statement/>
+      <h2 class="text-4xl text-white font-light pt-12" v-if="!loggedSymptoms">What would you like to <span class="font-bold">track</span> today?</h2>
+      <h2 class="text-2xl text-dark-text font-bold pt-12" v-else>Thank you for logging your symptoms. <br> Would you like to document anything else?</h2>
+      <div class="flex flex-col w-36 mx-auto mt-12">
+        <app-icon-button type="symptom" @clicked="reportSymptoms" text="Symptoms"></app-icon-button>
+        <app-icon-button type="vaccination" icon="syringe" class="mt-8" @clicked="reportVaccination" text="Vaccination">Vaccination Experience</app-icon-button>
+        <app-icon-button type="testing" icon="microscope" class="mt-8" @clicked="reportTesting" text="Testing">Testing & Diagnosis</app-icon-button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Button from '@/components/AppButton.vue'
+import AppIconButton from '@/components/AppIconButton.vue'
 export default {
   components: {
-    Button
+    AppIconButton
+  },
+  head() {
+    return {
+      title: this.$store.state.general.appName + ' | Document'
+    }
   },
   data() {
     return {
@@ -33,8 +41,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Document')
-    this.loggedSymptoms = this.$store.state.symptoms.todaySymptoms.symptoms.length > 0
+    this.$store.commit('general/SET_PAGE_TITLE', 'Document')
   }
 }
 </script>

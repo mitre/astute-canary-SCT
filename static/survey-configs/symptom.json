@@ -68,33 +68,12 @@
     ]
     },
     {
-    "name": "Fever Checker",
-    "elements": [
-      {
-      "type": "radiogroup",
-      "name": "Fever",
-      "title": "Do you have a fever?",
-      "choices": [
-        {
-        "value": "yes",
-        "text": "Yes"
-        },
-        {
-        "value": "no",
-        "text": "No"
-        }
-      ]
-      }
-    ],
-    "visibleIf": "{Symptoms} contains 'Fever or chills'"
-    },
-    {
     "name": "Enter body temp",
     "elements": [
       {
       "type": "text",
-      "name": "question1",
-      "visibleIf": "{Fever} = 'yes'",
+      "name": "Temperature",
+      "visibleIf": "{Symptoms} contains 'Fever or chills'",
       "title": "Enter your body temperature",
       "placeHolder": "ex: 97.2"
       }

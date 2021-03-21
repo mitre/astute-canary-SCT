@@ -7,7 +7,7 @@
           <div class="text-xl"> {{ profile.location.city }}, {{ profile.location.state }}</div>
         </div>
         <div class="ml-12 w-auto">
-          <Button @clicked="editProfile">Edit</Button>
+          <app-button @clicked="editProfile">Edit</app-button>
         </div>
       </div>
     </div>
@@ -37,14 +37,16 @@
 </template>
 <script>
 import { mapMutations } from 'vuex'
-import Button from '@/components/AppButton.vue'
+import AppButton from '@/components/AppButton.vue'
 import SettingsMenuOption from '@/components/AppSettingsMenuOption.vue'
 export default {
-  head: {
-    title: 'Astute Canary | Profile'
+  head() {
+    return {
+      title: this.$store.state.general.appName + ' | Profile'
+    }
   },
   components: {
-    Button,
+    AppButton,
     SettingsMenuOption
   },
   data () {
@@ -65,7 +67,7 @@ export default {
     this.profile = this.$store.state.profile.profile
   },
   mounted () {
-    this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Profile/Settings')
+    this.$store.commit('general/SET_PAGE_TITLE', 'Profile/Settings')
   }
 }
 </script>

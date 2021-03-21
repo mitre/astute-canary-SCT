@@ -14,7 +14,9 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: [
+    '@/assets/css/tailwind.css'
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -37,9 +39,9 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/fontawesome',
+    '@nuxtjs/moment'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -54,7 +56,8 @@ export default {
   // icons
   fontawesome: {
     icons: {
-      solid: ['faHome', 'faCalendar', 'faPlusCircle', 'faChartLine', 'faUserCog', 'faBell', 'faCog', 'faUser', 'faSignOutAlt', 'faLock', 'faQuestionCircle']
+      solid: ['faHome', 'faCalendar', 'faPlusCircle', 'faChartLine', 'faUserCog', 'faBell', 'faCog', 'faUser', 'faSignOutAlt', 'faLock', 'faQuestionCircle', 'faSyringe', 'faMicroscope'],
+      regular: ['faSmile', 'faMeh', 'faFrown']
     }
   },
 
@@ -65,7 +68,9 @@ export default {
       return config
     }
   },
-
+  purgeCSS: {
+    enabled: false
+  },
   vendor: [
     'vuex-persist',
     'survey-vue'

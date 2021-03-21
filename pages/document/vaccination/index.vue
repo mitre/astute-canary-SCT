@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4">
     <div class="mt-8 flex flex-rowmx-auto">
-      <Button type="light" @clicked="goBack">Back</Button>
+      <app-button type="light" @clicked="goBack">Back</app-button>
     </div>
     <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated && !checkInComplete">
       <survey :json="json" :results="reportedVaccination" @resultsCaptured="setVaccination"></survey>
@@ -13,17 +13,19 @@
 </template>
 <script>
 import { mapMutations } from 'vuex'
-import Button from '@/components/AppButton.vue'
+import AppButton from '@/components/AppButton.vue'
 import Survey from '@/components/AppSurvey.vue'
 import VaccinationComplete from '@/components/AppVaccinationsComplete.vue'
 import axios from 'axios'
 
 export default {
-  head: {
-    title: 'Astute Canary | Document Vaccination'
+  head() {
+    return {
+      title: this.$store.state.general.appName + ' | Document Vaccination'
+    }
   },
   components: {
-    Button,
+    AppButton,
     Survey,
     VaccinationComplete
   },
@@ -53,7 +55,7 @@ export default {
       })
     },
     setVaccination(vaccination) {
-      this.$store.commit('vaccination/SET_VACCINATION_HISTORY', vaccination)
+      this.$store.commit('reporting/SET_TODAY_VACCINATION', vaccination)
       this.checkInComplete = true
     },
     goBack() {
@@ -65,7 +67,7 @@ export default {
    this.createSurvey()
   },
   mounted () {
-    this.$store.commit('pageTitle/SET_PAGE_TITLE', 'Document - Vaccination')
+    this.$store.commit('general/SET_PAGE_TITLE', 'Document - Vaccination')
   }
 }
 </script>

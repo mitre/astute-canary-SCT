@@ -1,4 +1,6 @@
-export default { title: 'PageBanner' }
+export default { title: 'AppPageBanner' }
 
-export const primaryBanner = () => '<MyBanner>Primary Banner</MyBanner>'
-export const secondaryBanner = () => '<MyBanner type="secondary">Secondary Banner</MyBanner>'
+export const primaryBanner = () => '<AppPageBanner>Primary Banner</AppPageBanner>'
+export const secondaryBanner = () => '<AppPageBanner type="secondary">Secondary Banner</AppPageBanner>'
+export const tertiaryBanner = () => '<AppPageBanner type="tertiary" textType="dark-text">Tertiary Banner</AppPageBanner>'
+export const accentBanner = () => '<AppPageBanner type="accent">Accent Banner</AppPageBanner>'

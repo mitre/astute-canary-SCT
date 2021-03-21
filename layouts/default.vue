@@ -1,8 +1,7 @@
 <template>
   <div>
-    <page-banner>{{ $store.state.pageTitle.pageTitle }}</page-banner>
     <Nuxt />
-    <Navigation />
+    <Navigation :active="$route.name"/>
   </div>
 </template>
 <script>
