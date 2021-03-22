@@ -72,6 +72,12 @@ export default {
         
       }
       classes.push('text-' + this.textType)
+      if (this.type === 'white') {
+        classes.push('bg-white')
+      }
+      if (this.type === 'black') {
+        classes.push('bg-black')
+      }
       if (this.type === 'primary') {
         classes.push('bg-primary')
       }
@@ -113,6 +119,12 @@ export default {
       }
       if (this.textType === 'danger') {
         classes.push('text-danger')
+      }
+      if (this.textType === 'light-text') {
+        classes.push('text-light-text')
+      }
+      if (this.textType === 'dark-text') {
+        classes.push('text-dark-text')
       }
       return classes.join(' ')
     }
