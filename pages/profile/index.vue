@@ -1,6 +1,6 @@
 <template>
 <div class="w-full bg-primary min-h-screen">
-  <div class="max-w-sm mx-auto pt-12">
+  <div class="max-w-sm mx-auto pt-12 pb-24">
     <app-powered-by-statement/>
     <div class="flex flex-row items-center w-full">
       <div class="mx-auto flex flex-row my-24">
