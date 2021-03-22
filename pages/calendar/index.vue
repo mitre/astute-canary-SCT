@@ -1,9 +1,9 @@
 <template>
 <div class="w-full bg-primary min-h-screen">
   <div class="max-w-sm md:max-w-md mx-auto md:px-0 pb-24">
-    <div class="mx-auto pt-12">
+    <div class="mx-auto pt-12 px-4 md:px-0">
       <app-powered-by-statement/>
-      <h2 class="text-4xl text-white font-light pt-12">What you've reported:</h2>
+      <h2 class="text-2xl md:text-4xl text-white font-light pt-12">What you've reported:</h2>
     </div>
     <div class="mx-auto w-full mt-8">
       <div v-if="attributes.length > 0" class="">
