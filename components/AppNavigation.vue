@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full overflow-y-auto z-10 bg-white fixed bottom-0 border border-t pb-2 pt-4 text-xl text-gray-400 uppercase">
+  <div class="w-full overflow-y-auto z-10 bg-white fixed bottom-0 border border-t pb-2 pt-4 text-xl text-gray-400 uppercase mx-1">
     <div class="flex flex-row items-center justify-between max-w-sm mx-auto">
       <nuxt-link to="/" class="flex flex-col items-center hover:text-primary focus:text-primary" :class="{'text-primary font-bold' : active === 'index'}"><font-awesome-icon class="" icon="home"></font-awesome-icon><span class="text-xs tracking-tight mt-1">Home</span></nuxt-link>
       <nuxt-link class="flex flex-col items-center hover:text-primary focus:text-primary" to="/calendar" :class="{'text-primary font-bold' : active === 'calendar'}"><font-awesome-icon class="" icon="calendar"></font-awesome-icon><span class="text-xs mt-1">Calendar</span></nuxt-link>
