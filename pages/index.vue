@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-screen px-4 md:px-0 flex flex-col mx-auto bg-primary">
+  <div class="w-full min-h-screen px-4 md:px-0 flex flex-col mx-auto bg-primary pb-24">
     <div class="w-full">
       <div class="max-w-sm mx-auto pt-12">
         <app-powered-by-statement/>
@@ -24,7 +24,7 @@
         <div class="flex flex-col bg-light-background py-12 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
           <app-metric :metric="symptomLength" type="danger"><span class="md:text-lg">You have been experiencing symptoms for {{ symptomLength }} days</span></app-metric>
           <app-metric :metric="loggingDuration" type="success" class="mt-8"><span class="md:text-lg">You have logged your symptoms for {{ loggingDuration }} days</span></app-metric>
-          <div class="mt-2 md:mt-12 mb-16">
+          <div class="mt-2 md:mt-12">
             <p class="text-primary text-sm max-w-md bg-white shadow-xl rounded-xl p-4 m-4">
               <span class="font-bold">Important Information:</span> 
               {{ importantInformation }}

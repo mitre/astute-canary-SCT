@@ -59,7 +59,7 @@
         </v-calendar>
       </div>
     </div>
-    <div class="mt-8 mx-auto">
+    <div class="mt-8 mx-auto px-4 md:px-0">
       <div
         v-if="selectedDay"
         class="mt-8 text-gray-200 leading-loose">
