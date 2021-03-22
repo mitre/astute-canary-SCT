@@ -24,13 +24,13 @@ export default {
     btnClass () {
       const classes = []
       if (this.type === 'symptom') {
-        classes.push('text-yellow-500')
+        classes.push('text-symptom')
       }
       if (this.type === 'vaccination') {
-        classes.push('text-blue-500')
+        classes.push('text-vaccination')
       }
       if (this.type === 'testing') {
-        classes.push('text-purple-500')
+        classes.push('text-testing')
       }
       return classes.join(' ')
     }

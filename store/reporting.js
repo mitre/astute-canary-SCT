@@ -11,28 +11,28 @@ export const state = () => ({
   reportingHistory: [
     {
       "date": "03/01/2021",
-      "overallFeeling": "Unwell",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100", "notes": "I was feeling really drained today."},
       "vaccinationReported": {"Vaccination Type" : "Johnson & Johnson", "Dose": "first dose"},
       "testingReported": {}
     },
     {
       "date": "03/02/2021",
-      "overallFeeling": "Unwell",
+      "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
       "vaccinationReported": {},
       "testingReported": {"Testing Type": "COVID Rapid test", "Result": "Negative"}
     },
     {
       "date": "03/13/2021",
-      "overallFeeling": "Unwell",
+      "overallFeeling": "Poor",
       "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
       "date": "03/15/2021",
-      "overallFeeling": "Healthy",
+      "overallFeeling": "Good",
       "symptomsReported": {},
       "vaccinationReported": {"Vaccination Type" : "Johnson & Johnson",  "Dose": "Second"},
       "testingReported": {}

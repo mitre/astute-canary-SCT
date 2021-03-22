@@ -1,17 +1,19 @@
 <template>
-  <div class="w-full">
-    <div class="flex flex-row bg-tertiary items-center w-full">
+<div class="w-full bg-primary min-h-screen">
+  <div class="max-w-sm mx-auto pt-12">
+    <app-powered-by-statement/>
+    <div class="flex flex-row items-center w-full">
       <div class="mx-auto flex flex-row my-24">
-        <div class="w-auto text-dark-text flex-col">
+        <div class="w-auto text-light-text flex-col">
           <div class="text-2xl font-bold">{{ profile.firstname }} {{ profile.lastname }}</div>
-          <div class="text-xl"> {{ profile.location.city }}, {{ profile.location.state }}</div>
+          <div class="text-xl mt-4"> {{ profile.location.city }}, {{ profile.location.state }}</div>
         </div>
         <div class="ml-12 w-auto">
-          <app-button @clicked="editProfile">Edit</app-button>
+          <app-button type="accent" @clicked="editProfile">Edit</app-button>
         </div>
       </div>
     </div>
-    <div class="flex flex-col mt-8">
+    <div class="flex flex-col bg-light-background py-12 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
       <div class="mx-auto">
         <settings-menu-option icon="sign-out-alt" @clicked="logout">
           <span class="ml-4">Logout</span>
@@ -34,6 +36,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 import { mapMutations } from 'vuex'

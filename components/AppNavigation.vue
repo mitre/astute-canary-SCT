@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full bg-white fixed bottom-0 border border-t flex justify-center pb-2 pt-4 text-2xl text-gray-400 uppercase">
-    <div class="grid grid-cols-5 gap-x-8 max-w-sm md:max-w-md mx-auto">
-      <nuxt-link to="/" class="flex flex-col items-center hover:text-secondary focus:text-secondary" :class="{'text-primary font-bold border-b-8 border-primary hover:border-secondary focus:border-secondary' : active === 'index'}"><font-awesome-icon icon="home"></font-awesome-icon><span class="text-xs mt-1">Home</span></nuxt-link>
-      <nuxt-link class="flex flex-col items-center hover:text-secondary focus:text-secondary" to="/calendar" :class="{'text-primary font-bold border-b-8 border-primary hover:border-secondary focus:border-secondary' : active === 'calendar'}"><font-awesome-icon icon="calendar"></font-awesome-icon><span class="text-xs mt-1">Calendar</span></nuxt-link>
-      <nuxt-link class="flex flex-col items-center hover:text-secondary focus:text-secondary text-4xl -mt-3 " to="/document" :class="{'text-primary font-bold border-b-8 border-primary hover:border-secondary focus:border-secondary' : active.includes('document')}"><font-awesome-icon class="text-primary" icon="plus-circle"></font-awesome-icon><span class="text-xs mt-1">Document</span></nuxt-link>
-      <nuxt-link class="flex flex-col items-center hover:text-secondary focus:text-secondary" to="/analysis" :class="{'text-primary font-bold border-b-8 border-primary hover:border-secondary focus:border-secondary' : active === 'analysis'}"><font-awesome-icon icon="chart-line"></font-awesome-icon><span class="text-xs mt-1">Analytics</span></nuxt-link>
-      <nuxt-link class="flex flex-col items-center hover:text-secondary focus:text-secondary" to="/profile" :class="{'text-primary font-bold border-b-8 border-primary hover:border-secondary focus:border-secondary' : active === 'profile'}"><font-awesome-icon icon="user-cog"></font-awesome-icon><span class="text-xs mt-1">Profile</span></nuxt-link>
+  <div class="w-full overflow-y-auto z-10 bg-white fixed bottom-0 border border-t pb-2 pt-4 text-xl text-gray-400 uppercase">
+    <div class="flex flex-row items-center justify-center max-w-screen sm:max-w-sm mx-auto">
+      <nuxt-link to="/" class="flex flex-col mx-4 items-center hover:text-secondary focus:text-secondary" :class="{'text-primary font-bold' : active === 'index'}"><font-awesome-icon class="" icon="home"></font-awesome-icon><span class="text-xs tracking-tight mt-1">Home</span></nuxt-link>
+      <nuxt-link class="flex flex-col mx-4 items-center hover:text-secondary focus:text-secondary" to="/calendar" :class="{'text-primary font-bold' : active === 'calendar'}"><font-awesome-icon class="" icon="calendar"></font-awesome-icon><span class="text-xs mt-1">Calendar</span></nuxt-link>
+      <nuxt-link class="flex flex-col mx-4 items-center hover:text-secondary focus:text-secondary text-4xl -mt-3" to="/track" :class="{'text-primary font-bold' : active.includes('track')}"><font-awesome-icon class=" text-primary" icon="plus-circle"></font-awesome-icon><span class="text-xs mt-1">Track</span></nuxt-link>
+      <nuxt-link class="flex flex-col mx-4 items-center hover:text-secondary focus:text-secondary" to="/analysis" :class="{'text-primary font-bold' : active === 'analysis'}"><font-awesome-icon class="" icon="chart-line"></font-awesome-icon><span class="text-xs mt-1">Analytics</span></nuxt-link>
+      <nuxt-link class="flex flex-col mx-4 items-center hover:text-secondary focus:text-secondary" to="/profile" :class="{'text-primary font-bold' : active === 'profile'}"><font-awesome-icon class="" icon="user-cog"></font-awesome-icon><span class="text-xs mt-1">Profile</span></nuxt-link>
     </div>
   </div>
 </template>

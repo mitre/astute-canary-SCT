@@ -1,7 +1,7 @@
 <template>
   <div class="w-full min-h-screen px-4 md:px-0 flex flex-col mx-auto bg-primary">
     <div class="w-full">
-      <div class="max-w-sm mx-auto">
+      <div class="max-w-sm mx-auto pt-12">
         <app-powered-by-statement/>
         <h2 class="text-2xl md:text-3xl tracking-wide text-gray-400 letter font-light mt-12 ">Welcome back {{ firstname }}</h2> 
         <h3 v-if="!feeling" class="font-bold mt-2 text-2xl md:text-3xl tracking-wide text-light-text">How are you feeling</h3>
@@ -75,7 +75,7 @@ export default {
       this.$store.commit('reporting/RESET_TODAY_OVERALL_FEELING', this.todaysDate)
     },
     reportSymptoms() {
-      this.$router.push('/document/symptoms')
+      this.$router.push('/track/symptoms')
     }
   },
   computed: {

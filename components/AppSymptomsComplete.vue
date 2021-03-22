@@ -1,24 +1,28 @@
 <template>
-  <div class="flex flex-col justify-center items-center text-center">
-    <h2 class="text-xl text-dark-text font-bold">Thank you for logging your symptoms.</h2>
-    <h2 class="text-xl text-dark-text font-bold mt-4">Would you like to document anything else?</h2>
-    <div class="mt-8 w-64">
-      <Button class="w-full" tailwind tailwindBackgroundOpacity="500" type="blue" @clicked="goToVaccination">Vaccination Experience</Button>
-    </div>
-    <div class="mt-4 w-64">
-      <Button class="w-full"  type="accent" @clicked="goToTesting">Testing & Diagnosis</Button>
-    </div>
-    <div class="mt-4 w-64">
-      <Button class="w-full" @clicked="goToHome">No</Button>
+  <div>
+    <h2 class="text-2xl text-gray-200 font-light">Thank you for logging your symptoms.</h2>
+    <h2 class="text-2xl text-light-text font-bold mt-4">Would you like to track anything else?</h2>
+    <div class="flex flex-col items-center">
+      <div class="mt-8 w-36">
+        <app-icon-button class="w-full" type="vaccination" text="Vaccination" @clicked="goToVaccination"></app-icon-button>
+      </div>
+      <div class="mt-4 w-36">
+        <app-icon-button class="w-full"  type="testing" text="Testing" @clicked="goToTesting"></app-icon-button>
+      </div>
+      <div class="mt-4">
+        <app-button type="accent" class="w-full" round @clicked="goToHome">Nothing else to track</app-button>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import Button from '@/components/AppButton.vue'
+import AppButton from './AppButton.vue'
+import AppIconButton from './AppIconButton.vue'
 
 export default {
   components: {
-    Button
+    AppButton,
+    AppIconButton
   },
   methods: {
     goToVaccination() {

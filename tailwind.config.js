@@ -18,13 +18,19 @@ module.exports = {
         warning: '#FFF186',
         success: '#1CDA94',
         accent: '#E67E1A',
+        symptom: '#785EAC',
+        vaccination: '#E97720',
+        testing: '#0ECCFB',
         'light-text': '#ffffff',
         'dark-text': '#0A049D'
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+    }
   },
   plugins: [],
 }

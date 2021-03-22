@@ -1,6 +1,7 @@
 <template>
-  <div class="bg-gradient-to-b to-secondary from-primary w-full h-screen flex flex-col items-center">
+  <div class="bg-primary w-full h-screen flex flex-col items-center">
     <div class="my-auto">
+      <img src="~/assets/images/Logo.svg" width="200" class="mx-auto opacity-50 mb-8"/>
       <h1 class="uppercase text-4xl text-light-text font-bold tracking-widest">{{ appName }}</h1>
       <h2 class="text-tertiary font-thin">Sign Up</h2>
 
@@ -23,8 +24,8 @@
         </fieldset>
      </form>
       <div class="flex flex-row justify-center mt-8">
-        <app-button type="light" @clicked="cancel" class="mr-8">Cancel</app-button>
-        <app-button @clicked="register">Sign Up</app-button>
+        <app-button type="white" textType="dark-text" @clicked="cancel" class="mr-8">Cancel</app-button>
+        <app-button @clicked="register" type="accent">Sign Up</app-button>
       </div>
     </div>
   </div>
