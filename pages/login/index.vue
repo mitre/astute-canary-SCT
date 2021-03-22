@@ -1,7 +1,7 @@
 <template>
   <div class="bg-primary w-full min-h-screen flex flex-col items-center pb-24">
-    <div class="my-auto max-w-sm">
-      <img src="~/assets/images/Logo.svg" width="200" class="mx-auto opacity-50 mb-8"/>
+    <div class="my-auto max-w-sm text-center">
+      <img src="~/assets/images/Logo.svg" width="100" class="mx-auto opacity-50 mb-8"/>
       <h1 class="uppercase text-4xl text-light-text font-medium tracking-widest">{{ appName }}</h1>
       <h2 class="text-tertiary font-thin">Welcome back! Please login to your account</h2>
       <input type="text" class="bg-transparent border-b w-full mt-8 pb-4 text-light-text text-sm focus:outline-none" v-model="username" placeholder="Username">
