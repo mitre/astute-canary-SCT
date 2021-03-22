@@ -24,10 +24,10 @@ export default {
   },
   methods: {
     goToSymptoms() {
-      this.$router.push('/document/symptoms')
+      this.$router.push('/track/symptoms')
     },
     goToTesting() {
-      this.$router.push('/document/testing')
+      this.$router.push('/track/testing')
     },
     goToHome() {
       this.$router.push('/')

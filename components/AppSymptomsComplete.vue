@@ -26,10 +26,10 @@ export default {
   },
   methods: {
     goToVaccination() {
-      this.$router.push('/document/vaccination')
+      this.$router.push('/track/vaccination')
     },
     goToTesting() {
-      this.$router.push('/document/testing')
+      this.$router.push('/track/testing')
     },
     goToHome() {
       this.$router.push('/')

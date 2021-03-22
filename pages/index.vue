@@ -11,13 +11,13 @@
           <app-feeling-button round class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="far" text="Poor"></app-feeling-button>
         </div>
         <div class="flex flex-col justify-center my-8 w-full text-gray-200 text-lg" v-else>
-        <span class="leading-loose">
+        <span class="text-2xl font-light">
             Thanks for checking in today!<br/>
             You indicated you are feeling
               <font-awesome-icon :icon="['far', feelingIcon]" class="mx-2" :class="{'text-danger': feeling === 'poor', 'text-warning': feeling === 'fair', 'text-success' : feeling === 'good'}"></font-awesome-icon>
               <span class="font-bold" :class="{'text-danger': feeling === 'poor', 'text-warning': feeling === 'fair', 'text-success' : feeling === 'good'}">{{ feeling }}</span>
         </span>
-          <div class="mt-4">
+          <div class="mt-4 text-base">
             Want to <button @click="resetFeeling" class="font-bold text-secondary underline">change your status</button>? <button @click="reportSymptoms" class="font-bold text-secondary underline">Report symptoms</button>? 
           </div>
         </div>

@@ -72,10 +72,47 @@ export default {
         
       }
       classes.push('text-' + this.textType)
-      if (this.tailwind) {
-        classes.push('bg-' + this.type + '-' + this.tailwindBackgroundOpacity)
-      } else {
-        classes.push('bg-' + this.type)
+      if (this.type === 'primary') {
+        classes.push('bg-primary')
+      }
+      if (this.type === 'secondary') {
+        classes.push('bg-secondary')
+      }
+      if (this.type === 'tertiary') {
+        classes.push('bg-tertiary')
+      }
+      if (this.type === 'accent') {
+        classes.push('bg-accent')
+      }
+      if (this.type === 'success') {
+        classes.push('bg-success')
+      }
+      if (this.type === 'warning') {
+        classes.push('bg-warning')
+      }
+      if (this.type === 'danger') {
+        classes.push('bg-danger')
+      }
+      if (this.textType === 'primary') {
+        classes.push('text-primary')
+      }
+      if (this.textType === 'secondary') {
+        classes.push('text-secondary')
+      }
+      if (this.textType === 'tertiary') {
+        classes.push('text-tertiary')
+      }
+      if (this.textType === 'accent') {
+        classes.push('text-accent')
+      }
+      if (this.textType === 'success') {
+        classes.push('text-success')
+      }
+      if (this.textType === 'warning') {
+        classes.push('text-warning')
+      }
+      if (this.textType === 'danger') {
+        classes.push('text-danger')
       }
       return classes.join(' ')
     }
