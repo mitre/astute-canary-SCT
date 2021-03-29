@@ -1,4 +1,15 @@
-# astute-canary
+# Astute Canary
+Hello, welcome to Astute Canary. This provides the front end framework for a symptom tracker application. 
+The demonstration site and primary use case was built for COVID-19, but could be adapted for other health crisis or general use. 
+
+## Tech Stack
+
+
+## Customization
+
+
+## Future Work and Next Steps
+
 
 ## Build Setup
 

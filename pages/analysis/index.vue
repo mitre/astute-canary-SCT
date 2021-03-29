@@ -71,8 +71,15 @@ export default {
                 text: 'Days Experienced'
               },
             ticks: {
-              beginAtZero: true,
-              min: 0
+              callback: function(value) {
+                  let ret = ''
+                  if(value.length > 20) {
+                    ret = value.substr(0, 20) + '...';
+                  } else {
+                    ret = value
+                  }
+                  return ret
+              },
             }
           }]
         }

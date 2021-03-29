@@ -19,38 +19,40 @@
         >
           <template v-slot:day-content="{ day, dayEvents, attributes }">
             <div class="h-full z-10 overflow-hidden border rounded cursor-pointer" v-on="dayEvents">
-              <div class="w-full mx-1 overflow-y-auto overflow-x-auto h-18">
+              <div class="w-full mx-1 overflow-y-auto overflow-x-auto">
                 <span class="day-label text-sm text-gray-200 block">{{ day.day }}</span>
-                <span v-for="(attr, index) in attributes" :key="index"  class="">
-                  <span v-if="attr.customData">
-                      <span
-                        v-if="attr.customData.category === 'feeling'"
-                        :class="attr.customData.class"
-                        class="block w-1/3"
-                      >
-                        <font-awesome-icon :icon="['far', attr.customData.icon]"></font-awesome-icon>
-                      </span>
-                      <span
-                        v-if="attr.customData.category === 'symptoms'"
-                        class="text-xs"
-                        :class="attr.customData.class"
-                      >
-                        <span class="text-purple-300 font-bold">S</span>
-                      </span>
-                      <span
-                        v-if="attr.customData.category === 'testing'"
-                        class="text-xs"
-                        :class="attr.customData.class"
-                      >
-                        <span class="text-testing font-bold">T</span>
-                      </span>
-                      <span
-                        v-if="attr.customData.category === 'vaccination'"
-                        class="text-xs"
-                        :class="attr.customData.class"
-                      >
-                        <span class="text-vaccination font-bold">V</span>
-                      </span>
+                <span class="inline-block h-12">
+                  <span v-for="(attr, index) in attributes" :key="index">
+                    <span v-if="attr.customData">
+                        <span
+                          v-if="attr.customData.category === 'feeling'"
+                          :class="attr.customData.class"
+                          class="block w-1/3"
+                        >
+                          <font-awesome-icon :icon="['far', attr.customData.icon]"></font-awesome-icon>
+                        </span>
+                        <span
+                          v-if="attr.customData.category === 'symptoms'"
+                          class="text-xs"
+                          :class="attr.customData.class"
+                        >
+                          <span class="text-purple-300 font-bold">S</span>
+                        </span>
+                        <span
+                          v-if="attr.customData.category === 'testing'"
+                          class="text-xs"
+                          :class="attr.customData.class"
+                        >
+                          <span class="text-testing font-bold">T</span>
+                        </span>
+                        <span
+                          v-if="attr.customData.category === 'vaccination'"
+                          class="text-xs"
+                          :class="attr.customData.class"
+                        >
+                          <span class="text-vaccination font-bold">V</span>
+                        </span>
+                    </span>
                   </span>
                 </span>
               </div>
