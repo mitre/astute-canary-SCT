@@ -106,12 +106,12 @@ export default {
           {
             data: [],
             backgroundColor: [],
-            label: undefined
+            label: this.$moment().format('MMM YYYY')
           },
           {
             data: [],
             backgroundColor: [],
-            label: undefined
+            label: this.$moment().subtract(2, 'months').format('MMM YYYY') + ' - ' + this.$moment().subtract(1, 'months').format('MMM YYYY')
           }
         ]
       }
@@ -126,11 +126,9 @@ export default {
               if (ret.labels.includes(this.history[i].symptomsReported.Symptoms[j])) {
                 if (this.$moment(this.history[i].date).format('MM') === thisMonth) {
                     ret.datasets[0].data[ret.labels.indexOf(this.history[i].symptomsReported.Symptoms[j])]++
-                    ret.datasets[0].label = this.$moment().format('MMM YYYY')
                     ret.datasets[0].backgroundColor.push('#5E18CE')
                 } else if (this.$moment(this.history[i].date).format('MM') === lastMonth || this.$moment(this.history[i].date).format('MM') === twoMonth) {
                     ret.datasets[1].data[ret.labels.indexOf(this.history[i].symptomsReported.Symptoms[j])]++
-                    ret.datasets[1].label = this.$moment().subtract(2, 'months').format('MMM YYYY') + ' - ' + this.$moment().subtract(1, 'months').format('MMM YYYY')
                     ret.datasets[1].backgroundColor.push('#E67E1A')
                 }
               } else {
@@ -139,13 +137,11 @@ export default {
                     ret.datasets[0].data.push(1)
                     ret.datasets[1].data.push(0)
                     ret.datasets[1].backgroundColor.push('#E67E1A')
-                    ret.datasets[0].label = this.$moment().format('MMM YYYY')
                     ret.datasets[0].backgroundColor.push('#5E18CE')
                 } else if (this.$moment(this.history[i].date).format('MM') === lastMonth || this.$moment(this.history[i].date).format('MM') === twoMonth) {
                     ret.labels.push(this.history[i].symptomsReported.Symptoms[j])
                     ret.datasets[1].data.push(1)
                     ret.datasets[0].data.push(0)
-                    ret.datasets[1].label = this.$moment().subtract(2, 'months').format('MMM YYYY') + ' - ' + this.$moment().subtract(1, 'months').format('MMM YYYY')
                     ret.datasets[1].backgroundColor.push('#E67E1A')
                     ret.datasets[0].backgroundColor.push('#5E18CE')
                 }

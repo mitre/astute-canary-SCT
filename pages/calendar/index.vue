@@ -19,7 +19,7 @@
         >
           <template v-slot:day-content="{ day, dayEvents, attributes }">
             <div class="h-full z-10 overflow-hidden border rounded cursor-pointer" v-on="dayEvents">
-              <div class="w-full mx-1 overflow-y-auto overflow-x-auto h-auto min-h-12">
+              <div class="w-full mx-1 overflow-y-auto overflow-x-auto h-18">
                 <span class="day-label text-sm text-gray-200 block">{{ day.day }}</span>
                 <span v-for="(attr, index) in attributes" :key="index"  class="">
                   <span v-if="attr.customData">
