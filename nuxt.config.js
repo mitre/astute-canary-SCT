@@ -32,6 +32,10 @@ export default {
       src: '~/plugins/survey-vue',
       mode: 'client'
     },
+    {
+      src: '~/plugins/vue-chartjs',
+      mode: 'client'
+    }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

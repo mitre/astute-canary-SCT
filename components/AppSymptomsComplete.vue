@@ -7,7 +7,7 @@
         <app-icon-button class="w-full" type="vaccination" text="Vaccination" @clicked="goToVaccination"></app-icon-button>
       </div>
       <div class="mt-4 w-36">
-        <app-icon-button class="w-full"  type="testing" text="Testing" @clicked="goToTesting"></app-icon-button>
+        <app-icon-button class="w-full" icon="microscope" type="testing" text="Testing" @clicked="goToTesting"></app-icon-button>
       </div>
       <div class="mt-4">
         <app-button type="accent" class="w-full" round @clicked="goToHome">Nothing else to track</app-button>

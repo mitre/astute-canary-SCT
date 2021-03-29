@@ -49,7 +49,6 @@ export default {
       const url = base + '/survey-configs/vaccination.json'
       axios.get(url)
       .then(response => {
-          console.log(response)
           this.json = response.data
           this.surveyCreated = true
       })

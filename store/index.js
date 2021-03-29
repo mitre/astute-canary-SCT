@@ -1,3 +1,6 @@
+import moment from "moment";
+export const plugins = [moment]
+
 export const state = () => ({
 
 })

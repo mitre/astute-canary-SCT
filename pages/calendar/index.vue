@@ -19,14 +19,14 @@
         >
           <template v-slot:day-content="{ day, dayEvents, attributes }">
             <div class="h-full z-10 overflow-hidden border rounded cursor-pointer" v-on="dayEvents">
-              <div class="w-full mx-1 overflow-y-auto overflow-x-auto h-12">
+              <div class="w-full mx-1 overflow-y-auto overflow-x-auto h-auto min-h-12">
                 <span class="day-label text-sm text-gray-200 block">{{ day.day }}</span>
                 <span v-for="(attr, index) in attributes" :key="index"  class="">
                   <span v-if="attr.customData">
                       <span
                         v-if="attr.customData.category === 'feeling'"
                         :class="attr.customData.class"
-                        class="inline-block w-1/3"
+                        class="block w-1/3"
                       >
                         <font-awesome-icon :icon="['far', attr.customData.icon]"></font-awesome-icon>
                       </span>
@@ -87,6 +87,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { mapGetters } from 'vuex'
 export default {
   head() {
     return {
@@ -105,9 +106,10 @@ export default {
     }
   },
   computed: {
-    history() {
-      return this.$store.state.reporting.reportingHistory
-    },
+    ...mapGetters({
+        // map `this.doneCount` to `this.$store.getters.doneTodosCount`
+        history: 'reporting/allReportingHistory'
+    }),
     todaysAttributes() {
       let today = undefined
       for (var i = 0; i < this.attributes.length; i++) {
@@ -206,7 +208,6 @@ export default {
   methods: {
     dayClicked(day) {
       this.selectedDay = day;
-      console.log(day)
     }
   },
   mounted () {

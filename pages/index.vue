@@ -23,7 +23,7 @@
         </div>
         <div class="flex flex-col bg-light-background py-12 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
           <app-metric :metric="symptomLength" type="danger"><span class="md:text-lg">You have been experiencing symptoms for {{ symptomLength }} days</span></app-metric>
-          <app-metric :metric="loggingDuration" type="success" class="mt-8"><span class="md:text-lg">You have logged your symptoms for {{ loggingDuration }} days</span></app-metric>
+          <app-metric :metric="loggingDuration" type="success" class="mt-8"><span class="md:text-lg">You have reported your overall feeling for {{ loggingDuration }} days</span></app-metric>
           <div class="mt-2 md:mt-12">
             <p class="text-primary text-sm max-w-md bg-white shadow-xl rounded-xl p-4 m-4">
               <span class="font-bold">Important Information:</span> 
@@ -38,7 +38,7 @@
 
 <script>
 import axios from 'axios'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import AppFeelingButton from '../components/AppFeelingButton.vue'
 import AppPoweredByStatement from '../components/AppPoweredByStatement'
 export default {
@@ -56,7 +56,7 @@ export default {
       value: 0,
       appName: '',
       importantInformation: '',
-      todaysDate: undefined,
+      todaysDate: this.$moment().format('MM/DD/YYYY'),
       feelingIcon: 'smile'
     }
   },
@@ -82,29 +82,24 @@ export default {
     today () {
       return this.$store.state.reporting.todayReporting.date
     },
-    history() {
-      return this.$store.state.reporting.reportingHistory
-    },
     feeling () {
       return this.$store.state.reporting.todayReporting.overallFeeling
     },
     firstname () {
       return this.$store.state.profile.profile.firstname
     },
-    symptomLength () {
-      return this.$store.state.reporting.symptomLength
-    },
-    loggingDuration () {
-      return this.$store.state.reporting.loggingDuration
-    }
+    ...mapGetters({
+        // map `this.doneCount` to `this.$store.getters.doneTodosCount`
+        history: 'reporting/allReportingHistory',
+        symptomLength: 'reporting/experienceSymptomsDuration',
+        loggingDuration: 'reporting/loggedDays'
+    }),
   },
   mounted () {
     this.$store.commit('general/SET_PAGE_TITLE', 'Home')
     this.appName = this.$store.state.general.appName
     this.importantInformation = this.$store.state.general.importantInformation
     // If last entry was not today, reset. Date Syntax MM/DD/YYYY
-    var dateObj = new Date();
-    this.todaysDate = this.$moment(dateObj).format('MM/DD/YYYY')
     if (this.$store.state.reporting.todayReporting.date !== this.todaysDate) {
       this.$store.commit('reporting/RESET_DAY')
       this.$store.commit('reporting/SET_TODAY_DATE', this.todaysDate)
