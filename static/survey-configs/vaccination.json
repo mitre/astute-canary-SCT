@@ -20,16 +20,16 @@
         "text": "Moderna"
        },
        {
+        "value": "janssen / Johnson & Johnson",
+        "text": "Janssen / Johnson & Johnson"
+       },
+       {
         "value": "astrazeneca",
         "text": "AstraZeneca"
        },
        {
         "value": "novavax",
         "text": "Novavax"
-       },
-       {
-        "value": "janssen / Johnson & Johnson",
-        "text": "Janssen / Johnson & Johnson"
        },
        {
         "value": "not sure",
