@@ -35,8 +35,8 @@
       "title": "Where was the test administered?",
       "choices": [
        {
-        "value": "Doctors office",
-        "text": "Doctors office"
+        "value": "Doctor's office",
+        "text": "Doctor's office"
        },
        {
         "value": "At Home",
@@ -87,7 +87,7 @@
      {
       "type": "radiogroup",
       "name": "Results",
-      "visibleIf": "{Have you received test results yet?} = 'yes'",
+      "visibleIf": "{Results Received} = 'yes'",
       "title": "What were the results?",
       "isRequired": true,
       "choices": [

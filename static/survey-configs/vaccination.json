@@ -28,11 +28,14 @@
         "text": "Novavax"
        },
        {
-        "value": "janssen",
-        "text": "Janssen"
+        "value": "janssen / Johnson & Johnson",
+        "text": "Janssen / Johnson & Johnson"
+       },
+       {
+        "value": "not sure",
+        "text": "I don't know"
        }
-      ],
-      "otherText": "Janssen"
+      ]
      }
     ]
    },
