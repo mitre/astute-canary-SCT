@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async createSurvey() {
-      const base = process.env.NODE_ENV === 'production' ? '/astute-canary/' : ''
+      const base = process.env.NODE_ENV === 'production' ? '/astute-canary-SCT/' : ''
       const url = base + '/survey-configs/vaccination.json'
       axios.get(url)
       .then(response => {
