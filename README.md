@@ -51,7 +51,7 @@ You can use the survey configs created as a base or start from scratch. But, you
 <li>For the vaccination survey: <code>vaccination.json</code></li>
 </ul>
 
-These three files must be named appropriately and located in <code>'/static/survey-congigs/'</code> for the application to render them.
+These three files must be named appropriately and located in <code>'/static/survey-configs/'</code> for the application to render them.
 
 Additionally for the <code>symptom.json</code> survey, there currently must be an element with the name "Symptoms". The analysis page uses this expected syntax to generate it's symptom chart. If you wish to have a different format for your symptoms, this will require adapting the Analysis code. 
 
