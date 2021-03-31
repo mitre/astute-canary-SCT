@@ -105,7 +105,7 @@ Vue is a javascript framework that utilizes an HTML based syntax. Nuxt is a high
 </ul>
 
 ## Notice
-Copyright 2020 MITRE Engenuity. Approved for public release.
+Copyright 2021 MITRE Engenuity. Approved for public release.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
