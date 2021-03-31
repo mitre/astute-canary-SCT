@@ -86,7 +86,7 @@ export default {
     dir: 'public'
   },
   router: {
-    base: '/astute-canary/'
+    base: '/astute-canary-SCT/'
   }
 
 }
