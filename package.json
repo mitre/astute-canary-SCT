@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -29,6 +30,7 @@
     "@vue/test-utils": "^1.1.0",
     "autoprefixer": "^9.8.6",
     "babel-core": "7.0.0-bridge.0",
+    "gh-pages": "^3.1.0",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4"
   }
