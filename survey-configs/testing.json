@@ -1,0 +1,111 @@
+{
+  "showQuestionNumbers": "off",
+  "showCompletedPage": "false",
+  "pages": [
+   {
+    "name": "page1",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "Testing Type",
+      "title": "What kind of test did you receive?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "Rapid Test",
+        "text": "Rapid Test"
+       },
+       {
+        "value": "Lab Test",
+        "text": "Lab Test"
+       }
+      ],
+      "hasOther": true,
+      "otherText": "Other"
+     }
+    ]
+   },
+   {
+    "name": "Where did you receive the test",
+    "isRequired": true,
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "Location",
+      "title": "Where was the test administered?",
+      "choices": [
+       {
+        "value": "Doctor's office",
+        "text": "Doctor's office"
+       },
+       {
+        "value": "At Home",
+        "text": "At Home"
+       },
+       {
+        "value": "Hospital",
+        "text": "Hospital"
+       },
+       {
+        "value": "Urgent Care or Clinic",
+        "text": "Urgent Care or Clinic"
+       },
+       {
+        "value": "Other",
+        "text": "Other"
+       }
+      ],
+      "noneText": "Other",
+      "otherText": "Urgent Care or Clinic"
+     }
+    ]
+   },
+   {
+    "name": "page3",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "Results Received",
+      "title": "Have you received test results yet?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "yes",
+        "text": "Yes"
+       },
+       {
+        "value": "no",
+        "text": "No"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "What were the results?",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "Results",
+      "visibleIf": "{Results Received} = 'yes'",
+      "title": "What were the results?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "Positive",
+        "text": "Positive"
+       },
+       {
+        "value": "Negative",
+        "text": "Negative"
+       },
+       {
+        "value": "Could not be determined",
+        "text": "Could not be determined"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
