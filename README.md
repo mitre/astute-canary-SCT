@@ -32,7 +32,7 @@ To change the base font used see the [TailwindCSS documentation](https://tailwin
 To add your organizations logo to the application, drop the file into the <code>/assets/images</code> folder using the name and extension <code>Logo.svg</code>. An existing sample logo is in there, but you can remove or overwrite.
 
 ### Application data 
-To change the application name to your organizations: Locate the file <code>general.js</code> under the <code>/store</code> directory. In this file, you can change the application name and update the 'important information' text on the home screen of the application. Note: if running locally, you may need to clear your cache to see your changes reflected, as this application utilizes [Vuex](https://vuex.vuejs.org/) state management along with [Vuex Persist](https://github.com/championswimmer/vuex-persist), which uses local storage to save your state data in your browser. 
+To change the application name to your organizations: Locate the file <code>general.js</code> under the <code>/store</code> directory. In this file, you can change the application name and update the 'important information' text on the home screen of the application. Note: if running locally, you may need to clear your cache to see your changes reflected, as this application incorporates [Vuex](https://vuex.vuejs.org/) state management along with [Vuex Persist](https://github.com/championswimmer/vuex-persist), which uses local storage to save your state data in your browser. 
 
 ### Surveys - Symptom, Vaccination, and Testing tracking
 To update the symptom, vaccination, and testing tracking questionnaires, the framework is utilizing [SurveyJS](https://surveyjs.io/) to create and render the surveys. 
