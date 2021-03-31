@@ -29,7 +29,7 @@ Additionally for the <code>symptom.json</code> survey, there currently must be a
 To create a new survey or edit an existing survey you can:
 <ol>
 <li>Edit the appropriate survey JSON File directly
-<li>Use the SurveyJS](https://surveyjs.io/create-survey) tool to edit or build new surveys from scratch. To edit an existing survey, copy and paste the survey json into the JSON editor tab on the SurveyJS editor interface. It will populate the editor with the survey and you can edit from there. Make sure to copy and paste the new survey json into the appropriate file.</li>
+<li>Use the [SurveyJS](https://surveyjs.io/create-survey) tool to edit or build new surveys from scratch. To edit an existing survey, copy and paste the survey json into the JSON editor tab on the SurveyJS editor interface. It will populate the editor with the survey and you can edit from there. Make sure to copy and paste the new survey json into the appropriate file.</li>
 </ol> 
 
 ### Components
@@ -60,12 +60,8 @@ Vue is a javascript framework that utilizes an HTML based syntax. Nuxt is a high
 | ChartJS | <https://vue-chartjs.org/> | Easy and beautiful charts with Chart.js and Vue.js | Analysis page <code>/pages/analysis/index.vue</code>
 | FontAwesome | [@nuxtjs/fontawesome](https://www.npmjs.com/package/@nuxtjs/fontawesome) | Module to use Font Awesome icons in your Nuxt.js project. Uses vue-fontawesome under the hoods | Anywhere that uses an icon.
 | SurveyJS | [survey-vue](https://www.npmjs.com/package/survey-vue) | SurveyJS is a modern way to add surveys and forms to your website. | Symptom Tracking page <code>/pages/track/symptoms/index.vue</code>, Testing Tracking page <code>/pages/track/testing/index.vue</code>, Vaccination Tracking page <code>/pages/track/vaccination/index.vue</code>, and the AppSurvey Component <code>/components/AppSurvey.vue</code>
-| TailwindCSS | [@nuxtjs/tailwind](https://tailwindcss.nuxtjs.org/) | SurveyJS is a modern way to add surveys and forms to your website. | Calendar page <code>/pages/calendar/index.vue</code>
+| TailwindCSS | [@nuxtjs/tailwind](https://tailwindcss.nuxtjs.org/) | Rapidly build modern websites without ever leaving your HTML. | Used throughout the application
 | V-Calendar | <https://vcalendar.io/> | An elegant calendar and datepicker plugin for Vuejs. | Calendar page <code>/pages/calendar/index.vue</code>
-<ul>
-
-<li>TailwindCSS</li>
-</ul>
 
 ## Build Setup
 
