@@ -3,6 +3,10 @@ Hello, welcome to Astute Canary. This provides the front-end framework for a COV
 While this was built with the COVID-19 pandemic in mind, it could easily be adapted for other health crisis or general use. 
 At this time, this source code is front-end only, and will require building out of any kind of backend, database and authentication needed for your use case. 
 
+## Requirements 
+<code>node</code> - at least v10.13 We recommend you have the latest LTS version installed
+<code>npm</code> - we were running v7.5.3 at the time of development
+
 ## Build Setup
 
 ```bash
