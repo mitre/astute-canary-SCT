@@ -24,8 +24,12 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## Customization
 
-### Colors
+### Colors and Branding
 The application utilizes the [TailwindCSS framework](https://tailwindcss.com/) for fast building and adaptable configuration. To change the main page background color of your application, text color, specify secondary colors, etc., locate the tailwind.config.js file in the root of the project. If running the project locally, you can preview how your color selections will look on the website within a few seconds of saving.  
+
+To change the base font used see the [TailwindCSS documentation](https://tailwindcss.com/docs/font-family#customizing) on font-family customization.
+
+To add your organizations logo to the application, drop the file into the <code>/assets/images</code> folder using the name and extension <code>Logo.svg</code>. An existing sample logo is in there, but you can remove or overwrite.
 
 ### Application data 
 To change the application name to your organizations: Locate the file <code>general.js</code> under the <code>/store</code> directory. In this file, you can change the application name and update the 'important information' text on the home screen of the application. Note: if running locally, you may need to clear your cache to see your changes reflected, as this application utilizes [Vuex](https://vuex.vuejs.org/) state management along with [Vuex Persist](https://github.com/championswimmer/vuex-persist), which uses local storage to save your state data in your browser. 
