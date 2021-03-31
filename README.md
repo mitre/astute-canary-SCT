@@ -3,6 +3,25 @@ Hello, welcome to Astute Canary. This provides the front-end framework for a COV
 While this was built with the COVID-19 pandemic in mind, it could easily be adapted for other health crisis or general use. 
 At this time, this source code is front-end only, and will require building out of any kind of backend, database and authentication needed for your use case. 
 
+## Build Setup
+
+```bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
+```
+
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
 ## Customization
 
 ### Colors
@@ -29,7 +48,7 @@ Additionally for the <code>symptom.json</code> survey, there currently must be a
 To create a new survey or edit an existing survey you can:
 <ol>
 <li>Edit the appropriate survey JSON File directly
-<li>Use the [SurveyJS](https://surveyjs.io/create-survey) tool to edit or build new surveys from scratch. To edit an existing survey, copy and paste the survey json into the JSON editor tab on the SurveyJS editor interface. It will populate the editor with the survey and you can edit from there. Make sure to copy and paste the new survey json into the appropriate file.</li>
+<li>Use the <a href="https://surveyjs.io/create-survey">SurveyJS Creator</a> tool to edit or build new surveys from scratch. To edit an existing survey, copy and paste the survey json into the JSON editor tab on the SurveyJS editor interface. It will populate the editor with the survey and you can edit from there. Make sure to copy and paste the new survey json into the appropriate file.</li>
 </ol> 
 
 ### Components
@@ -63,23 +82,5 @@ Vue is a javascript framework that utilizes an HTML based syntax. Nuxt is a high
 | TailwindCSS | [@nuxtjs/tailwind](https://tailwindcss.nuxtjs.org/) | Rapidly build modern websites without ever leaving your HTML. | Used throughout the application
 | V-Calendar | <https://vcalendar.io/> | An elegant calendar and datepicker plugin for Vuejs. | Calendar page <code>/pages/calendar/index.vue</code>
 
-## Build Setup
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ## Resources
