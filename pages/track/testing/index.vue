@@ -45,8 +45,7 @@ export default {
   },
   methods: {
     async createSurvey() {
-      const base = process.env.NODE_ENV === 'production' ? '/astute-canary/' : ''
-      const url = base + '/survey-configs/testing.json'
+      const url = '/survey-configs/testing.json'
       axios.get(url)
       .then(response => {
           this.json = response.data
