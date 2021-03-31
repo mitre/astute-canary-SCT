@@ -1,5 +1,5 @@
 # Astute Canary
-Hello, welcome to Astute Canary. This provides the front-end framework for a COVID-19 Symptom Tracker Web application. 
+Welcome to the Astute Canary - Smart Community Tracker. This provides the front-end framework for a COVID-19 Community Tracker Web application, focusing on tracking users symptoms, vaccination and testing history. 
 While this was built with the COVID-19 pandemic in mind, it could easily be adapted for other health crisis or general use. 
 At this time, this source code is front-end only, and will require building out of any kind of backend, database and authentication needed for your use case. 
 
