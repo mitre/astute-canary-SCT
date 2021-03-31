@@ -78,15 +78,6 @@ export default {
   vendor: [
     'vuex-persist',
     'survey-vue'
-  ],
-
-  // This is required for a static site - may need to change if you change to non static
-  target: 'static',
-  generate: {
-    dir: 'public'
-  },
-  router: {
-    base: '/astute-canary/'
-  }
+  ]
 
 }

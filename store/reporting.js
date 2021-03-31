@@ -11,54 +11,13 @@ export const state = () => ({
     testingReported: {}
   },
   reportingHistory: [
-    {
-      "date": "1/01/2021",
-      "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills", "Persistent pain or pressure on the chest" ], "Temperature": "100", "notes": "I was feeling really drained today."},
-      "testingReported": {}
-    },
-    {
-      "date": "03/01/2021",
-      "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100", "notes": "I was feeling really drained today."},
-      "vaccinationReported": {"Vaccination Type" : "Johnson & Johnson", "Dose": "first dose"},
-      "testingReported": {}
-    },
-    {
-      "date": "03/02/2021",
-      "overallFeeling": "Fair",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
-      "vaccinationReported": {},
-      "testingReported": {"Testing Type": "COVID Rapid test", "Result": "Negative"}
-    },
-    {
-      "date": "03/13/2021",
-      "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
-      "vaccinationReported": {},
-      "testingReported": {}
-    },
-    {
-      "date": "03/15/2021",
-      "overallFeeling": "Good",
-      "symptomsReported": {},
-      "vaccinationReported": {"Vaccination Type" : "Johnson & Johnson",  "Dose": "Second"},
-      "testingReported": {}
-    },
-    {
-      "date": "03/25/2021",
-      "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills", "Fatigue", "Cough"], "Temperature": "100" },
-      "vaccinationReported": {},
-      "testingReported": {}
-    },
-    {
-      "date": "03/24/2021",
-      "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
-      "vaccinationReported": {},
-      "testingReported": {}
-    },
+    // Example Object
+    // {
+    //   "date": "1/01/2021",
+    //   "overallFeeling": "Poor",
+    //   "symptomsReported": { "Symptoms": [ "Fever or chills", "Persistent pain or pressure on the chest" ], "Temperature": "100", "notes": "I was feeling really drained today."},
+    //   "testingReported": {}
+    // }
   ]
 })
 
