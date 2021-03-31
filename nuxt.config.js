@@ -83,7 +83,8 @@ export default {
   // This is required for a static site - may need to change if you change to non static
   target: 'static',
   generate: {
-    dir: 'public'
+    dir: 'dist',
+    fallback: "404.html"
   },
   router: {
     base: '/astute-canary-SCT/'
