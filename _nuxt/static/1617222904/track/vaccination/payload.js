@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/track/vaccination", {data:[{}],fetch:{},mutations:[]});

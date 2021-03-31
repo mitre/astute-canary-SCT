@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/analysis", {data:[{}],fetch:{},mutations:[]});
