@@ -12,12 +12,12 @@ export const state = () => ({
   },
   reportingHistory: [
     // Example Object
-    // {
-    //   "date": "1/01/2021",
-    //   "overallFeeling": "Poor",
-    //   "symptomsReported": { "Symptoms": [ "Fever or chills", "Persistent pain or pressure on the chest" ], "Temperature": "100", "notes": "I was feeling really drained today."},
-    //   "testingReported": {}
-    // }
+    {
+      "date": "1/01/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fever or chills", "Persistent pain or pressure on the chest" ], "Temperature": "100", "notes": "I was feeling really drained today."},
+      "testingReported": {}
+    }
   ]
 })
 
@@ -126,65 +126,68 @@ export const getters = {
   loggedDays: (state, getters) => {
     let days = 0
     const yesterday = moment(state.todayReporting.date).subtract(1, 'days').format('MM/DD/YYYY')
-    const mostRecentEntry = getters.allReportingHistory[0].date
-    if ((yesterday === mostRecentEntry || state.todayReporting.date === mostRecentEntry) && getters.allReportingHistory[0].overallFeeling !== undefined) {
-      days++;
-      for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-        var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-        if (dayBefore === getters.allReportingHistory[i + 1].date) {
-          if (getters.allReportingHistory[i + 1].overallFeeling != undefined ) {
-              days++;
+    const mostRecentEntry = getters.allReportingHistory.length > 0 ? getters.allReportingHistory[0].date : undefined
+    if (mostRecentEntry !== undefined) {  
+      if ((yesterday === mostRecentEntry || state.todayReporting.date === mostRecentEntry) && getters.allReportingHistory[0].overallFeeling !== undefined) {
+        days++;
+        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
+          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
+          if (dayBefore === getters.allReportingHistory[i + 1].date) {
+            if (getters.allReportingHistory[i + 1].overallFeeling != undefined ) {
+                days++;
+            }
+          } else {
+            break;
           }
-        } else {
-          break;
         }
-      }
-    } else if (state.todayReporting.date === mostRecentEntry && getters.allReportingHistory[0].overallFeeling === undefined) {
-      for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-        var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-        if (dayBefore === getters.allReportingHistory[i + 1].date) {
-          console.log('Match')
-          console.log(state.todayReporting.overallFeeling)
-          if (getters.allReportingHistory[i + 1].overallFeeling != undefined ) {
-              days++;
+      } else if (state.todayReporting.date === mostRecentEntry && getters.allReportingHistory[0].overallFeeling === undefined) {
+        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
+          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
+          if (dayBefore === getters.allReportingHistory[i + 1].date) {
+            console.log('Match')
+            console.log(state.todayReporting.overallFeeling)
+            if (getters.allReportingHistory[i + 1].overallFeeling != undefined ) {
+                days++;
+            }
+          } else {
+            break;
           }
-        } else {
-          break;
         }
       }
     }
-    
     return days
   },
   experienceSymptomsDuration: (state, getters) => {
     let days = 0
     const yesterday = moment(state.todayReporting.date).subtract(1, 'days').format('MM/DD/YYYY')
-    const mostRecentEntry = getters.allReportingHistory[0].date
-    if ((yesterday === mostRecentEntry || state.todayReporting.date === mostRecentEntry) && Object.keys(getters.allReportingHistory[0].symptomsReported).length !== 0) {
-      days++;
-      for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-        var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-        if (dayBefore === getters.allReportingHistory[i + 1].date) {
-          if (Object.keys(getters.allReportingHistory[i + 1].symptomsReported).length !== 0) {
-              days++;
+    const mostRecentEntry = getters.allReportingHistory.length > 0 ? getters.allReportingHistory[0].date : undefined
+    if (mostRecentEntry !== undefined) {
+      if ((yesterday === mostRecentEntry || state.todayReporting.date === mostRecentEntry) && Object.keys(getters.allReportingHistory[0].symptomsReported).length !== 0) {
+        days++;
+        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
+          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
+          if (dayBefore === getters.allReportingHistory[i + 1].date) {
+            if (Object.keys(getters.allReportingHistory[i + 1].symptomsReported).length !== 0) {
+                days++;
+            }
+          } else {
+            break;
           }
-        } else {
-          break;
+        }
+      }
+      else if (state.todayReporting.date === mostRecentEntry && Object.keys(getters.allReportingHistory[0].symptomsReported).length === 0) {
+        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
+          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
+          if (dayBefore === getters.allReportingHistory[i + 1].date) {
+            if (Object.keys(getters.allReportingHistory[i + 1].symptomsReported).length !== 0) {
+                days++;
+            }
+          } else {
+            break;
+          }
         }
       }
     }
-    else if (state.todayReporting.date === mostRecentEntry && Object.keys(getters.allReportingHistory[0].symptomsReported).length === 0) {
-      for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-        var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-        if (dayBefore === getters.allReportingHistory[i + 1].date) {
-          if (Object.keys(getters.allReportingHistory[i + 1].symptomsReported).length !== 0) {
-              days++;
-          }
-        } else {
-          break;
-        }
-      }
-    } 
     return days
   }
 }

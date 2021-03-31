@@ -6,9 +6,9 @@
         <h2 class="text-2xl md:text-3xl tracking-wide text-gray-400 letter font-light mt-12 ">Welcome back {{ firstname }}</h2> 
         <h3 v-if="!feeling" class="font-bold mt-2 text-2xl md:text-3xl tracking-wide text-light-text">How are you feeling</h3>
         <div class="flex flex-row justify-between my-8 w-full" v-if="!feeling">
-          <app-feeling-button round @clicked="setFeeling('good')" icon="smile" type="success" prefix="far" text="Good"></app-feeling-button>
-          <app-feeling-button round class="ml-4" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="far" text="Fair"></app-feeling-button>
-          <app-feeling-button round class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="far" text="Poor"></app-feeling-button>
+          <app-feeling-button @clicked="setFeeling('good')" icon="smile" type="success" prefix="far" text="Good"></app-feeling-button>
+          <app-feeling-button class="ml-4" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="far" text="Fair"></app-feeling-button>
+          <app-feeling-button class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="far" text="Poor"></app-feeling-button>
         </div>
         <div class="flex flex-col justify-center my-8 w-full text-gray-200 text-lg" v-else>
         <span class="text-2xl font-light">
