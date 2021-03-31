@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/track/symptoms", {data:[{}],fetch:{},mutations:[]});
