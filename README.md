@@ -6,7 +6,7 @@ At this time, this source code is front-end only, and will require building out 
 ## Requirements 
 <ul>
 <li><code>node</code> - at least v10.13 We recommend you have the latest LTS version installed</li>
-<li><code>npm</code> - we were running v7.5.3 at the time of development</li>
+<li><code>npm</code> - running v7.5.3 at the time of development</li>
 </ul>
 
 ## Build Setup
