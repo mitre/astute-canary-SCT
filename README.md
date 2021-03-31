@@ -84,3 +84,21 @@ Vue is a javascript framework that utilizes an HTML based syntax. Nuxt is a high
 
 
 ## Resources
+<ul>
+<li>Nuxt documentation - <a href="https://nuxtjs.org/docs/2.x/get-started/installation">https://nuxtjs.org/docs/2.x/get-started/installation</a></li>
+<li>Vue documentation - <a href="https://vuejs.org/v2/guide/">https://vuejs.org/v2/guide/</a>
+<li>TailwindCSS documentation- <a href="https://tailwindcss.com/docs">https://tailwindcss.com/docs</a></li>
+<li>SurveyJS Creator documentation - <a href="https://surveyjs.io/Documentation/Survey-Creator">https://surveyjs.io/Documentation/Survey-Creator</a></li>
+<li>V-Calendar documentation - <a href="https://vcalendar.io/">https://vcalendar.io/</a></li>
+<li>ChartJS documentation - <a href="https://www.chartjs.org/docs/latest/">https://www.chartjs.org/docs/latest/</a></li>
+<li>Storyboard documentation - <a href="https://storybook.js.org/docs/react/get-started/introduction">https://storybook.js.org/docs/react/get-started/introduction</a></li>
+</ul>
+
+## Notice
+Copyright 2020 MITRE Engenuity. Approved for public release. Document number CT0011
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
