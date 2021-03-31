@@ -1,0 +1,99 @@
+{
+  "pages": [
+   {
+    "name": "Symptom Checker",
+    "elements": [
+     {
+      "type": "checkbox",
+      "name": "Symptoms",
+      "title": "Check all the symptoms that you are experiencing:",
+      "choices": [
+       {
+        "value": "Fever or chills",
+        "text": "Fever or chills"
+       },
+       {
+        "value": "Cough",
+        "text": "Cough"
+       },
+       {
+        "value": "Shortness of breath or difficulty breathing",
+        "text": "Shortness of breath or difficulty breathing"
+       },
+       {
+        "value": "Fatigue",
+        "text": "Fatigue"
+       },
+       {
+        "value": "Muscle or body aches",
+        "text": "Muscle or body aches"
+       },
+       {
+        "value": "Headache",
+        "text": "Headache"
+       },
+       {
+        "value": "Sore throat",
+        "text": "Sore throat"
+       },
+       {
+        "value": "New loss of taste or smell",
+        "text": "New loss of taste or smell"
+       },
+       {
+        "value": "Congestion or runny nose",
+        "text": "Congestion or runny nose"
+       },
+       {
+        "value": "Diarrhea",
+        "text": "Diarrhea"
+       },
+       {
+        "value": "Trouble Breathing",
+        "text": "Trouble Breathing"
+       },
+       {
+        "value": "Persistent pain or pressure on the chest",
+        "text": "Persistent pain or pressure on the chest"
+       },
+       {
+        "value": "Nausea or vomiting",
+        "text": "Nausea or vomiting"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Enter body temperature in Farenheight",
+    "elements": [
+     {
+      "type": "text",
+      "name": "Temperature",
+      "visibleIf": "{Symptoms} contains 'Fever or chills'",
+      "title": "Enter your body temperature",
+      "placeHolder": "ex: 97.2"
+     },
+     {
+      "type": "radiogroup",
+      "name": "Degree Type",
+      "title": "Degree Type",
+      "visibleIf": "{Symptoms} contains 'Fever or chills'",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "Fahrenheit",
+        "text": "Fahrenheit"
+       },
+       {
+        "value": "Celsius",
+        "text": "Celsius"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off"
+ }
