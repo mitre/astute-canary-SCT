@@ -28,7 +28,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 The application utilizes the [TailwindCSS framework](https://tailwindcss.com/) for fast building and adaptable configuration. To change the main page background color of your application, text color, specify secondary colors, etc., locate the tailwind.config.js file in the root of the project. If running the project locally, you can preview how your color selections will look on the website within a few seconds of saving.  
 
 ### Application data 
-To change the application name to your organizations: Locate the file general.js under the 'store' directory. In this file, you can chane the application name and update the 'important information' text on the home screen of the application. Note: if running locally, you may need to clear your cache to see your changes reflected, as this application utilizes [Vuex](https://vuex.vuejs.org/) state management along with [Vuex Persist](https://github.com/championswimmer/vuex-persist), which uses local storage to save your state data in your browser. 
+To change the application name to your organizations: Locate the file <code>general.js</code> under the <code>/store</code> directory. In this file, you can change the application name and update the 'important information' text on the home screen of the application. Note: if running locally, you may need to clear your cache to see your changes reflected, as this application utilizes [Vuex](https://vuex.vuejs.org/) state management along with [Vuex Persist](https://github.com/championswimmer/vuex-persist), which uses local storage to save your state data in your browser. 
 
 ### Surveys - Symptom, Vaccination, and Testing tracking
 To update the symptom, vaccination, and testing tracking questionnaires, the framework is utilizing [SurveyJS](https://surveyjs.io/) to create and render the surveys. 
@@ -52,7 +52,7 @@ To create a new survey or edit an existing survey you can:
 </ol> 
 
 ### Components
-This application utilizes [StoryboardJS](https://storybook.js.org/) for it's components. To view the Storybook directory run
+This application leverages [StoryboardJS](https://storybook.js.org/) for it's components. To view the Storybook directory run
 <code>npx nuxt storybook</code> or <code>yarn nuxt storybook</code>
 
 
@@ -70,7 +70,7 @@ We are also looking to:
 
 
 ## Tech Stack
-This application utilizes [Vue](https://vuejs.org/) with [Nuxt](https://nuxtjs.org/).
+This application is built with [Vue](https://vuejs.org/) and [Nuxt](https://nuxtjs.org/).
 Vue is a javascript framework that utilizes an HTML based syntax. Nuxt is a high-level framework built on top of Vue that makes building universal applications fast and easy. 
 
 ### Libraries
