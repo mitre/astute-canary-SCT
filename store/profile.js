@@ -1,12 +1,11 @@
 export const state = () => ({
   profile: {
-    firstname: undefined, //String
-    lastname: undefined, // String
-    dob: undefined, // Format: MM/DD/YYYY Ex:'09/09/1982'
+    firstname: 'Casey',
+    lastname: 'Smith',
+    dob: '09/09/1982',
     location: {
-      city: undefined,
-      state: undefined,
-      country: undefined
+      city: 'San Francisco',
+      state: 'California'
    }
   }
 })

@@ -6,16 +6,11 @@
         <h1 class="text-2xl md:text-3xl text-white font-light pt-12">Here's what's been happening:</h1>
       </div>
       <div class="flex flex-col bg-light-background p-4 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
-        <!-- <div class="w-full mt-2">
-          <h2 class="text-primary font-bold uppercase">Wellness</h2>
-          <app-chart :chartData="lineData"></app-chart>
-        </div> -->
         <div class="w-full mt-8">
           <h2 class="text-primary font-bold uppercase">Symptoms</h2>
           <p class="pb-2 text-gray-600 text-sm">Symptoms recorded during the past three months</p>
           <client-only>
             <horizontal-bar-chart :data="symptomChartData" :options="symptomOptions"></horizontal-bar-chart>
-            <!-- {{ symptomChartData }} -->
           </client-only>
         </div>
       </div>
@@ -23,10 +18,8 @@
   </div>
 </template>
 <script>
-import AppChart from '../../components/AppChart.vue'
 import { mapGetters } from 'vuex'
 export default {
-  components: { AppChart },
   head() {
     return {
       title: this.$store.state.general.appName + ' | Analysis'

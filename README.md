@@ -35,7 +35,7 @@ To add your organizations logo to the application, drop the file into the <code>
 To change the application name to your organizations: Locate the file <code>general.js</code> under the <code>/store</code> directory. In this file, you can change the application name and update the 'important information' text on the home screen of the application. Note: if running locally, you may need to clear your cache to see your changes reflected, as this application incorporates [Vuex](https://vuex.vuejs.org/) state management along with [Vuex Persist](https://github.com/championswimmer/vuex-persist), which uses local storage to save your state data in your browser. 
 
 ### Surveys - Symptom, Vaccination, and Testing tracking
-To update the symptom, vaccination, and testing tracking questionnaires, the framework is utilizing [SurveyJS](https://surveyjs.io/) to create and render the surveys. 
+To update the symptom, vaccination, and testing tracking questionnaires, the framework uses [SurveyJS](https://surveyjs.io/) to create and render the surveys. 
 
 You can use the survey configs created as a base or start from scratch. But, you must follow the naming structure as follows: 
 
@@ -99,7 +99,7 @@ Vue is a javascript framework that utilizes an HTML based syntax. Nuxt is a high
 </ul>
 
 ## Notice
-Copyright 2020 MITRE Engenuity. Approved for public release. Document number CT0011
+Copyright 2020 MITRE Engenuity. Approved for public release.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
