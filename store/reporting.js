@@ -12,7 +12,7 @@ export const state = () => ({
   },
   reportingHistory: [
     {
-      "date": "1/01/2021",
+      "date": "2/01/2021",
       "overallFeeling": "Poor",
       "symptomsReported": { "Symptoms": [ "Fever or chills", "Persistent pain or pressure on the chest" ], "Temperature": "100", "notes": "I was feeling really drained today."},
       "testingReported": {}
@@ -20,45 +20,318 @@ export const state = () => ({
     {
       "date": "03/01/2021",
       "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100", "notes": "I was feeling really drained today."},
-      "vaccinationReported": {"Vaccination Type" : "Johnson & Johnson", "Dose": "first dose"},
+      "symptomsReported": { "Symptoms": [ "Fever or chills", "Cough", "Sore Throat", "Congestion or runny nose" ], "Temperature": "101", "notes": "I was feeling really drained today."},
+      "vaccinationReported": {},
       "testingReported": {}
     },
     {
       "date": "03/02/2021",
-      "overallFeeling": "Fair",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fever or chills", "Cough", "Sore Throat", "Congestion or runny nose" ], "Temperature": "100" },
       "vaccinationReported": {},
-      "testingReported": {"Testing Type": "COVID Rapid test", "Result": "Negative"}
+      "testingReported": {}
+    },
+    {
+      "date": "03/03/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fever or chills", "Cough", "Sore Throat", "Congestion or runny nose" ], "Temperature": "100" },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/04/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fever or chills", "Cough", "Sore Throat", "Congestion or runny nose", "New loss of taste or smell" ], "Temperature": "98" },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/05/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Cough", "Sore Throat", "Congestion or runny nose", "New loss of taste or smell" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/06/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Cough", "Sore Throat", "Congestion or runny nose", "New loss of taste or smell" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/07/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Cough", "Sore Throat", "New loss of taste or smell", "Trouble Breathing" ] },
+      "vaccinationReported": {},
+      "testingReported": { "Testing Type": ["Lab Test"], "Location": ["At Home"], "Results Received": ["Yes"], "Results": "Positive"}
+    },
+    {
+      "date": "03/08/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Cough", "Dizziness" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/09/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Cough", "Dizziness" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/10/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Cough", "Dizziness" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/11/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Cough", "Diffuculty concentrating" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/12/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Dizziness", "Diffuculty concentrating" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
     },
     {
       "date": "03/13/2021",
       "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
+      "symptomsReported": { "Symptoms": [ "Dizziness", "Diffuculty concentrating"  ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/14/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Dizziness", "Diffuculty concentrating"  ] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
       "date": "03/15/2021",
-      "overallFeeling": "Good",
-      "symptomsReported": {},
-      "vaccinationReported": {"Vaccination Type" : "Johnson & Johnson",  "Dose": "Second"},
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Diffuculty concentrating" ] },
+      "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "03/25/2021",
+      "date": "03/16/2021",
       "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills", "Fatigue", "Cough"], "Temperature": "100" },
+      "symptomsReported": { "Symptoms": [ "Heart Palpitations" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/17/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Heart Palpitations", "Persistent pain or pressure on the chest" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/18/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Heart Palpitations", "Persistent pain or pressure on the chest" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/19/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Heart Palpitations", "Persistent pain or pressure on the chest" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/20/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Heart Palpitations", "Persistent pain or pressure on the chest" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/21/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Heart Palpitations", "Persistent pain or pressure on the chest" ] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/22/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Muscle Aches"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/23/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Muscle Aches", "Fatigue"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
       "date": "03/24/2021",
       "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills" ], "Temperature": "100" },
+      "symptomsReported": { "Symptoms": [ "Muscle Aches", "Fatigue"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
+    {
+      "date": "03/25/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Muscle Aches", "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/26/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Muscle Aches", "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/27/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Muscle Aches", "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/28/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Muscle Aches", "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/29/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/30/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "03/31/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/01/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/02/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/03/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/04/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/05/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/06/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/07/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/08/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness", "Headache"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/09/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness", "Headache"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/10/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness", "Headache"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/11/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "04/12/2021",
+      "overallFeeling": "Fair",
+      "symptomsReported": { "Symptoms": [ "Fatigue"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "4/13/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness", "Headache"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    },
+    {
+      "date": "4/14/2021",
+      "overallFeeling": "Poor",
+      "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness", "Headache"] },
+      "vaccinationReported": {},
+      "testingReported": {}
+    }
   ]
 })
 

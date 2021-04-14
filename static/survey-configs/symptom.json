@@ -57,8 +57,24 @@
         "text": "Persistent pain or pressure on the chest"
        },
        {
+        "value": "Heart Palpitations",
+        "text": "Heart Palpitations"
+       },
+       {
         "value": "Nausea or vomiting",
         "text": "Nausea or vomiting"
+       },
+       {
+        "value": "Dizziness",
+        "text": "Dizziness"
+       },
+       {
+        "value": "Diffuculty concentrating",
+        "text": "Diffuculty concentrating"
+       },
+       {
+        "value": "Memory loss",
+        "text": "Memory loss"
        }
       ]
      }
