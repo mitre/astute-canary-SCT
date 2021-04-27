@@ -93,7 +93,7 @@ import { mapGetters } from 'vuex'
 export default {
   head() {
     return {
-      title: this.$store.state.general.appName + ' | Calendar'
+      title: this.$store.state.general.appName + ' | History'
     }
   },
   data () {

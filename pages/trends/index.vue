@@ -22,7 +22,7 @@ import { mapGetters } from 'vuex'
 export default {
   head() {
     return {
-      title: this.$store.state.general.appName + ' | Analysis'
+      title: this.$store.state.general.appName + ' | Trends'
     }
   },
   data() {
