@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-screen px-4 md:px-0 flex flex-col mx-auto bg-primary pb-24">
+  <div class="w-full min-h-screen px-4 md:px-0 flex flex-col mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-24">
     <div class="w-full">
       <div class="max-w-sm mx-auto pt-12">
         <app-powered-by-statement/>

@@ -9,12 +9,20 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: theme => ({
+        'home-pattern': "url('~/assets/images/home-background-image.svg')",
+        'page-pattern': "url('~/assets/images/background-image.svg')",
+      }),
       colors: {
+        // makes the wavey page background color
+        'wave-primary': '#1D314A',
+        'wave-secondary': '#34455C',
+        'wave-tertiary': '#4A596D',
         // backgound used for cards and information backgrounds.
         // this is expecting a light color in which dark text is placed over it
         'light-background': '#F9F9F9',
-        // The main page bg color
-        primary: '#242348',
+        // The main color used for calendar background etc
+        primary: '#081E3A',
         // used for links 
         secondary: '#AC97CE',
         // a tertiary color used for button alternatives

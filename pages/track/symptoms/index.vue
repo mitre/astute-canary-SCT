@@ -1,5 +1,5 @@
 <template>
-<div class="w-full bg-primary min-h-screen">
+<div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
   <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4 pb-24">
     <div class="flex flex-row w-full justify-between items-center mx-auto pt-12">
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>

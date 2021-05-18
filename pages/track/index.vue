@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center min-h-screen bg-primary">
+  <div class="text-center min-h-screen bg-page-pattern bg-no-repeat bg-cover bg-center ">
     <div class="max-w-sm mx-auto px-4 md:px-0 pt-12 pb-24">
       <app-powered-by-statement/>
       <h2 class="text-2xl md:text-4xl text-white font-light pt-12" v-if="!loggedSymptoms">What would you like to <span class="font-bold">track</span> today?</h2>

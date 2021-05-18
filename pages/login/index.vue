@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary w-full min-h-screen flex flex-col items-center pb-24">
+  <div class="bg-page-pattern bg-no-repeat bg-cover bg-center  w-full min-h-screen flex flex-col items-center pb-24">
     <div class="my-auto max-w-sm text-center">
       <img src="~/assets/images/Logo.svg" width="100" class="mx-auto opacity-50 mb-8"/>
       <h1 class="uppercase text-4xl text-light-text font-medium tracking-widest">{{ appName }}</h1>
