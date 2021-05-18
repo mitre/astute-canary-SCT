@@ -60,8 +60,7 @@ export default {
   // icons
   fontawesome: {
     icons: {
-      solid: ['faHome', 'faCalendar', 'faPlusCircle', 'faChartLine', 'faUserCog', 'faBell', 'faCog', 'faUser', 'faSignOutAlt', 'faLock', 'faQuestionCircle', 'faSyringe', 'faMicroscope', 'faThermometerFull', 'faArrowLeft'],
-      regular: ['faSmile', 'faMeh', 'faFrown']
+      solid: ['faSmile', 'faMeh', 'faFrown', 'faHome', 'faCalendar', 'faPlusCircle', 'faChartLine', 'faUserCog', 'faBell', 'faCog', 'faUser', 'faSignOutAlt', 'faLock', 'faQuestionCircle', 'faSyringe', 'faMicroscope', 'faThermometerFull', 'faArrowLeft']
     }
   },
 

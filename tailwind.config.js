@@ -9,30 +9,29 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      // set the background pattern/image for your application
       backgroundImage: theme => ({
         'home-pattern': "url('~/assets/images/home-background-image.svg')",
         'page-pattern': "url('~/assets/images/background-image.svg')",
       }),
       colors: {
-        // makes the wavey page background color
-        'wave-primary': '#1D314A',
-        'wave-secondary': '#34455C',
-        'wave-tertiary': '#4A596D',
         // backgound used for cards and information backgrounds.
         // this is expecting a light color in which dark text is placed over it
-        'light-background': '#F9F9F9',
+        'light-background': '#FFFFFF',
         // The main color used for calendar background etc
         primary: '#081E3A',
         // used for links 
-        secondary: '#AC97CE',
+        secondary: '#3951FF',
+        // color used to call attention to important things
+        highlight: '#FFDF49',
         // a tertiary color used for button alternatives
-        tertiary: '#F2ECFB',
+        tertiary: '#7485FC',
         // the color used to represent feeling "poor"
-        danger: '#FF6262',
+        danger: '#EA1313',
         // the color used to represent feeling "fair"
-        warning: '#FFF186',
+        warning: '#F0CB31',
         // the color used to represent feeling "good"
-        success: '#1CDA94',
+        success: '#2FC74D',
         // used for callout buttons
         accent: '#E67E1A',
         // used to represent items in the "symptoms" category
@@ -42,7 +41,7 @@ module.exports = {
         // used to represent items in the "testing" category
         testing: '#0ECCFB',
         'light-text': '#ffffff',
-        'dark-text': '#0A049D'
+        'dark-text': '#415A79'
       }
     },
   },

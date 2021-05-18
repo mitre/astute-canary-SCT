@@ -1,38 +1,40 @@
 <template>
-  <div class="w-full min-h-screen px-4 md:px-0 flex flex-col mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-24">
-    <div class="w-full">
-      <div class="max-w-sm mx-auto pt-12">
+  <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-16">
+      <div class="max-w-sm mx-auto flex flex-col flex-grow h-full w-full pt-12">
         <app-powered-by-statement/>
-        <h2 class="text-2xl md:text-3xl tracking-wide text-gray-400 letter font-light mt-12 ">Welcome back {{ firstname }}</h2> 
-        <h3 v-if="!feeling" class="font-bold mt-2 text-2xl md:text-3xl tracking-wide text-light-text">How are you feeling</h3>
-        <div class="flex flex-row justify-between my-8 w-full" v-if="!feeling">
-          <app-feeling-button @clicked="setFeeling('good')" icon="smile" type="success" prefix="far" text="Good"></app-feeling-button>
-          <app-feeling-button class="ml-4" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="far" text="Fair"></app-feeling-button>
-          <app-feeling-button class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="far" text="Poor"></app-feeling-button>
-        </div>
-        <div class="flex flex-col justify-center my-8 w-full text-gray-200 text-lg" v-else>
-        <span class="text-2xl font-light">
-            Thanks for checking in today!<br/>
-            You indicated you are feeling
-              <font-awesome-icon :icon="['far', feelingIcon]" class="mx-2" :class="{'text-danger': feeling === 'poor', 'text-warning': feeling === 'fair', 'text-success' : feeling === 'good'}"></font-awesome-icon>
-              <span class="font-bold" :class="{'text-danger': feeling === 'poor', 'text-warning': feeling === 'fair', 'text-success' : feeling === 'good'}">{{ feeling }}</span>
-        </span>
-          <div class="mt-4 text-base">
-            Want to <button @click="resetFeeling" class="font-bold text-secondary underline">change your status</button>? <button @click="reportSymptoms" class="font-bold text-secondary underline">Report symptoms</button>? 
+        <div class="bg-light-background py-4 rounded-2xl mt-4 px-8">
+          <h2 class="text-2xl tracking-wide text-dark-text letter font-light">Welcome back {{ firstname }}</h2> 
+          <h3 v-if="!feeling" class="font-bold text-2xl tracking-wide text-dark-text">How are you feeling today?</h3>
+          <div class="flex flex-row justify-between mt-4 pb-4 w-full" v-if="!feeling">
+            <app-feeling-button @clicked="setFeeling('good')" icon="smile" type="success" prefix="fa" text="Good"></app-feeling-button>
+            <app-feeling-button class="ml-4" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="fa" text="Fair"></app-feeling-button>
+            <app-feeling-button class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="fa" text="Poor"></app-feeling-button>
+          </div>
+          <div class="flex flex-col justify-center my-8 w-full text-gray-200 text-lg" v-else>
+            <span class="text-2xl font-light">
+                Thanks for checking in today!<br/>
+                You indicated you are feeling
+                <font-awesome-icon :icon="['far', feelingIcon]" class="mx-2" :class="{'text-danger': feeling === 'poor', 'text-warning': feeling === 'fair', 'text-success' : feeling === 'good'}"></font-awesome-icon>
+                <span class="font-bold" :class="{'text-danger': feeling === 'poor', 'text-warning': feeling === 'fair', 'text-success' : feeling === 'good'}">{{ feeling }}</span>
+            </span>
+            <div class="mt-4 text-base">
+              Want to <button @click="resetFeeling" class="font-bold text-secondary underline">change your status</button>? <button @click="reportSymptoms" class="font-bold text-secondary underline">Report symptoms</button>? 
+            </div>
           </div>
         </div>
-        <div class="flex flex-col bg-light-background py-12 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
-          <app-metric :metric="symptomLength" type="danger"><span class="md:text-lg">You have been experiencing symptoms for {{ symptomLength }} days</span></app-metric>
-          <app-metric :metric="loggingDuration" type="success" class="mt-8"><span class="md:text-lg">You have reported your overall feeling for {{ loggingDuration }} days</span></app-metric>
-          <div class="mt-2 md:mt-12">
-            <p class="text-primary text-sm max-w-md bg-white shadow-xl rounded-xl p-4 m-4">
-              <span class="font-bold">Important Information:</span> 
-              {{ importantInformation }}
-            </p>
+        <div class="flex-grow  my-auto bg-light-background p-4 rounded-t-3xl mt-16 text-primary">
+          <div class="">
+              <h2 class="text-xl px-4 pt-4 tracking-wide text-dark-text letter font-light">Need to <span class="font-bold">track</span>?</h2> 
+              <div class="mt-4 flex flex-col justify-center self-center my-auto">
+                <div class="flex flex-row flex-wrap w-full items-center justify-between">
+                  <app-icon-button type="tertiary" @clicked="reportSymptoms" icon="thermometer-full" text="Symptoms"></app-icon-button>
+                  <app-icon-button type="tertiary" icon="syringe" @clicked="reportVaccination" text="Vaccination">Vaccination Experience</app-icon-button>
+                  <app-icon-button type="tertiary" icon="microscope" @clicked="reportTesting" text="Testing">Testing & Diagnosis</app-icon-button>
+                </div>
+              </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -76,6 +78,12 @@ export default {
     },
     reportSymptoms() {
       this.$router.push('/track/symptoms')
+    },
+    reportVaccination() {
+      this.$router.push('/track/vaccination')
+    },
+    reportTesting() {
+      this.$router.push('/track/testing')
     }
   },
   computed: {

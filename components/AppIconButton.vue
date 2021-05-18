@@ -1,7 +1,10 @@
 <template>
-  <button class="py-4 px-6 rounded-2xl border-2 bg-gray-200 hover:bg-white focus:bg-white flex flex-col items-center justify-center" @click="$emit('clicked')" :class="btnClass">
-    <font-awesome-icon :icon="icon" class="mx-auto text-6xl md:text-4xl mb-2"></font-awesome-icon>
-    <p class="font-bold text-xl text-gray-600">{{ text }}</p>
+  <button class="rounded-2xl icon-button hover:bg-white focus:bg-white flex flex-col items-center justify-center" @click="$emit('clicked')" :class="btnClass">
+    <div>
+      <div class="rounded-full h-6 w-6 absolute flex items-center justify-center bg-tertiary bg-opacity-25 mt-4"></div>
+      <font-awesome-icon :icon="icon" class="mx-auto text-4xl mb-2 relative"></font-awesome-icon>
+    </div>
+    <p class="text-dark-text">{{ text }}</p>
   </button>
 </template>
 <script>
@@ -32,8 +35,18 @@ export default {
       if (this.type === 'testing') {
         classes.push('text-testing')
       }
+      if (this.type === 'tertiary') {
+        classes.push('text-tertiary')
+      }
       return classes.join(' ')
     }
   }
 }
 </script>
+<style scoped>
+ .icon-button{
+   width: 110px;
+   height: 110px;
+   box-shadow: 2px 2px 25px rgba(0,0,0,0.06), 2px 2px 25px rgba(0,0,0,0.06);
+ }
+</style>

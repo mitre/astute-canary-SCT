@@ -1,6 +1,6 @@
 <template>
 <div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
-  <div class="max-w-sm mx-auto pt-12 pb-24">
+  <div class="max-w-sm mx-auto h-full pt-12 pb-24">
     <app-powered-by-statement/>
     <div class="flex flex-row items-center w-full">
       <div class="mx-auto flex flex-row my-12">
@@ -9,30 +9,32 @@
           <div class="text-xl mt-4"> {{ profile.location.city }}, {{ profile.location.state }}</div>
         </div>
         <div class="ml-12 w-auto">
-          <app-button type="accent" @clicked="editProfile">Edit</app-button>
+          <app-button type="secondary" @clicked="editProfile">Edit</app-button>
         </div>
       </div>
     </div>
-    <div class="flex flex-col bg-light-background py-4 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
-      <div class="mx-auto">
-        <settings-menu-option icon="sign-out-alt" @clicked="logout">
-          <span class="ml-4">Logout</span>
-        </settings-menu-option>
-        <settings-menu-option icon="bell">
-          <span class="ml-4">Notifications</span>
-        </settings-menu-option>
-        <settings-menu-option icon="cog">
-          <span class="ml-4">General</span>
-        </settings-menu-option>
-        <settings-menu-option icon="sign-out-alt" @clicked="editProfile">
-          <span class="ml-4">Account</span>
-        </settings-menu-option>
-        <settings-menu-option icon="lock">
-          <span class="ml-4">Privacy</span>
-        </settings-menu-option>
-        <settings-menu-option icon="question-circle">
-          <span class="ml-4">Help</span>
-        </settings-menu-option>
+    <div class="h-full">
+      <div class="flex flex-col flex-grow bg-light-background py-4 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
+        <div class="mx-auto">
+          <settings-menu-option icon="sign-out-alt" @clicked="logout">
+            <span class="ml-4">Logout</span>
+          </settings-menu-option>
+          <settings-menu-option icon="bell">
+            <span class="ml-4">Notifications</span>
+          </settings-menu-option>
+          <settings-menu-option icon="cog">
+            <span class="ml-4">General</span>
+          </settings-menu-option>
+          <settings-menu-option icon="sign-out-alt" @clicked="editProfile">
+            <span class="ml-4">Account</span>
+          </settings-menu-option>
+          <settings-menu-option icon="lock">
+            <span class="ml-4">Privacy</span>
+          </settings-menu-option>
+          <settings-menu-option icon="question-circle">
+            <span class="ml-4">Help</span>
+          </settings-menu-option>
+        </div>
       </div>
     </div>
   </div>
