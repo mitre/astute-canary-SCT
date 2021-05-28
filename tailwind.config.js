@@ -32,8 +32,8 @@ module.exports = {
         warning: '#F0CB31',
         // the color used to represent feeling "good"
         success: '#2FC74D',
-        // used for callout buttons
-        accent: '#E67E1A',
+        // used for survey answer selection buttons
+        accent: '#DDE1FD',
         // used to represent items in the "symptoms" category
         symptom: '#785EAC',
         // used to represent items in the "vaccination" category

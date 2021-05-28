@@ -1,16 +1,17 @@
 <template>
-<div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
-  <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4 pb-24">
+<div class="w-full h-full bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
+  <div class="flex flex-col flex-grow justify-center mx-auto w-full h-full md:w-1/2 px-4 pb-16">
     <div class="flex flex-row w-full justify-between items-center mx-auto pt-12">
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
       <app-powered-by-statement/>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated && !checkInComplete">
+    <div class="w-auto mx-auto mt-12" v-if="surveyCreated && !checkInComplete">
       <client-only>
         <survey :json="json" :results="reportedSymptoms" @resultsCaptured="setSymptoms"></survey>
       </client-only>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="checkInComplete">
+    <div class="max-w-sm mx-auto flex flex-col flex-grow h-full w-full pt-12" v-if="checkInComplete">
+      <h2 class="text-2xl text-gray-200 font-light">Thank you for <span class="font-bold">logging your symptoms!</span></h2>
       <symptoms-complete />
     </div>
   </div>
@@ -57,7 +58,7 @@ export default {
       })
     },
     setSymptoms(symptoms) {
-      this.$store.commit('reporting/SET_TODAY_SYMPTOMS', symptoms)
+      this.$store.commit('reporting/SET_DAY_SYMPTOMS', symptoms)
       this.checkInComplete = true
     },
     goBack() {

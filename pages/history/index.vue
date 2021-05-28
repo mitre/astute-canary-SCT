@@ -1,16 +1,13 @@
 <template>
-<div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen">
-  <div class="max-w-sm md:max-w-md mx-auto md:px-0 pb-24">
-    <div class="mx-auto pt-12 px-4 md:px-0">
+<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen">
+  <div class="max-w-sm mx-auto flex flex-col flex-grow h-full w-full pt-12">
       <app-powered-by-statement/>
-      <h2 class="text-2xl md:text-4xl text-white font-light pt-12">What you've reported:</h2>
-    </div>
-    <div class="mx-auto w-full mt-8">
+      <h2 class="text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
+    <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-4 text-primary">
       <div v-if="attributes.length > 0" class="">
         <v-calendar
           class="w-128 mx-auto"
-          color="purple"
-          :masks="masks"
+          color="#081E3A"
           :attributes="attributes"
           :max-date="new Date()"
           @dayclick='dayClicked'
@@ -18,39 +15,20 @@
           is-dark
         >
           <template v-slot:day-content="{ day, dayEvents, attributes }">
-            <div class="h-full z-10 overflow-hidden border rounded cursor-pointer" v-on="dayEvents">
-              <div class="w-full mx-1 overflow-y-auto overflow-x-auto">
-                <span class="day-label text-sm text-gray-200 block">{{ day.day }}</span>
-                <span class="inline-block h-12">
+            <div class="h-full z-10 overflow-hidden brounded cursor-pointer" v-on="dayEvents">
+              <div class="w-full overflow-y-auto overflow-x-auto h-16">
+                <span class="day-label text-xs text-gray-200 block text-center py-1">
+                  <span :class="{'bg-white text-dark-text rounded-lg px-1 py-1 font-bold' : day.day == $moment(todaysDate).format('D')}">{{ day.day }}</span>
+                </span>
+                <span class="block content">
                   <span v-for="(attr, index) in attributes" :key="index">
                     <span v-if="attr.customData">
                         <span
                           v-if="attr.customData.category === 'feeling'"
                           :class="attr.customData.class"
-                          class="block w-1/3"
+                          class="block mx-auto text-center text-xl"
                         >
-                          <font-awesome-icon :icon="['far', attr.customData.icon]"></font-awesome-icon>
-                        </span>
-                        <span
-                          v-if="attr.customData.category === 'symptoms'"
-                          class="text-xs"
-                          :class="attr.customData.class"
-                        >
-                          <span class="text-purple-300 font-bold">S</span>
-                        </span>
-                        <span
-                          v-if="attr.customData.category === 'testing'"
-                          class="text-xs"
-                          :class="attr.customData.class"
-                        >
-                          <span class="text-testing font-bold">T</span>
-                        </span>
-                        <span
-                          v-if="attr.customData.category === 'vaccination'"
-                          class="text-xs"
-                          :class="attr.customData.class"
-                        >
-                          <span class="text-vaccination font-bold">V</span>
+                          <font-awesome-icon :icon="['fa', attr.customData.icon]"></font-awesome-icon>
                         </span>
                     </span>
                   </span>
@@ -60,28 +38,33 @@
           </template>
         </v-calendar>
       </div>
-    </div>
-    <div class="mt-8 mx-auto px-4 md:px-0">
-      <div
-        v-if="selectedDay"
-        class="mt-8 text-gray-200 leading-loose">
-        <h3 class="text-secondary-text font-bold">{{ selectedDay.date.toDateString() }} Notes:</h3>
-        <ul v-if="selectedDay.attributes.length > 0">
-          <li
-            v-for='(attr, index) in selectedDay.attributes'
-            :key='index'
-          >
-            <div v-if="attr.popover">
-              <span v-if="!attr.popover.label.includes('Overall feeling')" class="h-3 w-3 inline-block rounded-full" :class="{'bg-symptom': attr.popover.label.includes('Symptoms'), 'bg-vaccination': attr.popover.label.includes('Vaccination'), 'bg-testing': attr.popover.label.includes('Testing')}"></span>
-              <span v-else :class="attr.customData.class"><font-awesome-icon :icon="['far', attr.customData.icon]"></font-awesome-icon></span>
-              <span class="capitalize">{{ attr.popover.label }}</span>
-            </div>
-          </li>
-        </ul>
-        <p v-else>Nothing reported on this day.</p>
-      </div>
-      <div v-else class="text-gray-400 italic">
-        Select a day to see your recorded symptoms
+      <div class="mt-4 mx-auto p-4 md:px-0 bg-gray-100 rounded-2xl">
+        <div
+          v-if="selectedDay"
+          class="text-dark-text leading-loose">
+          <div class="flex flex-row">
+            <h3 class="text-secondary-text font-bold">{{ $moment(selectedDay.date).format('MMMM') }} {{ $moment(selectedDay.date).format('D') }}</h3>
+          </div>
+          <ul v-if="selectedDay.attributes.length > 0">
+            <li
+              v-for='(attr, index) in selectedDay.attributes'
+              :key='index'
+            >
+              <div v-if="attr.popover">
+                <span v-if="!attr.popover.label.includes('Overall feeling')"
+                  class="h-3 w-3 inline-block rounded-full"
+                  :class="{'bg-symptom': attr.popover.label.includes('Symptoms'), 'bg-vaccination': attr.popover.label.includes('Vaccination'), 'bg-testing': attr.popover.label.includes('Testing')}">
+                </span>
+                <span v-else :class="attr.customData.class"><font-awesome-icon :icon="['fa', attr.customData.icon]"></font-awesome-icon></span>
+                <span class="capitalize">{{ attr.popover.label }}</span>
+              </div>
+            </li>
+          </ul>
+          <p v-else>Nothing reported on this day.</p>
+        </div>
+        <div v-else class="text-gray-400 italic">
+          Select a day to see your recorded symptoms
+        </div>
       </div>
     </div>
   </div>
@@ -101,10 +84,7 @@ export default {
     const year = new Date().getFullYear();
     return {
       todaysDate: new Date(),
-      selectedDay: undefined,
-       masks: {
-        weekdays: 'WWW',
-      }
+      selectedDay: undefined
     }
   },
   computed: {
@@ -217,3 +197,27 @@ export default {
   }
 }
 </script>
+<style>
+.vc-container {
+  border-radius: 3rem;
+}
+.vc-is-dark .vc-title {
+  @apply font-light;
+  @apply text-sm;
+}
+.vc-arrows-container {
+  @apply px-8
+}
+.vc-is-dark .vc-weekday {
+  @apply font-light;
+  @apply text-sm;
+}
+.vc-weeks {
+  @apply mt-4;
+}
+.vc-day:focus {
+  @apply border;
+  @apply border-white;
+  @apply rounded-md;
+}
+</style>

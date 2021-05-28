@@ -35,6 +35,10 @@ export default {
     {
       src: '~/plugins/vue-chartjs',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/vue-splide',
+      mode: 'client'
     }
   ],
 

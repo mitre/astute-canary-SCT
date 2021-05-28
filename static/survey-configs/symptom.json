@@ -6,7 +6,7 @@
      {
       "type": "checkbox",
       "name": "Symptoms",
-      "title": "Check all the symptoms that you are experiencing:",
+      "title": "What symptoms are you experiencing today?",
       "choices": [
        {
         "value": "Fever or chills",

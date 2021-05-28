@@ -4,8 +4,8 @@
       <app-powered-by-statement/>
       <h2 class="text-3xl text-white font-light pt-12" v-if="!loggedSymptoms">What would you like to <span class="font-bold">track</span> today?</h2>
       <h2 class="text-xl text-dark-text font-bold pt-12" v-else>Thank you for logging your symptoms. <br> Would you like to document anything else?</h2>
-      <div class="flex-grow my-auto bg-light-background p-4 rounded-t-3xl mt-16">
-        <div class="flex flex-col self-center h-full items-center justify-center mt-4">
+      <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-16">
+        <div class="flex flex-col self-center h-full items-center justify-center mt-12">
           <app-icon-button type="tertiary" @clicked="reportSymptoms" icon="thermometer-full" text="Symptoms"></app-icon-button>
           <app-icon-button type="tertiary" icon="syringe" class="mt-8" @clicked="reportVaccination" text="Vaccination">Vaccination Experience</app-icon-button>
           <app-icon-button type="tertiary" icon="microscope" class="mt-8" @clicked="reportTesting" text="Testing">Testing & Diagnosis</app-icon-button>

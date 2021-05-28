@@ -1,21 +1,16 @@
 import moment from "moment";
 
 export const state = () => ({
-  symptomLength: 3,
-  loggingDuration: 7,
-  todayReporting: {
-    date: undefined,
-    overallFeeling: undefined,
-    symptomsReported: {},
-    vaccinationReported: {},
-    testingReported: {}
-  },
+  todayDate: undefined,
+  activeDate: undefined,
+  weekOfDates: [],
   reportingHistory: [
     // Example Object
     {
       "date": "1/01/2021",
       "overallFeeling": "Poor",
-      "symptomsReported": { "Symptoms": [ "Fever or chills", "Persistent pain or pressure on the chest" ], "Temperature": "100", "notes": "I was feeling really drained today."},
+      "symptomsReported": { "Symptoms": [ "Fever or chills", "Persistent pain or pressure on the chest" ], "Temperature": "100", "notes": "I was feeling really drained day."},
+      "vaccinationReported": {},
       "testingReported": {}
     }
   ]
@@ -23,8 +18,8 @@ export const state = () => ({
 
 export const mutations = {
   RESET_DAY (state) {
-   var objIndex = state.reportingHistory.findIndex(function(day) {
-      return day.date == state.todayReporting.date
+    var objIndex = state.reportingHistory.findIndex(function(day) {
+      return day.date == state.activeDate
       }
     )
     if(objIndex > -1) {
@@ -33,161 +28,149 @@ export const mutations = {
         state.reportingHistory[objIndex].vaccinationReported = {}
         state.reportingHistory[objIndex].testingReported = {}
     }
-    state.todayReporting.overallFeeling = undefined
-    state.todayReporting.symptomsReported = {}
-    state.todayReporting.vaccinationReported = {}
-    state.todayReporting.testingReported = {}
   },
-  RESET_TODAY_OVERALL_FEELING (state) {
+  RESET_DAY_OVERALL_FEELING (state) {
     var objIndex = state.reportingHistory.findIndex(function(day) {
-        return day.date == state.todayReporting.date
+        return day.date == state.activeDate
       }
     )
     if(objIndex > -1) {
       state.reportingHistory[objIndex].overallFeeling = undefined
     }
-    state.todayReporting.overallFeeling = undefined
   },
-  SET_TODAY_OVERALL_FEELING (state, feeling) {
-    state.todayReporting.overallFeeling = feeling
+  SET_DAY_OVERALL_FEELING (state, feeling) {
     var objIndex = state.reportingHistory.findIndex(function(day) {
-      return day.date == state.todayReporting.date
+      return day.date == state.activeDate
       }
     )
     if(objIndex > -1) {
       state.reportingHistory[objIndex].overallFeeling = feeling
     } else {
-      state.reportingHistory.push(state.todayReporting)
+      let newDay = {
+        date: state.activeDate,
+        overallFeeling: feeling,
+        symptomsReported: {},
+        vaccinationReported: {},
+        testingReported: {}
+      }
+      state.reportingHistory.push(newDay)
     }
   },
-  SET_TODAY_DATE (state, date) {
-    state.todayReporting.date = date
+  SET_SELECTED_DATE (state, date) {
+    console.log('active ' + date)
+    state.activeDate = date
   },
-  SET_TODAY_SYMPTOMS (state, symptoms) {
-    state.todayReporting.symptomsReported = symptoms
+  SET_TODAY_DATE (state, date) {
+    state.todayDate = date
+  },
+  SET_DAY_SYMPTOMS (state, symptoms) {
     var objIndex = state.reportingHistory.findIndex(function(day) {
-      return day.date == state.todayReporting.date
+      return day.date == state.activeDate
       }
     )
     if(objIndex > -1) {
       state.reportingHistory[objIndex].symptomsReported = symptoms
     } else {
-      state.reportingHistory.push(state.todayReporting)
+      let newDay = {
+        date: state.activeDate,
+        overallFeeling: undefined,
+        symptomsReported: symptoms,
+        vaccinationReported: {},
+        testingReported: {}
+      }
+      state.reportingHistory.push(newDay)
     }
   },
-  SET_TODAY_VACCINATION (state, vaccination) {
-    state.todayReporting.vaccinationReported = vaccination
+  SET_DAY_VACCINATION (state, vaccination) {
     var objIndex = state.reportingHistory.findIndex(function(day) {
-      return day.date == state.todayReporting.date
+      return day.date == state.activeDate
       }
     )
     if(objIndex > -1) {
       state.reportingHistory[objIndex].vaccinationReported = vaccination
     } else {
-      state.reportingHistory.push(state.todayReporting)
+      let newDay = {
+        date: state.activeDate,
+        overallFeeling: undefined,
+        symptomsReported: {},
+        vaccinationReported: vaccination,
+        testingReported: {}
+      }
+      state.reportingHistory.push(newDay)
     }
     
   },
-  SET_TODAY_TESTING (state, testing) {
-    state.todayReporting.testingReported = testing
+  SET_DAY_TESTING (state, testing) {
+    state.dayReporting.testingReported = testing
     var objIndex = state.reportingHistory.findIndex(function(day) {
-      return day.date == state.todayReporting.date
+      return day.date == state.activeDate
       }
     )
     if(objIndex > -1) {
       state.reportingHistory[objIndex].testingReported = testing
     } else {
-      state.reportingHistory.push(state.todayReporting)
+      let newDay = {
+        date: state.activeDate,
+        overallFeeling: undefined,
+        symptomsReported: {},
+        vaccinationReported: {},
+        testingReported: testing
+      }
+      state.reportingHistory.push(newDay)
     }
-  },
-  SET_HISTORY (state, history) {
-    state.reportingHistory = history
   }
+}
+
+export const actions = {
+  GET_DAY_REPORT (state, date) {
+    var selectedDateHistory = undefined
+    for (var i = 0; i < state.reportingHistory.length; i++) {
+      if (state.reportingHistory[i].date === date) {
+        selectedDateHistory = state.reportingHistory[i]
+      }
+    }
+    return selectedDateHistory
+  },
+  GET_ACTIVE_DAY (state) {
+    return state.activeDate
+  }
+
 }
 
 export const getters = {
   allReportingHistory: (state) => {
     return state.reportingHistory.sort((a,b) => (moment(a.date) < moment(b.date)) ? 1 : -1)
   },
-  todayReportingSymptoms: (state) => {
+  daySelected: (state) => {
+    var day = {
+      date: state.activeDate,
+      overallFeeling: undefined,
+      symptomsReported: {},
+      vaccinationReported: {},
+      testingReported: {}
+    }
+    var objIndex = state.reportingHistory.findIndex(function(day) {
+      return day.date == state.activeDate
+      }
+    )
+    if(objIndex > -1) {
+      day = state.reportingHistory[objIndex]
+    }
+    
+    return day
+  },
+  dayReportingSymptoms: (state) => {
     var reportedSymptoms = false
-    if (Object.keys(state.todayReporting.symptomsReported).length !== 0) {
+    if (Object.keys(state.dayReporting.symptomsReported).length !== 0) {
       reportedSymptoms = true
     }
     return reportedSymptoms
   },
-  todayReportedFeeling: (state) => {
-    var todayReportedFeeling = false
-    if (state.todayReporting.overallFeeling != undefined) {
-      todayReportedFeeling = true
+  dayReportedFeeling: (state) => {
+    var dayReportedFeeling = false
+    if (state.dayReporting.overallFeeling != undefined) {
+      dayReportedFeeling = true
     }
-    return todayReportedFeeling
-  },
-  loggedDays: (state, getters) => {
-    let days = 0
-    const yesterday = moment(state.todayReporting.date).subtract(1, 'days').format('MM/DD/YYYY')
-    const mostRecentEntry = getters.allReportingHistory.length > 0 ? getters.allReportingHistory[0].date : undefined
-    if (mostRecentEntry !== undefined) {  
-      if ((yesterday === mostRecentEntry || state.todayReporting.date === mostRecentEntry) && getters.allReportingHistory[0].overallFeeling !== undefined) {
-        days++;
-        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-          if (dayBefore === getters.allReportingHistory[i + 1].date) {
-            if (getters.allReportingHistory[i + 1].overallFeeling != undefined ) {
-                days++;
-            }
-          } else {
-            break;
-          }
-        }
-      } else if (state.todayReporting.date === mostRecentEntry && getters.allReportingHistory[0].overallFeeling === undefined) {
-        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-          if (dayBefore === getters.allReportingHistory[i + 1].date) {
-            console.log('Match')
-            console.log(state.todayReporting.overallFeeling)
-            if (getters.allReportingHistory[i + 1].overallFeeling != undefined ) {
-                days++;
-            }
-          } else {
-            break;
-          }
-        }
-      }
-    }
-    return days
-  },
-  experienceSymptomsDuration: (state, getters) => {
-    let days = 0
-    const yesterday = moment(state.todayReporting.date).subtract(1, 'days').format('MM/DD/YYYY')
-    const mostRecentEntry = getters.allReportingHistory.length > 0 ? getters.allReportingHistory[0].date : undefined
-    if (mostRecentEntry !== undefined) {
-      if ((yesterday === mostRecentEntry || state.todayReporting.date === mostRecentEntry) && Object.keys(getters.allReportingHistory[0].symptomsReported).length !== 0) {
-        days++;
-        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-          if (dayBefore === getters.allReportingHistory[i + 1].date) {
-            if (Object.keys(getters.allReportingHistory[i + 1].symptomsReported).length !== 0) {
-                days++;
-            }
-          } else {
-            break;
-          }
-        }
-      }
-      else if (state.todayReporting.date === mostRecentEntry && Object.keys(getters.allReportingHistory[0].symptomsReported).length === 0) {
-        for (let i = 0; i < getters.allReportingHistory.length-1; i++) {
-          var dayBefore = moment(getters.allReportingHistory[i].date).subtract(1, 'days').format('MM/DD/YYYY')
-          if (dayBefore === getters.allReportingHistory[i + 1].date) {
-            if (Object.keys(getters.allReportingHistory[i + 1].symptomsReported).length !== 0) {
-                days++;
-            }
-          } else {
-            break;
-          }
-        }
-      }
-    }
-    return days
+    return dayReportedFeeling
   }
 }
