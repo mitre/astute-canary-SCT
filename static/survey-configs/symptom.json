@@ -6,7 +6,8 @@
      {
       "type": "checkbox",
       "name": "Symptoms",
-      "title": "What symptoms are you experiencing today?",
+      "title": "What symptoms are you experiencing?",
+      "description": "Select all that apply",
       "choices": [
        {
         "value": "Fever or chills",
@@ -47,10 +48,6 @@
        {
         "value": "Diarrhea",
         "text": "Diarrhea"
-       },
-       {
-        "value": "Trouble Breathing",
-        "text": "Trouble Breathing"
        },
        {
         "value": "Persistent pain or pressure on the chest",

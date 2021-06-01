@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2 class="text-2xl text-gray-200 font-light">Thank you for logging your symptoms.</h2>
     <h2 class="text-2xl text-light-text font-bold mt-4">Would you like to track anything else?</h2>
     <div class="flex flex-col items-center">
       <div class="mt-8 w-36">

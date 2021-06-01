@@ -9,7 +9,7 @@
       <survey :json="json" :results="reportedTesting" @resultsCaptured="setTesting"></survey>
     </div>
     <div class="max-w-sm mx-auto flex flex-col flex-grow h-full w-full pt-12" v-if="checkInComplete">
-      <h2 class="text-2xl text-gray-200 font-light">Thank you for logging your symptoms.</h2>
+      <h2 class="text-2xl text-gray-200 font-light">Thank you for logging your testing activity.</h2>
       <testing-complete />
     </div>
   </div>

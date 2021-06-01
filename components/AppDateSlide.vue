@@ -2,7 +2,6 @@
 <!-- @splide:active="slideClicked" -->
   <splide :options="options" @splide:click="slideClicked" @splide:active="slideActive" ref="splide">
 		<splide-slide v-for="(date,index) in dates" :key="index">
-       {{$store.state.activeDate}}
 			<app-calendar-date-box :weekday="getWeekday(date)" :day="getDay(date)" :month="getMonth(date)" :feeling="getFeeling(date)" :history="history"/>
 		</splide-slide>
   </splide>
@@ -21,17 +20,17 @@
       options: {
         type: 'slide',
         width  : '100%',
-        perPage: 3,
+        autoWidth: true,
         start: 0,
         perMove: 1,
         focus: 0,
         direction: 'rtl',
-        gap: '1rem',
+        gap: '0.5rem',
         arrows: false,
         rewind: true,
         pagination: false,
         padding: {
-          right: '2rem',
+          right: '1.5rem',
           left : '2rem',
         }
       }
@@ -58,7 +57,7 @@
       return this.$moment(date).format('DD')
     },
     getMonth (date) {
-      return this.$moment(date).format('MMMM')
+      return this.$moment(date).format('MMM')
     },
     getFeeling (date) {
       var selectedDateFeeling = undefined
@@ -71,9 +70,7 @@
     },
     getStartIndex() {
       let index = 0
-      console.log('in start')
       for(var i = 0; i < this.dates.length; i++) {
-        console.log('active' + this.$store.state.activeDate)
         if(this.dates[i] === this.$store.state.activeDate) {
           index = this.$store.state.activeDate
         }
@@ -82,7 +79,6 @@
     }
   },
   mounted () {
-    console.log('mounted')
     this.options.start = this.getStartIndex()
   }
 }

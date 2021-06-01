@@ -1,5 +1,5 @@
 <template>
-  <div id="surveyElement" class="w-full flex-grow">
+  <div id="surveyElement" class="w-full">
       <survey :survey="surveyRender" />
   </div>
 </template>
@@ -28,21 +28,24 @@ export default {
       },
       question: {
         header: "text-2xl text-light-text px-4",
-        content: "mt-8 p-8 text-lg h-full bg-light-background rounded-t-4xl"
+        content: "mt-8 px-8 text-lg"
       },
       checkbox: {
-        label: "inline-block text-sm items-center bg-accent py-3 px-4 rounded-lg text-dark-text  mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight font-light",
+        label: "inline-block text-sm items-center bg-accent py-2 px-4 rounded-lg text-dark-text  mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight font-light",
         itemControl: "form-tick appearance-none w-0 bg-accent focus:bg-secondary checked:bg-secondary"
       },
       radiogroup: {
-        label: "radio-toolbar bg-accent py-3 px-4 mt-8 text-dark-text font-light w-full text-center rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
+        label: "radio-toolbar bg-accent py-2 px-4 mt-8 text-dark-text font-light w-full text-center rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
         itemControl: "opacity-0 fixed w-0 bg-accent focus:bg-secondary checked:bg-secondary"
+      },
+      input: {
+        label: "text-gray-500",
+        itemControl: "border rounded"
       }
     };
     
     survey.onComplete.add(survey => {
       this.result = survey.data;
-      console.log('on complete')
       this.sendResults()
     })
 
@@ -54,7 +57,6 @@ export default {
   },
   methods: {
     sendResults () {
-      console.log('results captured')
       this.$emit('resultsCaptured', this.result)
     }
   },
@@ -90,13 +92,19 @@ export default {
   background-repeat: no-repeat;
 }
 .sv_nav {
-  @apply bg-white;
   @apply px-8;
   @apply pb-8;
 }
 .sv_q_checkbox.checked > label {
   @apply bg-highlight;
   @apply font-bold;
+}
+.sv_q_description {
+  @apply text-base;
+  @apply font-thin;
+  @apply italic;
+  @apply mt-4;
+  @apply text-light-text
 }
 </style>
 

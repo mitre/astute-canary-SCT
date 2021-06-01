@@ -1,8 +1,8 @@
 <template>
-<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen">
-  <div class="max-w-sm mx-auto flex flex-col flex-grow h-full w-full pt-12">
+<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen pb-18">
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
       <app-powered-by-statement/>
-      <h2 class="text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
+      <h2 class="px-4 text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
     <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-4 text-primary">
       <div v-if="attributes.length > 0" class="">
         <v-calendar
@@ -17,8 +17,8 @@
           <template v-slot:day-content="{ day, dayEvents, attributes }">
             <div class="h-full z-10 overflow-hidden brounded cursor-pointer" v-on="dayEvents">
               <div class="w-full overflow-y-auto overflow-x-auto h-16">
-                <span class="day-label text-xs text-gray-200 block text-center py-1">
-                  <span :class="{'bg-white text-dark-text rounded-lg px-1 py-1 font-bold' : day.day == $moment(todaysDate).format('D')}">{{ day.day }}</span>
+                <span class="day-label text-xs text-gray-200 flex flex-col justify-center text-center h-6 w-6 mx-auto" :class="{'bg-white text-dark-text rounded font-bold' : day.id ==( $moment(todaysDate).format('YYYY') + '-' + $moment(todaysDate).format('MM') + '-' + $moment(todaysDate).format('DD') )}">
+                  <span >{{ day.day }} </span>
                 </span>
                 <span class="block content">
                   <span v-for="(attr, index) in attributes" :key="index">
@@ -38,7 +38,7 @@
           </template>
         </v-calendar>
       </div>
-      <div class="mt-4 mx-auto p-4 md:px-0 bg-gray-100 rounded-2xl">
+      <div class="mt-4 mx-auto p-4 bg-gray-100 rounded-2xl">
         <div
           v-if="selectedDay"
           class="text-dark-text leading-loose">

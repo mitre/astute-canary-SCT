@@ -1,11 +1,22 @@
 <template>
 <div class="w-full h-full bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
-  <div class="flex flex-col flex-grow justify-center mx-auto w-full h-full md:w-1/2 px-4 pb-16">
+  <div class="flex flex-col flex-grow justify-center mx-auto w-full h-full md:w-1/2 px-4 pb-18">
     <div class="flex flex-row w-full justify-between items-center mx-auto pt-12">
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
       <app-powered-by-statement/>
     </div>
-    <div class="w-auto mx-auto mt-12" v-if="surveyCreated && !checkInComplete">
+    <div class="w-auto mx-auto mt-8" v-if="surveyCreated && !checkInComplete">
+      <span class="flex px-4 text-sm text-gray-200 font-light mb-4">
+        Filling in symptoms for 
+        <span v-if="todayDate === activeDate">
+          <span class="font-bold ml-1"> today:</span>
+          {{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}
+        </span>
+        <span v-else>
+          <span class="font-bold ml-1">{{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}</span>
+        </span>
+      </span>
+
       <client-only>
         <survey :json="json" :results="reportedSymptoms" @resultsCaptured="setSymptoms"></survey>
       </client-only>
@@ -63,6 +74,14 @@ export default {
     },
     goBack() {
       this.$router.go(-1);
+    }
+  },
+  computed: {
+    activeDate () {
+      return this.$store.state.reporting.activeDate
+    },
+    todayDate () {
+      return this.$store.state.reporting.todayDate
     }
   },
   created () {

@@ -44,5 +44,7 @@ export default {
 <style scoped>
  .button-shadow {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.16);
+    height: 85px;
+    width: 85px;
  }
 </style>

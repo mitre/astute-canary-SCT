@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-grow my-auto bg-light-background rounded-t-4xl mt-16 text-primary p-8 pt-12">
+  <div class="flex flex-col flex-grow h-full my-auto bg-light-background rounded-t-4xl mt-16 text-primary p-8 pt-12">
     <h2 class="text-2xl text-dark-text font-light">Need to <span class="font-bold">track</span> something else?</h2>
     <div class="mt-24 w-36 mx-auto">
       <app-icon-button class="w-full" type="tertiary" text="Vaccination" @clicked="goToVaccination"></app-icon-button>

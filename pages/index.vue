@@ -1,45 +1,46 @@
 <template>
   <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-16">
-      <div class="max-w-sm mx-auto flex flex-col flex-grow h-full w-full pt-12">
+      <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
         <app-powered-by-statement/>
         <div class="mt-8 w-full" v-if="weekOfDates.length > 0">
           <app-date-slide :dates="weekOfDates" @changedDate="setDate" />
         </div>
-        <div class="bg-light-background h-60 pt-4 rounded-2xl mt-4 px-8" v-if="selectedDay">
+        <div class="bg-light-background h-48 pt-4 rounded-2xl px-8 border-b-18 border-transparent"
+            :class="{'border-success' : selectedDay.overallFeeling === 'good', 'border-warning': selectedDay.overallFeeling === 'fair', 'border-danger': selectedDay.overallFeeling === 'poor'}"
+            v-if="selectedDay">
           <span v-if="!selectedDay.overallFeeling && selectedDay.date === todaysDate">
-            <h2 class="text-2xl tracking-wide text-dark-text letter font-light">Welcome back {{ firstname }}</h2> 
-            <h3 class="font-bold text-2xl tracking-wide text-dark-text">How are you feeling today?</h3>
+            <h2 class="text-xl tracking-wide text-dark-text letter font-light">Welcome back {{ firstname }}</h2> 
+            <h3 class="font-bold text-xl tracking-wide text-dark-text">How are you feeling today?</h3>
           </span>
           <span v-if="!selectedDay.overallFeeling && selectedDay.date !== todaysDate">
-            <h2 class="text-xl tracking-wide text-dark-text letter font-light">You did not report your overall feeling for this day.</h2> 
-            <h3 class="font-bold text-2xl tracking-wide text-dark-text">How were you feeling?</h3>
+            <h2 class="text-lg tracking-wide text-dark-text letter font-light">You did not report your overall feeling.</h2> 
+            <h3 class="font-bold text-xl tracking-wide text-dark-text">How were you feeling?</h3>
           </span>
-          <div class="flex flex-row justify-between items-center w-full mt-4" v-if="!selectedDay.overallFeeling">
+          <div class="flex flex-row justify-center items-center w-full mt-4" v-if="!selectedDay.overallFeeling">
             <app-feeling-button @clicked="setFeeling('good')" icon="smile" type="success" prefix="fa" text="Good"></app-feeling-button>
             <app-feeling-button class="ml-4" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="fa" text="Fair"></app-feeling-button>
             <app-feeling-button class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="fa" text="Poor"></app-feeling-button>
           </div>
-          <div class="flex flex-col justify-center w-full text-dark-text text-lg py-4" v-else>
-            <span class="text-lg font-light">
-                Thanks for checking in <span v-if="selectedDay.date === todaysDate">today</span><span v-else> on <br /> {{ $moment(selectedDay.date).format('dddd') }}, {{ $moment(selectedDay.date).format('MMMM') }} {{ $moment(selectedDay.date).format('Do') }}</span><br/>
-              
-                <p class="mt-4">You indicated you <span v-if="selectedDay.date === todaysDate">are</span> <span v-else>were</span> feeling</p>
-                <font-awesome-icon :icon="['fa', feelingIcon]" :class="{'text-danger': selectedDay.overallFeeling === 'poor', 'text-warning': selectedDay.overallFeeling === 'fair', 'text-success' : selectedDay.overallFeeling === 'good'}"></font-awesome-icon>
-                <span class="font-bold capitalize" :class="{'text-danger': selectedDay.overallFeeling === 'poor', 'text-warning': selectedDay.overallFeeling === 'fair', 'text-success' : selectedDay.overallFeeling === 'good'}">{{ selectedDay.overallFeeling }}</span>
+          <div class="flex flex-col justify-center h-full w-full text-dark-text text-lg py-2" v-else>
+            <span class="text-2xl font-light">
+                <p class="mt-4">Thanks for checking in<span v-if="selectedDay.date === todaysDate"> today</span>! You reported that you 
+                  <span v-if="selectedDay.date === todaysDate">feel</span> <span v-else>felt</span> 
+                  <span class="font-bold">{{ selectedDay.overallFeeling }}</span>.
+                </p>
             </span>
-            <div class="mt-2 text-base">
-              Want to <button @click="resetFeeling" class="font-bold text-secondary underline">change your status</button>?
+            <div class="mt-4 text-sm text-right self-end">
+              <button @click="resetFeeling" class="uppercase font-bold text-primary">change status</button>
             </div>
           </div>
         </div>
-        <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-16 text-primary">
+        <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-4 text-primary">
           <div class="">
               <h2 class="text-xl px-4 pt-4 tracking-wide text-dark-text letter font-light">Need to <span class="font-bold">track</span>?</h2> 
               <div class="mt-4 flex flex-col justify-center self-center my-auto">
-                <div class="flex flex-row flex-wrap w-full items-center justify-between">
-                  <app-icon-button type="tertiary" @clicked="reportSymptoms" icon="thermometer-full" text="Symptoms"></app-icon-button>
-                  <app-icon-button type="tertiary" icon="syringe" @clicked="reportVaccination" text="Vaccination">Vaccination Experience</app-icon-button>
-                  <app-icon-button type="tertiary" icon="microscope" @clicked="reportTesting" text="Testing">Testing & Diagnosis</app-icon-button>
+                <div class="flex flex-row flex-wrap w-full items-center justify-center">
+                  <app-icon-button class="mt-4" type="tertiary" @clicked="reportSymptoms" icon="thermometer-full" text="Symptoms"></app-icon-button>
+                  <app-icon-button class="mt-4 ml-4" type="tertiary" icon="syringe" @clicked="reportVaccination" text="Vaccination">Vaccination Experience</app-icon-button>
+                  <app-icon-button class="mt-4 ml-4" type="tertiary" icon="microscope" @clicked="reportTesting" text="Testing">Testing & Diagnosis</app-icon-button>
                 </div>
               </div>
           </div>
@@ -117,8 +118,13 @@ export default {
       }
     },
     getReportedDayHistory(date) {
-      var selectedDateHistory = undefined
-
+      var selectedDateHistory = {
+        date: date,
+        overallFeeling: undefined,
+        symptomsReported: {},
+        vaccinationReported: {},
+        testingReported: {}
+      }
       for (var i = 0; i < this.history.length; i++) {
         if (this.history[i].date === date) {
           selectedDateHistory = this.history[i]
@@ -142,14 +148,15 @@ export default {
     this.importantInformation = this.$store.state.general.importantInformation
     this.getWeekOfDates()
     // If last entry was not day, reset. Date Syntax MM/DD/YYYY
-    if (this.$store.state.todayDate !== this.todaysDate) {
+    if (this.$store.state.reporting.todayDate !== this.todaysDate) {
       this.$store.commit('reporting/SET_SELECTED_DATE', this.daysDate)
       this.$store.commit('reporting/SET_TODAY_DATE', this.todaysDate)
     }
-    if (!this.$store.state.activeDate) {
+    if (!this.$store.state.reporting.activeDate) {
       this.$store.commit('reporting/SET_SELECTED_DATE', this.daysDate)
-      console.log(this.$store.state.activeDate)
     }
+
+    this.setDate(this.daysDate)
   }
 }
 </script>
@@ -157,5 +164,8 @@ export default {
 .rounded-t-4xl {
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
+}
+.border-b-18 {
+  border-bottom-width: 18px;
 }
 </style>
