@@ -99,3 +99,4 @@ public
 package-lock
 
 dist/*
+.dist/*
