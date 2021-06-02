@@ -6,16 +6,16 @@
       <app-powered-by-statement/>
     </div>
     <div class="w-auto mx-auto mt-8 pb-24" v-if="surveyCreated && !checkInComplete">
-      <span class="flex px-4 text-sm text-gray-200 font-light mb-4">
+      <p class="px-4 text-sm text-gray-200 font-light mb-4">
         Filling in testing information for 
         <span v-if="todayDate === activeDate">
-          <span class="font-bold ml-1"> today:</span>
+          <span class="font-bold"> today:</span>
           {{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}
         </span>
         <span v-else>
           <span class="font-bold ml-1">{{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}</span>
         </span>
-      </span>
+      </p>
       <client-only>
         <survey :json="json" :results="reportedTesting" @resultsCaptured="setTesting"></survey>
       </client-only>
