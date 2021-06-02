@@ -1,6 +1,6 @@
 <template>
 <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
-  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
     <app-powered-by-statement/>
     <div class="flex flex-row items-center w-full">
       <div class="mx-auto flex flex-row my-12">
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="flex-grow flex flex-col w-full bg-light-background py-8 px-16 text-lg text-center rounded-t-4xl mt-16 text-primary">
+    <div class="flex-grow flex flex-col w-full bg-light-background py-8 px-16 text-lg text-center rounded-t-4xl mt-16 text-primary pb-24">
       <settings-menu-option icon="sign-out-alt" @clicked="logout">
         <span class="ml-4">Logout</span>
       </settings-menu-option>

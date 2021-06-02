@@ -313,91 +313,91 @@ export const state = () => ({
       "testingReported": {}
     },
     {
-      "date": "4/13/2021",
+      "date": "04/13/2021",
       "overallFeeling": "Poor",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness", "Headache"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/14/2021",
+      "date": "04/14/2021",
       "overallFeeling": "Poor",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Dizziness", "Headache"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/15/2021",
+      "date": "04/15/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/16/2021",
+      "date": "04/16/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/17/2021",
+      "date": "04/17/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/18/2021",
+      "date": "04/18/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/19/2021",
+      "date": "04/19/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/20/2021",
+      "date": "04/20/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/21/2021",
+      "date": "04/21/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/22/2021",
+      "date": "04/22/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/23/2021",
+      "date": "04/23/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/24/2021",
+      "date": "04/24/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},
       "testingReported": {}
     },
     {
-      "date": "4/25/2021",
+      "date": "04/25/2021",
       "overallFeeling": "Fair",
       "symptomsReported": { "Symptoms": [ "Fatigue", "Muscle or body aches"] },
       "vaccinationReported": {},

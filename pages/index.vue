@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-16">
-      <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
+      <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
         <app-powered-by-statement/>
         <div class="mt-8 w-full" v-if="weekOfDates.length > 0">
           <app-date-slide :dates="weekOfDates" @changedDate="setDate" />
@@ -32,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-4 text-primary">
+        <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-4 text-primary pb-24">
           <div class="">
               <h2 class="text-xl px-4 pt-4 tracking-wide text-dark-text letter font-light">Need to <span class="font-bold">track</span>?</h2> 
               <div class="mt-4 flex flex-col justify-center self-center my-auto">
