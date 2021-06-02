@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top min-h-screen pb-16">
-    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
       <app-powered-by-statement/>
       <h1 class="px-4 text-2xl md:text-3xl text-white font-light pt-12">Here's what's been <span class="font-bold">happening</span>:</h1>
       <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-4 md:mt-12 text-primary">
