@@ -189,11 +189,7 @@ export default {
           if (testing.length > 0) {
             ret.push(
               {
-                dates: entry.date,            
-                popover: {
-                  visibility: 'hover',
-                  label: testing.join(', ')
-                },
+                dates: entry.date,
                 customData: {
                   category: 'testing',
                   class: ''
