@@ -3,7 +3,7 @@
   <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
     <app-powered-by-statement/>
     <div class="flex flex-row items-center w-full">
-      <div class="mx-auto flex flex-row my-12">
+      <div class="mx-auto flex flex-row mt-12">
         <div class="w-auto text-light-text flex-col">
           <div class="text-2xl font-bold">{{ profile.firstname }} {{ profile.lastname }}</div>
           <div class="text-xl mt-4"> {{ profile.location.city }}, {{ profile.location.state }}</div>
