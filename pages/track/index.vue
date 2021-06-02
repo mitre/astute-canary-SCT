@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-page-pattern bg-no-repeat bg-cover bg-right-top md:bg-center pb-18">
+  <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-page-pattern bg-no-repeat bg-cover bg-right-top pb-18">
     <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
       <app-powered-by-statement/>
       <h2 class="text-3xl text-white font-light pt-12 px-4">What would you like to <span class="font-bold">track</span> today?</h2>
