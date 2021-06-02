@@ -81,6 +81,9 @@ export default {
   vendor: [
     'vuex-persist',
     'survey-vue'
-  ]
+  ],
+  transition: {
+    css: false
+  }
 
 }
