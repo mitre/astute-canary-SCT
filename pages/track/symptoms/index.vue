@@ -5,7 +5,7 @@
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
       <app-powered-by-statement/>
     </div>
-    <div class="w-auto mx-auto mt-8" v-if="surveyCreated && !checkInComplete">
+    <div class="w-auto mx-auto mt-8 pb-24" v-if="surveyCreated && !checkInComplete">
       <span class="flex px-4 text-sm text-gray-200 font-light mb-4">
         Filling in symptoms for 
         <span v-if="todayDate === activeDate">
