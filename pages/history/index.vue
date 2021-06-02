@@ -1,6 +1,6 @@
 <template>
 <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen pb-18">
-  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
       <app-powered-by-statement/>
       <h2 class="px-4 text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
     <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-4 text-primary pb-24">
@@ -138,9 +138,7 @@ export default {
           ret.push(
             {
               dates: entry.date,          
-              popover: {
-                label: 'Overall feeling: ' + entry.overallFeeling
-              },
+              popover: {},
               customData: {
                 category: 'feeling',
                 title: entry.overallFeeling,
@@ -160,6 +158,7 @@ export default {
               {
                 dates: entry.date,            
                 popover: {
+                  visibility: 'hover',
                   label: symptoms.join(', ')
                 },
                 customData: {
@@ -180,6 +179,7 @@ export default {
               {
                 dates: entry.date,             
                 popover: {
+                  visibility: 'hover',
                   label: vaccination.join(', ')
                 },
                 customData: {
@@ -200,6 +200,7 @@ export default {
               {
                 dates: entry.date,            
                 popover: {
+                  visibility: 'hover',
                   label: testing.join(', ')
                 },
                 customData: {
@@ -216,9 +217,9 @@ export default {
   },
   methods: {
     dayClicked(day) {
+      console.log(day)
       var date = this.$moment(day.id).format('MM/DD/YYYY')
       this.selectedDay = this.getReportedDayHistory(date);
-      console.log(date)
     },
     getReportedDayHistory(date) {
       var selectedDateHistory = {
