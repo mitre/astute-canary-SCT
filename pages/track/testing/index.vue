@@ -1,17 +1,28 @@
 <template>
-<div class="h-full w-full bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen">
-  <div class="mx-auto w-full md:w-1/2 px-4 pb-24">
+<div class="h-full w-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen">
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
     <div class="flex flex-row w-full justify-between items-center mx-auto pt-12">
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
       <app-powered-by-statement/>
     </div>
-    <div class="max-w-sm mx-auto flex flex-col h-full w-full pt-12" v-if="surveyCreated && !checkInComplete">
-      <survey :json="json" :results="reportedTesting" @resultsCaptured="setTesting"></survey>
+    <div class="w-auto mx-auto mt-8" v-if="surveyCreated && !checkInComplete">
+      <span class="flex px-4 text-sm text-gray-200 font-light mb-4">
+        Filling in testing information for 
+        <span v-if="todayDate === activeDate">
+          <span class="font-bold ml-1"> today:</span>
+          {{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}
+        </span>
+        <span v-else>
+          <span class="font-bold ml-1">{{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}</span>
+        </span>
+      </span>
+      <client-only>
+        <survey :json="json" :results="reportedTesting" @resultsCaptured="setTesting"></survey>
+      </client-only>
     </div>
-    <div class="max-w-sm mx-auto flex flex-col flex-grow h-full w-full pt-12" v-if="checkInComplete">
-      <h2 class="text-2xl text-gray-200 font-light">Thank you for logging your testing activity.</h2>
-      <testing-complete />
-    </div>
+    
+    <h2 class="mt-12 text-2xl text-gray-200 font-light" v-if="checkInComplete">Thank you for logging your testing activity.</h2>
+    <testing-complete class="mt-8" v-if="checkInComplete" />
   </div>
 </div>
 </template>
@@ -44,6 +55,14 @@ export default {
       checkInComplete: false
     }
   },
+  computed: {
+    activeDate () {
+      return this.$store.state.reporting.activeDate
+    },
+    todayDate () {
+      return this.$store.state.reporting.todayDate
+    }
+  },
   methods: {
     async createSurvey() {
       const url = '/survey-configs/testing.json'
@@ -57,7 +76,7 @@ export default {
       })
     },
     setTesting(testing) {
-      this.$store.commit('reporting/SET_TODAY_TESTING', testing)
+      this.$store.commit('reporting/SET_DAY_TESTING', testing)
       this.checkInComplete = true
     },
     goBack() {

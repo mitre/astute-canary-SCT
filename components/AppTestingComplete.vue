@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <h2 class="text-2xl text-light-text font-bold mt-4">Would you like to track anything else?</h2>
-    <div class="flex flex-col items-center">
-      <div class="mt-8 w-36">
-        <app-icon-button class="w-full" type="symptom" icon="thermometer-full" text="Symptoms" @clicked="goToSymptoms"></app-icon-button>
-      </div>
-      <div class="mt-8 w-36">
-        <app-icon-button class="w-full" type="vaccination" text="Vaccination" @clicked="goToVaccination"></app-icon-button>
-      </div>
-      <div class="mt-4">
-        <app-button type="accent" class="w-full" round @clicked="goToHome">Nothing else to track</app-button>
-      </div>
+  <div class="flex-grow flex flex-col justify-start text-center bg-light-background p-8 rounded-t-4xl mt-4 text-primary">
+    <h2 class="text-2xl text-dark-text font-light">Need to <span class="font-bold">track</span> something else?</h2>
+    <div class="mt-12 mx-auto">
+      <app-icon-button class="w-full" type="tertiary" size="large" icon="thermometer-full" text="Symptoms" @clicked="goToSymptoms"></app-icon-button>
+    </div>
+    <div class="mt-4 mx-auto">
+      <app-icon-button class="w-full" type="tertiary" size="large" text="Vaccination" @clicked="goToVaccination"></app-icon-button>
+    </div>
+    <div class="mt-4">
+      <app-button type="secondary" class="w-full" round @clicked="goToHome">Nothing else to track</app-button>
     </div>
   </div>
 </template>

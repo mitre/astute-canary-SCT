@@ -28,14 +28,14 @@ export default {
       },
       question: {
         header: "text-2xl text-light-text px-4",
-        content: "mt-8 px-8 text-lg"
+        content: "px-8 text-lg"
       },
       checkbox: {
-        label: "inline-block text-sm items-center bg-accent py-2 px-4 rounded-lg text-dark-text  mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight font-light",
+        label: "inline-block text-sm items-center bg-accent py-2 px-4 rounded-lg text-dark-text mb-2 font-light hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
         itemControl: "form-tick appearance-none w-0 bg-accent focus:bg-secondary checked:bg-secondary"
       },
       radiogroup: {
-        label: "radio-toolbar bg-accent py-2 px-4 mt-8 text-dark-text font-light w-full text-center rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
+        label: "inline-block text-sm items-center bg-accent py-2 px-4 rounded-lg text-dark-text mb-2 font-light hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
         itemControl: "opacity-0 fixed w-0 bg-accent focus:bg-secondary checked:bg-secondary"
       },
       input: {
@@ -66,10 +66,6 @@ export default {
 }
 </script>
 <style>
-/* Add margin between radiogroup  */
-.sv_q_radiogroup {
-  margin-top: 24px;
-}
 /* Change the selected radio button background color */
 .sv_q_radiogroup.checked > label {
   @apply bg-highlight;
@@ -93,7 +89,6 @@ export default {
 }
 .sv_nav {
   @apply px-8;
-  @apply pb-8;
 }
 .sv_q_checkbox.checked > label {
   @apply bg-highlight;
@@ -103,7 +98,7 @@ export default {
   @apply text-base;
   @apply font-thin;
   @apply italic;
-  @apply mt-4;
+  @apply my-4;
   @apply text-light-text
 }
 </style>

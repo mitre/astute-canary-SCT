@@ -13,7 +13,6 @@
             <h3 class="font-bold text-xl tracking-wide text-dark-text">How are you feeling today?</h3>
           </span>
           <span v-if="!selectedDay.overallFeeling && selectedDay.date !== todaysDate">
-            <h2 class="text-lg tracking-wide text-dark-text letter font-light">You did not report your overall feeling.</h2> 
             <h3 class="font-bold text-xl tracking-wide text-dark-text">How were you feeling?</h3>
           </span>
           <div class="flex flex-row justify-center items-center w-full mt-4" v-if="!selectedDay.overallFeeling">
@@ -29,7 +28,7 @@
                 </p>
             </span>
             <div class="mt-4 text-sm text-right self-end">
-              <button @click="resetFeeling" class="uppercase font-bold text-primary">change status</button>
+              <button @click="resetFeeling" class="uppercase font-bold text-dark-text">change status</button>
             </div>
           </div>
         </div>
@@ -149,14 +148,21 @@ export default {
     this.getWeekOfDates()
     // If last entry was not day, reset. Date Syntax MM/DD/YYYY
     if (this.$store.state.reporting.todayDate !== this.todaysDate) {
+      console.log('setting hello2')
       this.$store.commit('reporting/SET_SELECTED_DATE', this.daysDate)
       this.$store.commit('reporting/SET_TODAY_DATE', this.todaysDate)
     }
     if (!this.$store.state.reporting.activeDate) {
+      console.log('setting hello')
       this.$store.commit('reporting/SET_SELECTED_DATE', this.daysDate)
     }
-
-    this.setDate(this.daysDate)
+    if(this.$store.state.reporting.activeDate) {
+      console.log('why: ' + this.$store.state.reporting.activeDate)
+      this.setDate(this.$store.state.reporting.activeDate)
+    } else {
+      console.log('huh: ' + this.$store.state.reporting.activeDate)
+      this.setDate(this.daysDate)
+    }
   }
 }
 </script>

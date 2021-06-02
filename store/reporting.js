@@ -57,7 +57,6 @@ export const mutations = {
     }
   },
   SET_SELECTED_DATE (state, date) {
-    console.log('active ' + date)
     state.activeDate = date
   },
   SET_TODAY_DATE (state, date) {

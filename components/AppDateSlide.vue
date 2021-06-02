@@ -21,7 +21,7 @@
         type: 'slide',
         width  : '100%',
         autoWidth: true,
-        start: 0,
+        start: this.getStartIndex(),
         perMove: 1,
         focus: 0,
         direction: 'rtl',
@@ -71,15 +71,12 @@
     getStartIndex() {
       let index = 0
       for(var i = 0; i < this.dates.length; i++) {
-        if(this.dates[i] === this.$store.state.activeDate) {
-          index = this.$store.state.activeDate
+        if(this.dates[i] === this.$store.state.reporting.activeDate) {
+          index = i
         }
       }
       return index
     }
-  },
-  mounted () {
-    this.options.start = this.getStartIndex()
   }
 }
 </script>

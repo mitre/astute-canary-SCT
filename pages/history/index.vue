@@ -3,7 +3,7 @@
   <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
       <app-powered-by-statement/>
       <h2 class="px-4 text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
-    <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-4 text-primary">
+    <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-4 text-primary pb-24">
       <div v-if="attributes.length > 0" class="">
         <v-calendar
           class="w-128 mx-auto"
@@ -16,11 +16,11 @@
         >
           <template v-slot:day-content="{ day, dayEvents, attributes }">
             <div class="h-full z-10 overflow-hidden brounded cursor-pointer" v-on="dayEvents">
-              <div class="w-full overflow-y-auto overflow-x-auto h-16">
+              <div class="w-full overflow-y-auto overflow-x-auto">
                 <span class="day-label text-xs text-gray-200 flex flex-col justify-center text-center h-6 w-6 mx-auto" :class="{'bg-white text-dark-text rounded font-bold' : day.id ==( $moment(todaysDate).format('YYYY') + '-' + $moment(todaysDate).format('MM') + '-' + $moment(todaysDate).format('DD') )}">
                   <span >{{ day.day }} </span>
                 </span>
-                <span class="block content">
+                <span class="content block mx-auto text-center">
                   <span v-for="(attr, index) in attributes" :key="index">
                     <span v-if="attr.customData">
                         <span
@@ -29,6 +29,26 @@
                           class="block mx-auto text-center text-xl"
                         >
                           <font-awesome-icon :icon="['fa', attr.customData.icon]"></font-awesome-icon>
+                        </span>
+                        <span class="inline-block">
+                            <span
+                              v-if="attr.customData.category === 'symptoms'"
+                              class="text-xs text-tertiary"
+                            >
+                              <font-awesome-icon :icon="['fa', 'thermometer-full']"></font-awesome-icon>
+                            </span>
+                            <span
+                              v-if="attr.customData.category === 'vaccination'"
+                              class="text-xs text-tertiary"
+                            >
+                              <font-awesome-icon :icon="['fa', 'syringe']"></font-awesome-icon>
+                            </span>
+                            <span
+                              v-if="attr.customData.category === 'testing'"
+                              class="text-xs text-tertiary"
+                            >
+                              <font-awesome-icon :icon="['fa', 'microscope']"></font-awesome-icon>
+                            </span>
                         </span>
                     </span>
                   </span>
@@ -42,24 +62,31 @@
         <div
           v-if="selectedDay"
           class="text-dark-text leading-loose">
-          <div class="flex flex-row">
-            <h3 class="text-secondary-text font-bold">{{ $moment(selectedDay.date).format('MMMM') }} {{ $moment(selectedDay.date).format('D') }}</h3>
+          <div class="flex flex-row items-center">
+            <h3 class="text-secondary-text font-bold text-lg">{{ $moment(selectedDay.date).format('MMMM') }} {{ $moment(selectedDay.date).format('D') }}</h3>
+            <span v-if="selectedDay.overallFeeling" class="flex flex-row items-center">
+              <span class="flex h-1 w-1 bg-primary rounded-full mx-2" />
+              <p>You reported feeling <span class="font-bold">{{ selectedDay.overallFeeling }}</span></p>
+            </span>
           </div>
-          <ul v-if="selectedDay.attributes.length > 0">
-            <li
-              v-for='(attr, index) in selectedDay.attributes'
-              :key='index'
-            >
-              <div v-if="attr.popover">
-                <span v-if="!attr.popover.label.includes('Overall feeling')"
-                  class="h-3 w-3 inline-block rounded-full"
-                  :class="{'bg-symptom': attr.popover.label.includes('Symptoms'), 'bg-vaccination': attr.popover.label.includes('Vaccination'), 'bg-testing': attr.popover.label.includes('Testing')}">
-                </span>
-                <span v-else :class="attr.customData.class"><font-awesome-icon :icon="['fa', attr.customData.icon]"></font-awesome-icon></span>
-                <span class="capitalize">{{ attr.popover.label }}</span>
-              </div>
-            </li>
-          </ul>
+          <span v-if="selectedDay.overallFeeling || Object.keys(selectedDay.symptomsReported).length > 0 || Object.keys(selectedDay.vaccinationReported).length > 0 || Object.keys(selectedDay.testingReported).length > 0">
+            <span v-if="Object.keys(selectedDay.symptomsReported).length > 0">
+              You documented {{ selectedDay.symptomsReported.Symptoms.length }} <span class="font-bold">symptoms</span>:
+              <span class="flex flex-row flex-wrap items-center">
+                <span v-for="(symptom, index) in selectedDay.symptomsReported.Symptoms" :key="index" class="bg-highlight text-primary font-bold rounded mt-2 px-2 py-1 mr-2">{{ symptom }}</span>
+              </span>
+            </span>
+            <span v-if="Object.keys(selectedDay.vaccinationReported).length > 0" class="block mt-4">
+              <font-awesome-icon :icon="['fa', 'syringe']" class="mr-1 text-tertiary"></font-awesome-icon> You received the {{ selectedDay.vaccinationReported['Dose'] }} dose of <span class="font-bold">{{ selectedDay.vaccinationReported['Vaccination Type'] }}</span>.
+            </span>
+            <span v-if="Object.keys(selectedDay.testingReported).length > 0" class="block mt-4">
+              <font-awesome-icon :icon="['fa', 'microscope']" class="mr-1 text-tertiary"></font-awesome-icon> You received a <span class="lowercase font-bold">{{ selectedDay.testingReported['Testing Type'] }}</span> at a/an {{ selectedDay.testingReported['Location'] }}:
+              <span v-if="selectedDay.testingReported['Results Received'] === 'no'">and did not reveive a result at this time</span>
+              <span v-if="selectedDay.testingReported['Results Received'] === 'yes'">you received a 
+                <span class="lowercase">{{ selectedDay.testingReported['Results'] }}</span> result
+              </span>
+            </span>
+          </span>
           <p v-else>Nothing reported on this day.</p>
         </div>
         <div v-else class="text-gray-400 italic">
@@ -189,11 +216,29 @@ export default {
   },
   methods: {
     dayClicked(day) {
-      this.selectedDay = day;
+      var date = this.$moment(day.id).format('MM/DD/YYYY')
+      this.selectedDay = this.getReportedDayHistory(date);
+      console.log(date)
+    },
+    getReportedDayHistory(date) {
+      var selectedDateHistory = {
+        date: date,
+        overallFeeling: undefined,
+        symptomsReported: {},
+        vaccinationReported: {},
+        testingReported: {}
+      }
+      for (var i = 0; i < this.history.length; i++) {
+        if (this.history[i].date === date) {
+          selectedDateHistory = this.history[i]
+        }
+      }
+      return selectedDateHistory
     }
   },
   mounted () {
     const calendar = this.$refs.calendar
+    this.getReportedDayHistory(this.todaysDate)
   }
 }
 </script>
@@ -219,5 +264,8 @@ export default {
   @apply border;
   @apply border-white;
   @apply rounded-md;
+}
+.vc-is-dark .vc-nav-item.is-active {
+  @apply text-secondary;
 }
 </style>
