@@ -1,16 +1,28 @@
 <template>
-<div class="w-full bg-primary min-h-screen">
-  <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4 pb-24">
+<div class="h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen">
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
     <div class="flex flex-row w-full justify-between items-center mx-auto pt-12">
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
       <app-powered-by-statement/>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated && !checkInComplete">
-      <survey :json="json" :results="reportedVaccination" @resultsCaptured="setVaccination"></survey>
+    <div class="w-auto mx-auto mt-8" v-if="surveyCreated && !checkInComplete">
+      <span class="flex px-4 text-sm text-gray-200 font-light mb-4">
+        Filling in vaccination information for 
+        <span v-if="todayDate === activeDate">
+          <span class="font-bold ml-1"> today:</span>
+          {{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}
+        </span>
+        <span v-else>
+          <span class="font-bold ml-1">{{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}</span>
+        </span>
+      </span>
+
+      <client-only>
+        <survey :json="json" :results="reportedVaccination" @resultsCaptured="setVaccination"></survey>
+      </client-only>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="checkInComplete">
-      <vaccination-complete />
-    </div>
+    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light">Thank you for <span class="font-bold">logging your vaccination!</span></h2>
+    <vaccination-complete class="mt-8" v-if="checkInComplete"/>
   </div>
 </div>
 </template>
@@ -43,10 +55,17 @@ export default {
       checkInComplete: false
     }
   },
+  computed: {
+    activeDate () {
+      return this.$store.state.reporting.activeDate
+    },
+    todayDate () {
+      return this.$store.state.reporting.todayDate
+    }
+  },
   methods: {
     async createSurvey() {
-      const base = process.env.NODE_ENV === 'production' ? '/astute-canary/' : ''
-      const url = base + '/survey-configs/vaccination.json'
+      const url = '/survey-configs/vaccination.json'
       axios.get(url)
       .then(response => {
           this.json = response.data
@@ -57,7 +76,7 @@ export default {
       })
     },
     setVaccination(vaccination) {
-      this.$store.commit('reporting/SET_TODAY_VACCINATION', vaccination)
+      this.$store.commit('reporting/SET_DAY_VACCINATION', vaccination)
       this.checkInComplete = true
     },
     goBack() {

@@ -9,24 +9,31 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      // set the background pattern/image for your application
+      backgroundImage: theme => ({
+        'home-pattern': "url('~/assets/images/home-background-image.svg')",
+        'page-pattern': "url('~/assets/images/background-image.svg')",
+      }),
       colors: {
         // backgound used for cards and information backgrounds.
         // this is expecting a light color in which dark text is placed over it
-        'light-background': '#F9F9F9',
-        // The main page bg color
-        primary: '#242348',
+        'light-background': '#FFFFFF',
+        // The main color used for calendar background etc
+        primary: '#081E3A',
         // used for links 
-        secondary: '#AC97CE',
+        secondary: '#3951FF',
+        // color used to call attention to important things
+        highlight: '#FFDF49',
         // a tertiary color used for button alternatives
-        tertiary: '#F2ECFB',
+        tertiary: '#7485FC',
         // the color used to represent feeling "poor"
-        danger: '#FF6262',
+        danger: '#EA1313',
         // the color used to represent feeling "fair"
-        warning: '#FFF186',
+        warning: '#F0CB31',
         // the color used to represent feeling "good"
-        success: '#1CDA94',
-        // used for callout buttons
-        accent: '#E67E1A',
+        success: '#2FC74D',
+        // used for survey answer selection buttons
+        accent: '#DDE1FD',
         // used to represent items in the "symptoms" category
         symptom: '#785EAC',
         // used to represent items in the "vaccination" category
@@ -34,7 +41,7 @@ module.exports = {
         // used to represent items in the "testing" category
         testing: '#0ECCFB',
         'light-text': '#ffffff',
-        'dark-text': '#0A049D'
+        'dark-text': '#415A79'
       }
     },
   },

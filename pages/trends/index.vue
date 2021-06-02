@@ -1,21 +1,15 @@
 <template>
-  <div class="w-full bg-primary min-h-screen">
-    <div class="max-w-sm md:max-w-md mx-auto md:px-0 pb-24">
-      <div class="mx-auto pt-12 px-4 md:px-0">
-        <app-powered-by-statement/>
-        <h1 class="text-2xl md:text-3xl text-white font-light pt-12">Here's what's been happening:</h1>
-      </div>
-      <div class="flex flex-col bg-light-background p-4 rounded-2xl mt-4 md:mt-12 mx-auto text-primary">
-        <!-- <div class="w-full mt-2">
-          <h2 class="text-primary font-bold uppercase">Wellness</h2>
-          <app-chart :chartData="lineData"></app-chart>
-        </div> -->
+  <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen pb-16">
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
+      <app-powered-by-statement/>
+      <h1 class="px-4 text-2xl md:text-3xl text-white font-light pt-12">Here's what's been <span class="font-bold">happening</span>:</h1>
+      <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-4 md:mt-12 text-primary">
+        <!-- <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-8 text-primary"> -->
         <div class="w-full mt-8">
           <h2 class="text-primary font-bold uppercase">Symptoms</h2>
           <p class="pb-2 text-gray-600 text-sm">Symptoms recorded during the past three months</p>
           <client-only>
             <horizontal-bar-chart :data="symptomChartData" :options="symptomOptions"></horizontal-bar-chart>
-            <!-- {{ symptomChartData }} -->
           </client-only>
         </div>
       </div>
@@ -23,13 +17,11 @@
   </div>
 </template>
 <script>
-import AppChart from '../../components/AppChart.vue'
 import { mapGetters } from 'vuex'
 export default {
-  components: { AppChart },
   head() {
     return {
-      title: this.$store.state.general.appName + ' | Analysis'
+      title: this.$store.state.general.appName + ' | Trends'
     }
   },
   data() {
@@ -148,25 +140,25 @@ export default {
                     ret.datasets[0].data.push(1)
                     ret.datasets[1].data.push(0)
                     ret.datasets[2].data.push(0)
-                    ret.datasets[0].backgroundColor.push('#4AA7B3')
-                    ret.datasets[1].backgroundColor.push('#141E73')
-                    ret.datasets[2].backgroundColor.push('#296ABA')
+                    ret.datasets[0].backgroundColor.push('#312E81')
+                    ret.datasets[1].backgroundColor.push('#4F46E5')
+                    ret.datasets[2].backgroundColor.push('#818CF8')
                 } else if (this.$moment(this.history[i].date).format('MM') === lastMonth) {
                     ret.labels.push(this.history[i].symptomsReported.Symptoms[j])
                     ret.datasets[0].data.push(0)
                     ret.datasets[1].data.push(1)
                     ret.datasets[2].data.push(0)
-                    ret.datasets[0].backgroundColor.push('#4AA7B3')
-                    ret.datasets[1].backgroundColor.push('#141E73')
-                    ret.datasets[2].backgroundColor.push('#296ABA')
+                    ret.datasets[0].backgroundColor.push('#312E81')
+                    ret.datasets[1].backgroundColor.push('#4F46E5')
+                    ret.datasets[2].backgroundColor.push('#818CF8')
                 } else if (this.$moment(this.history[i].date).format('MM') === twoMonth) {
                     ret.labels.push(this.history[i].symptomsReported.Symptoms[j])
                     ret.datasets[0].data.push(0)
                     ret.datasets[1].data.push(0)
                     ret.datasets[2].data.push(1)
-                    ret.datasets[0].backgroundColor.push('#4AA7B3')
-                    ret.datasets[1].backgroundColor.push('#141E73')
-                    ret.datasets[2].backgroundColor.push('#296ABA')
+                    ret.datasets[0].backgroundColor.push('#312E81')
+                    ret.datasets[1].backgroundColor.push('#4F46E5')
+                    ret.datasets[2].backgroundColor.push('#818CF8')
                 }
               }
             }
