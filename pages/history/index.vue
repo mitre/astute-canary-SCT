@@ -253,7 +253,8 @@ export default {
   @apply border-white;
   @apply rounded-md;
 }
-.vc-is-dark .vc-nav-item.is-active {
+.vc-is-dark .vc-nav-item.is-active{
+  color: #000;
   @apply text-secondary;
 }
 </style>
