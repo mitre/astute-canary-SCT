@@ -1,5 +1,5 @@
 <template>
-  <button class="rounded-2xl hover:bg-white focus:bg-white flex flex-col items-center justify-center" @click="$emit('clicked')" :class="btnClass">
+  <button class="rounded-2xl bg-white hover:bg-white focus:bg-white flex flex-col items-center justify-center" @click="$emit('clicked')" :class="btnClass">
     <div>
       <div class="rounded-full h-6 w-6 absolute flex items-center justify-center bg-tertiary bg-opacity-25 mt-4"></div>
       <font-awesome-icon :icon="icon" class="mx-auto text-5xl mb-2 relative"></font-awesome-icon>
@@ -60,8 +60,8 @@ export default {
    box-shadow: 2px 2px 25px rgba(0,0,0,0.06), 2px 2px 25px rgba(0,0,0,0.06);
  }
  .icon-button-large {
-   width: 125px;
-   height: 125px;
+   width: 139px;
+   height: 139px;
    box-shadow: 2px 2px 25px rgba(0,0,0,0.06), 2px 2px 25px rgba(0,0,0,0.06);
  }
 </style>

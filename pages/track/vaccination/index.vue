@@ -21,8 +21,8 @@
         <survey :json="json" :results="reportedVaccination" @resultsCaptured="setVaccination"></survey>
       </client-only>
     </div>
-    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light px-4">Thank you for <span class="font-bold">logging your vaccination!</span></h2>
-    <vaccination-complete class="mt-8" v-if="checkInComplete"/>
+    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light px-4"  style="margin-top: 20%">Thank you for <span class="font-bold">logging your vaccination!</span></h2>
+    <vaccination-complete class="mt-24" v-if="checkInComplete"/>
   </div>
 </div>
 </template>

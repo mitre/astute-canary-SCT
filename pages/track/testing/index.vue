@@ -21,8 +21,8 @@
       </client-only>
     </div>
     
-    <h2 class="mt-12 text-2xl text-gray-200 font-light px-4" v-if="checkInComplete">Thank you for logging your testing activity.</h2>
-    <testing-complete class="mt-8" v-if="checkInComplete" />
+    <h2 class="mt-12 text-2xl text-gray-200 font-light px-4" v-if="checkInComplete"  style="margin-top: 20%">Thank you for logging your testing activity.</h2>
+    <testing-complete class="mt-24" v-if="checkInComplete" />
   </div>
 </div>
 </template>

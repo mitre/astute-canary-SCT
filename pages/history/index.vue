@@ -111,14 +111,30 @@ export default {
     const year = new Date().getFullYear();
     return {
       todaysDate: new Date(),
-      selectedDay: undefined
+      dateSelected: undefined,
+      // selectedDay: undefined
     }
   },
   computed: {
     ...mapGetters({
-        // map `this.doneCount` to `this.$store.getters.doneTodosCount`
         history: 'reporting/allReportingHistory'
     }),
+    selectedDay() {
+      const date = this.dateSelected
+      let selectedDateHistory = {
+        date: date,
+        overallFeeling: undefined,
+        symptomsReported: {},
+        vaccinationReported: {},
+        testingReported: {}
+      }
+      for (var i = 0; i < this.history.length; i++) {
+        if (this.history[i].date === date) {
+          selectedDateHistory = this.history[i]
+        }
+      }
+      return selectedDateHistory
+    },
     todaysAttributes() {
       let today = undefined
       for (var i = 0; i < this.attributes.length; i++) {
@@ -204,33 +220,14 @@ export default {
   },
   methods: {
     dayClicked(day) {
-      console.log(day)
       var date = this.$moment(day.id).format('MM/DD/YYYY')
-      this.selectedDay = this.getReportedDayHistory(date);
-    },
-    getReportedDayHistory(date) {
-      var selectedDateHistory = {
-        date: date,
-        overallFeeling: undefined,
-        symptomsReported: {},
-        vaccinationReported: {},
-        testingReported: {}
-      }
-      for (var i = 0; i < this.history.length; i++) {
-        if (this.history[i].date === date) {
-          selectedDateHistory = this.history[i]
-        }
-      }
-      return selectedDateHistory
+      this.dateSelected = date
     }
   },
   mounted () {
     const calendar = this.$refs.calendar
-    this.getReportedDayHistory(this.todaysDate)
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
-    })
+    this.dateSelected =this.$moment().format('MM/DD/YYYY')
+    // this.selectedDay = this.getReportedDayHistory(this.todaysDate)
   }
 }
 </script>
