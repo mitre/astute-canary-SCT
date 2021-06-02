@@ -1,7 +1,7 @@
 <template>
 <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
   <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
-    <div class="flex flex-row w-full justify-between items-center mx-auto pt-8">
+    <div class="flex flex-row w-full justify-between items-center mx-auto pt-8 px-4">
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
       <app-powered-by-statement/>
     </div>
@@ -21,7 +21,7 @@
         <survey :json="json" :results="reportedSymptoms" @resultsCaptured="setSymptoms"></survey>
       </client-only>
     </div>
-    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light">Thank you for <span class="font-bold">logging your symptoms!</span></h2>
+    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light px-4">Thank you for <span class="font-bold">logging your symptoms!</span></h2>
     <symptoms-complete class="mt-8" v-if="checkInComplete"/>
   </div>
 </div>
