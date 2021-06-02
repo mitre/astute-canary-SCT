@@ -137,8 +137,7 @@ export default {
         if (this.history[i].overallFeeling) {
           ret.push(
             {
-              dates: entry.date,          
-              popover: {},
+              dates: entry.date,
               customData: {
                 category: 'feeling',
                 title: entry.overallFeeling,
@@ -156,11 +155,7 @@ export default {
           if (symptoms.length > 0) {
             ret.push(
               {
-                dates: entry.date,            
-                popover: {
-                  visibility: 'hover',
-                  label: symptoms.join(', ')
-                },
+                dates: entry.date,
                 customData: {
                   category: 'symptoms',
                   class: ''
@@ -177,11 +172,7 @@ export default {
           if (vaccination.length > 0) {
             ret.push(
               {
-                dates: entry.date,             
-                popover: {
-                  visibility: 'hover',
-                  label: vaccination.join(', ')
-                },
+                dates: entry.date,
                 customData: {
                   category: 'vaccination',
                   class: ''
