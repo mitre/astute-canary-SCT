@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/trends", {data:[{}],fetch:{},mutations:[]});
