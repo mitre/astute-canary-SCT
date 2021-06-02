@@ -31,11 +31,11 @@ export default {
         content: "px-8 text-lg"
       },
       checkbox: {
-        label: "inline-block text-sm items-center bg-accent py-2 px-4 rounded-lg text-dark-text mb-2 font-light hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
+        label: "inline-block text-sm items-center bg-accent py-2 px-4 text-primary rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
         itemControl: "form-tick appearance-none w-0 bg-accent focus:bg-secondary checked:bg-secondary"
       },
       radiogroup: {
-        label: "inline-block text-sm items-center bg-accent py-2 px-4 rounded-lg text-dark-text mb-2 font-light hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
+        label: "inline-block text-sm items-center bg-accent py-2 px-4 text-primary rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
         itemControl: "opacity-0 fixed w-0 bg-accent focus:bg-secondary checked:bg-secondary"
       },
       input: {
@@ -98,7 +98,7 @@ export default {
   @apply text-base;
   @apply font-thin;
   @apply italic;
-  @apply my-4;
+  @apply mb-4;
   @apply text-light-text
 }
 </style>

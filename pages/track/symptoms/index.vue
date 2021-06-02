@@ -7,9 +7,9 @@
     </div>
     <div class="w-auto mx-auto mt-8 pb-24" v-if="surveyCreated && !checkInComplete">
       <p class="px-4 text-sm text-gray-200 font-light mb-4">
-        Filling in symptoms for 
+        For
         <span v-if="todayDate === activeDate">
-          <span class="font-bold"> today:</span>
+          <span class="font-bold">today:</span>
           {{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}
         </span>
         <span v-else>
@@ -21,8 +21,8 @@
         <survey :json="json" :results="reportedSymptoms" @resultsCaptured="setSymptoms"></survey>
       </client-only>
     </div>
-    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light px-4">Thank you for <span class="font-bold">logging your symptoms!</span></h2>
-    <symptoms-complete class="mt-8" v-if="checkInComplete"/>
+    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light px-4"  style="margin-top: 20%">Thank you for <span class="font-bold">logging your symptoms!</span></h2>
+    <symptoms-complete class="mt-24" v-if="checkInComplete"/>
   </div>
 </div>
 </template>
