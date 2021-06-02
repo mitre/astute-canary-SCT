@@ -6,25 +6,25 @@
           <app-date-slide :dates="weekOfDates" @changedDate="setDate" />
         </div>
         <div class="bg-light-background h-48 pt-4 rounded-2xl px-8 border-b-18 border-transparent"
-            :class="{'border-success' : selectedDay.overallFeeling === 'good', 'border-warning': selectedDay.overallFeeling === 'fair', 'border-danger': selectedDay.overallFeeling === 'poor'}"
-            v-if="selectedDay">
-          <span v-if="!selectedDay.overallFeeling && selectedDay.date === todaysDate">
+            :class="{'border-success' : daySelected.overallFeeling === 'good', 'border-warning': daySelected.overallFeeling === 'fair', 'border-danger': daySelected.overallFeeling === 'poor'}"
+            v-if="daySelected">
+          <span v-if="!daySelected.overallFeeling && daySelected.date === todaysDate">
             <h2 class="text-xl tracking-wide text-dark-text letter font-light">Welcome back {{ firstname }}</h2> 
             <h3 class="font-bold text-xl tracking-wide text-dark-text">How are you feeling today?</h3>
           </span>
-          <span v-if="!selectedDay.overallFeeling && selectedDay.date !== todaysDate">
+          <span v-if="!daySelected.overallFeeling && daySelected.date !== todaysDate">
             <h3 class="font-bold text-xl tracking-wide text-dark-text">How were you feeling?</h3>
           </span>
-          <div class="flex flex-row justify-center items-center w-full mt-4" v-if="!selectedDay.overallFeeling">
+          <div class="flex flex-row justify-center items-center w-full mt-4" v-if="!daySelected.overallFeeling">
             <app-feeling-button @clicked="setFeeling('good')" icon="smile" type="success" prefix="fa" text="Good"></app-feeling-button>
             <app-feeling-button class="ml-4" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="fa" text="Fair"></app-feeling-button>
             <app-feeling-button class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="fa" text="Poor"></app-feeling-button>
           </div>
           <div class="flex flex-col justify-center h-full w-full text-dark-text text-lg py-2" v-else>
             <span class="text-2xl font-light">
-                <p class="mt-4">Thanks for checking in<span v-if="selectedDay.date === todaysDate"> today</span>! You reported that you 
-                  <span v-if="selectedDay.date === todaysDate">feel</span> <span v-else>felt</span> 
-                  <span class="font-bold">{{ selectedDay.overallFeeling }}</span>.
+                <p class="mt-4">Thanks for checking in<span v-if="daySelected.date === todaysDate"> today</span>! You reported that you 
+                  <span v-if="daySelected.date === todaysDate">feel</span> <span v-else>felt</span> 
+                  <span class="font-bold">{{ daySelected.overallFeeling }}</span>.
                 </p>
             </span>
             <div class="mt-4 text-sm text-right self-end">
@@ -138,7 +138,8 @@ export default {
     },
     ...mapGetters({
         // map `this.history` to `this.$store.getters.allReportingHistory`
-        history: 'reporting/allReportingHistory'
+        history: 'reporting/allReportingHistory',
+        daySelected: 'reporting/daySelected'
     }),
   },
   mounted () {
@@ -148,19 +149,15 @@ export default {
     this.getWeekOfDates()
     // If last entry was not day, reset. Date Syntax MM/DD/YYYY
     if (this.$store.state.reporting.todayDate !== this.todaysDate) {
-      console.log('setting hello2')
       this.$store.commit('reporting/SET_SELECTED_DATE', this.daysDate)
       this.$store.commit('reporting/SET_TODAY_DATE', this.todaysDate)
     }
     if (!this.$store.state.reporting.activeDate) {
-      console.log('setting hello')
       this.$store.commit('reporting/SET_SELECTED_DATE', this.daysDate)
     }
     if(this.$store.state.reporting.activeDate) {
-      console.log('why: ' + this.$store.state.reporting.activeDate)
       this.setDate(this.$store.state.reporting.activeDate)
     } else {
-      console.log('huh: ' + this.$store.state.reporting.activeDate)
       this.setDate(this.daysDate)
     }
   }
