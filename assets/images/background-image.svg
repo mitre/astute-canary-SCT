@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="391.222" height="844.107" viewBox="0 0 391.222 844.107">
-  <g id="Group_1" data-name="Group 1" transform="translate(-844.721 -12.252)">
-    <g id="Group_366" data-name="Group 366" transform="translate(845.44 12.359)">
-      <rect id="Rectangle_1719" data-name="Rectangle 1719" width="390" height="844" fill="rgba(8,30,58,0.69)"/>
-      <path id="Path_423" data-name="Path 423" d="M397.99,886.182H7.99V334.11c0-58.353,1.609-140.342,0-193.687.619-20.568-1.594-36.886,3.916-45.647C41.757,47.308,75.3,33.611,125,46.869c60.39,33.722,48.83,107.546,108.311,137.2,38.152-.548,104.647,19.837,135.846,83.648,36.78,75.225,28.828,66.39,28.828,66.39Z" transform="translate(-8.71 -42.182)" fill="#081e3a" opacity="0.335"/>
-      <path id="Path_424" data-name="Path 424" d="M391,860.184H1S-.484,406.648,1,160.368C1.112,141.8-1.316,26.359,1,18.107c.445-1.594,43.68-2.081,68.486,0,11.64.976-4.62-4.449,13.234,4.368,54.6,26.962,72.88,112.5,119.68,110.614,44.131-1.776,106.432-25.948,139.361,14.237S391,292.431,391,292.431Z" transform="translate(-0.498 -16.184)" fill="#081e3a" opacity="0.526"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844"><defs><style>.cls-1{fill:#494f5b;opacity:0.69;}.cls-2,.cls-3{fill:#0a1e39;isolation:isolate;}.cls-2{opacity:0.34;}.cls-3{opacity:0.53;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_374" data-name="Group 374"><g id="Group_366" data-name="Group 366"><rect id="Rectangle_1719" data-name="Rectangle 1719" class="cls-1" width="390" height="844"/><path id="Path_423" data-name="Path 423" class="cls-2" d="M390,842.12H1.4L1.48,0H121.19a124.84,124.84,0,0,1,32.5,17.6c21.05,15.94,24.76,29.09,45.41,43.08,7.69,5.21,17.3,9.76,30.42,13.18,65.39,15.83,114.06,32.27,133.74,43,7.14,3.88,19.91,11,24.41,24.86a34.28,34.28,0,0,1,1.49,13.47Z"/><path id="Path_424" data-name="Path 424" class="cls-3" d="M389,842.12H1.4Q.7,426.5,0,10.86C40.16-2.42,66.68,2.24,83.62,9.14c32.31,13.16,46.92,36.69,91.94,52.21a76.49,76.49,0,0,0,27,3.85c43.86-.9,105.78-13.15,138.5,7.21S390,146,390,146Q389.51,494,389,842.12Z"/></g></g></g></g></svg>

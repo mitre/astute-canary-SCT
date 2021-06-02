@@ -1,5 +1,5 @@
 <template>
-<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
+<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top md:bg-center  min-h-screen">
   <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
     <app-powered-by-statement/>
     <div class="flex flex-row items-center w-full">

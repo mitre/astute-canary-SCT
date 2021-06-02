@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen pb-16">
+  <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top md:bg-center min-h-screen pb-16">
     <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-12">
       <app-powered-by-statement/>
       <h1 class="px-4 text-2xl md:text-3xl text-white font-light pt-12">Here's what's been <span class="font-bold">happening</span>:</h1>

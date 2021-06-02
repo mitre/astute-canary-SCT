@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-16">
+  <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-home-pattern bg-no-repeat bg-cover bg-right-top md:bg-center pb-16">
       <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
         <app-powered-by-statement/>
         <div class="mt-8 w-full" v-if="weekOfDates.length > 0">
