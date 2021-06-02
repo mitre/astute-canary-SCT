@@ -100,7 +100,6 @@ export const mutations = {
     
   },
   SET_DAY_TESTING (state, testing) {
-    state.dayReporting.testingReported = testing
     var objIndex = state.reportingHistory.findIndex(function(day) {
       return day.date == state.activeDate
       }
