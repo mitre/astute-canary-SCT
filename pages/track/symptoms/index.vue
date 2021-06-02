@@ -1,18 +1,28 @@
 <template>
-<div class="w-full bg-primary min-h-screen">
-  <div class="flex flex-col justify-center mx-auto w-full md:w-1/2 px-4 pb-24">
-    <div class="flex flex-row w-full justify-between items-center mx-auto pt-12">
+<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center  min-h-screen">
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
+    <div class="flex flex-row w-full justify-between items-center mx-auto pt-8 px-4">
       <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
       <app-powered-by-statement/>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="surveyCreated && !checkInComplete">
+    <div class="w-auto mx-auto mt-8 pb-24" v-if="surveyCreated && !checkInComplete">
+      <p class="px-4 text-sm text-gray-200 font-light mb-4">
+        Filling in symptoms for 
+        <span v-if="todayDate === activeDate">
+          <span class="font-bold"> today:</span>
+          {{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}
+        </span>
+        <span v-else>
+          <span class="font-bold ml-1">{{ $moment(activeDate).format('dddd') }}, {{ $moment(activeDate).format('MMMM') }} {{ $moment(activeDate).format('Do') }}</span>
+        </span>
+      </p>
+
       <client-only>
         <survey :json="json" :results="reportedSymptoms" @resultsCaptured="setSymptoms"></survey>
       </client-only>
     </div>
-    <div class="w-auto mx-auto p-4 mt-12" v-if="checkInComplete">
-      <symptoms-complete />
-    </div>
+    <h2 v-if="checkInComplete" class="mt-12 text-2xl text-gray-200 font-light px-4">Thank you for <span class="font-bold">logging your symptoms!</span></h2>
+    <symptoms-complete class="mt-8" v-if="checkInComplete"/>
   </div>
 </div>
 </template>
@@ -57,11 +67,19 @@ export default {
       })
     },
     setSymptoms(symptoms) {
-      this.$store.commit('reporting/SET_TODAY_SYMPTOMS', symptoms)
+      this.$store.commit('reporting/SET_DAY_SYMPTOMS', symptoms)
       this.checkInComplete = true
     },
     goBack() {
       this.$router.go(-1);
+    }
+  },
+  computed: {
+    activeDate () {
+      return this.$store.state.reporting.activeDate
+    },
+    todayDate () {
+      return this.$store.state.reporting.todayDate
     }
   },
   created () {

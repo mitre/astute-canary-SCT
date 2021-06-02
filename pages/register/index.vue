@@ -1,12 +1,11 @@
 <template>
-  <div class="bg-primary w-full h-screen flex flex-col items-center">
+  <div class="bg-page-pattern bg-no-repeat bg-cover bg-center w-full h-screen flex flex-col items-center">
     <div class="my-auto text-center mx-auto">
       <img src="~/assets/images/Logo.svg" width="100" class="mx-auto opacity-50 mb-8"/>
-      <h1 class="uppercase text-4xl text-light-text font-bold tracking-widest">{{ appName }}</h1>
-      <h2 class="text-tertiary font-thin">Sign Up</h2>
+      <h1 class="uppercase text-3xl text-light-text font-bold tracking-widest">{{ appName }}</h1>
 
-      <h3 class="text-lg text-light-text font-thin mt-8">Username and Password</h3>
-      <hr>
+      <h3 class="text-3xl text-light-text font-thin mt-8">Sign Up</h3>
+
       <form>
         <fieldset>
           <div class="mt-4">
@@ -25,7 +24,7 @@
      </form>
       <div class="flex flex-row justify-center mt-8">
         <app-button type="white" textType="dark-text" @clicked="cancel" class="mr-8">Cancel</app-button>
-        <app-button @clicked="register" type="accent">Sign Up</app-button>
+        <app-button @clicked="register" type="secondary">Sign Up</app-button>
       </div>
     </div>
   </div>

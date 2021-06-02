@@ -35,6 +35,10 @@ export default {
     {
       src: '~/plugins/vue-chartjs',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/vue-splide',
+      mode: 'client'
     }
   ],
 
@@ -60,8 +64,7 @@ export default {
   // icons
   fontawesome: {
     icons: {
-      solid: ['faHome', 'faCalendar', 'faPlusCircle', 'faChartLine', 'faUserCog', 'faBell', 'faCog', 'faUser', 'faSignOutAlt', 'faLock', 'faQuestionCircle', 'faSyringe', 'faMicroscope', 'faThermometerFull', 'faArrowLeft'],
-      regular: ['faSmile', 'faMeh', 'faFrown']
+      solid: ['faSmile', 'faMeh', 'faFrown', 'faHome', 'faCalendar', 'faPlusCircle', 'faChartLine', 'faUserCog', 'faBell', 'faCog', 'faUser', 'faSignOutAlt', 'faLock', 'faQuestionCircle', 'faSyringe', 'faMicroscope', 'faThermometerFull', 'faArrowLeft']
     }
   },
 
@@ -78,6 +81,9 @@ export default {
   vendor: [
     'vuex-persist',
     'survey-vue'
-  ]
+  ],
+  transition: {
+    css: false
+  }
 
 }
