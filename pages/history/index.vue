@@ -1,5 +1,5 @@
 <template>
-<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top md:bg-center min-h-screen pb-18">
+<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top min-h-screen pb-18">
   <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
     <app-powered-by-statement/>
     <h2 class="px-4 text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
