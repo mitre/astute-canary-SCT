@@ -1,8 +1,8 @@
 <template>
 <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-center min-h-screen pb-18">
   <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
-      <app-powered-by-statement/>
-      <h2 class="px-4 text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
+    <app-powered-by-statement/>
+    <h2 class="px-4 text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
     <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-4 text-primary pb-24">
       <div v-if="attributes.length > 0" class="">
         <v-calendar
@@ -227,6 +227,10 @@ export default {
   mounted () {
     const calendar = this.$refs.calendar
     this.getReportedDayHistory(this.todaysDate)
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+    })
   }
 }
 </script>

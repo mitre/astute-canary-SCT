@@ -91,6 +91,9 @@ export default {
   },
   router: {
     base: '/astute-canary-SCT/'
+  },
+  transition: {
+    css: false
   }
 
 }

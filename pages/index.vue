@@ -3,7 +3,9 @@
       <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
         <app-powered-by-statement/>
         <div class="mt-8 w-full" v-if="weekOfDates.length > 0">
-          <app-date-slide :dates="weekOfDates" @changedDate="setDate" />
+          <client-only>
+            <app-date-slide :dates="weekOfDates" @changedDate="setDate" />
+          </client-only>
         </div>
         <div class="bg-light-background h-48 pt-4 rounded-2xl px-8 border-b-18 border-transparent"
             :class="{'border-success' : daySelected.overallFeeling === 'good', 'border-warning': daySelected.overallFeeling === 'fair', 'border-danger': daySelected.overallFeeling === 'poor'}"
