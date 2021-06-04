@@ -1,6 +1,6 @@
 <template>
   <button class="py-2 w-full rounded-md bg-white button-shadow hover:bg-white hover:bg-opacity-25 focus:bg-white focus:bg-opacity-25 flex flex-col text-center justify-center" @click="$emit('clicked')" :class="btnClass">
-    <p class="text-dark-text text-center text-sm mb-2 mx-auto font-light">{{ text }}</p>
+    <span class="text-dark-text text-center text-sm mb-2 mx-auto font-light">{{ text }}</span>
     <font-awesome-icon :icon="[prefix, icon]" class="mx-auto text-4xl mb-2 text-tertiary"></font-awesome-icon>
   </button>
 </template>

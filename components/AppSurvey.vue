@@ -66,6 +66,10 @@ export default {
 }
 </script>
 <style>
+.sv_qstn .sv_q_checkbox.sv-q-col-1 {
+  width: auto;
+  padding-right: 0.5em;
+}
 /* Change the selected radio button background color */
 .sv_q_radiogroup.checked > label {
   @apply bg-highlight;
