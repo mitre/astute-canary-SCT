@@ -60,35 +60,6 @@
       ]
      }
     ]
-   },
-   {
-    "name": "Enter body temperature in Farenheight",
-    "elements": [
-     {
-      "type": "text",
-      "name": "Temperature",
-      "visibleIf": "{Symptoms} contains 'Fever or chills'",
-      "title": "Enter your body temperature",
-      "placeHolder": "ex: 97.2"
-     },
-     {
-      "type": "radiogroup",
-      "name": "Degree Type",
-      "title": "Degree Type",
-      "visibleIf": "{Symptoms} contains 'Fever or chills'",
-      "isRequired": true,
-      "choices": [
-       {
-        "value": "Fahrenheit",
-        "text": "Fahrenheit"
-       },
-       {
-        "value": "Celsius",
-        "text": "Celsius"
-       }
-      ]
-     }
-    ]
    }
   ],
   "showCompletedPage": false,

@@ -2,19 +2,19 @@
   <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-16">
       <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
         <app-powered-by-statement/>
-        <div class="mt-8 w-full" v-if="weekOfDates.length > 0">
+        <div class="mt-8 w-full" v-show="weekOfDates.length > 0">
           <client-only>
-            <app-date-slide :dates="weekOfDates" @changedDate="setDate" />
+            <app-date-slide :dates="weekOfDates" @changedDate="setDate"></app-date-slide>
           </client-only>
         </div>
         <div class="bg-light-background h-48 pt-4 rounded-2xl px-8 border-b-18 border-transparent"
             :class="{'border-success' : daySelected.overallFeeling === 'good', 'border-warning': daySelected.overallFeeling === 'fair', 'border-danger': daySelected.overallFeeling === 'poor'}"
             v-if="daySelected">
-          <span v-if="!daySelected.overallFeeling && daySelected.date === todaysDate">
+          <span v-show="!daySelected.overallFeeling && daySelected.date === todaysDate">
             <h2 class="text-xl tracking-wide text-dark-text letter font-light">Welcome back {{ firstname }}</h2> 
             <h3 class="font-bold text-xl tracking-wide text-dark-text">How are you feeling today?</h3>
           </span>
-          <span v-if="!daySelected.overallFeeling && daySelected.date !== todaysDate">
+          <span v-show="!daySelected.overallFeeling && daySelected.date !== todaysDate">
             <h3 class="font-bold text-xl tracking-wide text-dark-text">How were you feeling?</h3>
           </span>
           <div class="flex flex-row justify-center items-center w-full mt-4" v-if="!daySelected.overallFeeling">
@@ -72,8 +72,8 @@ export default {
       value: 0,
       appName: '',
       importantInformation: '',
-      daysDate: this.$moment().format('MM/DD/YYYY'),
-      todaysDate: this.$moment().format('MM/DD/YYYY'),
+      daysDate: undefined,
+      todaysDate: undefined,
       feelingIcon: 'smile',
       feeling: undefined,
       weekOfDates: [],
@@ -132,7 +132,13 @@ export default {
         }
       }
       return selectedDateHistory
+    },
+    setInitialDates() {
+      var date = new Date()
+      this.daysDate = this.$moment(date).format('MM/DD/YYYY')
+      this.todayDate = this.$moment(date).format('MM/DD/YYYY')
     }
+
   },
   computed: {
     firstname () {
@@ -144,11 +150,13 @@ export default {
         daySelected: 'reporting/daySelected'
     }),
   },
-  mounted () {
+  async mounted () {
     this.$store.commit('general/SET_PAGE_TITLE', 'Home')
     this.appName = this.$store.state.general.appName
     this.importantInformation = this.$store.state.general.importantInformation
-    this.getWeekOfDates()
+    
+    this.setInitialDates()
+    await this.getWeekOfDates()
     // If last entry was not day, reset. Date Syntax MM/DD/YYYY
     if (this.$store.state.reporting.todayDate !== this.todaysDate) {
       this.$store.commit('reporting/SET_SELECTED_DATE', this.daysDate)

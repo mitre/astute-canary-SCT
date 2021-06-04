@@ -1,10 +1,8 @@
 <template>
   <button class="rounded-2xl bg-white hover:bg-white focus:bg-white flex flex-col items-center justify-center" @click="$emit('clicked')" :class="btnClass">
-    <div>
-      <div class="rounded-full h-6 w-6 absolute flex items-center justify-center bg-tertiary bg-opacity-25 mt-4"></div>
-      <font-awesome-icon :icon="icon" class="mx-auto text-5xl mb-2 relative"></font-awesome-icon>
-    </div>
-    <p class="text-dark-text text-sm">{{ text }}</p>
+    <span class="rounded-full h-6 w-6 absolute flex items-center justify-center bg-tertiary bg-opacity-25 mt-4"></span>
+    <font-awesome-icon :icon="icon" class="mx-auto text-5xl mb-2 relative"></font-awesome-icon>
+    <span class="text-dark-text text-sm">{{ text }}</span>
   </button>
 </template>
 <script>

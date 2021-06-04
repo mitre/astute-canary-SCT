@@ -1,5 +1,4 @@
 <template>
-<!-- @splide:active="slideClicked" -->
   <splide :options="options" @splide:click="slideClicked" @splide:active="slideActive" ref="splide">
 		<splide-slide v-for="(date,index) in dates" :key="index">
 			<app-calendar-date-box :weekday="getWeekday(date)" :day="getDay(date)" :month="getMonth(date)" :feeling="getFeeling(date)" :history="history"/>
