@@ -136,8 +136,9 @@ export default {
     setInitialDates() {
       var date = new Date()
       this.daysDate = this.$moment(date).format('MM/DD/YYYY')
-      this.todayDate = this.$moment(date).format('MM/DD/YYYY')
+      this.todaysDate = this.$moment(date).format('MM/DD/YYYY')
     }
+
   },
   computed: {
     firstname () {
@@ -153,6 +154,7 @@ export default {
     this.$store.commit('general/SET_PAGE_TITLE', 'Home')
     this.appName = this.$store.state.general.appName
     this.importantInformation = this.$store.state.general.importantInformation
+    
     this.setInitialDates()
     await this.getWeekOfDates()
     // If last entry was not day, reset. Date Syntax MM/DD/YYYY
