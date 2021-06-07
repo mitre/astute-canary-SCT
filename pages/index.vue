@@ -136,7 +136,7 @@ export default {
     setInitialDates() {
       var date = new Date()
       this.daysDate = this.$moment(date).format('MM/DD/YYYY')
-      this.todayDate = this.$moment(date).format('MM/DD/YYYY')
+      this.todaysDate = this.$moment(date).format('MM/DD/YYYY')
     }
 
   },
