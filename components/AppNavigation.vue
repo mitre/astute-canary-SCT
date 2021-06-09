@@ -3,7 +3,10 @@
     <div class="flex flex-row items-center justify-between max-w-sm mx-auto">
       <nuxt-link to="/" class="flex flex-col items-center hover:text-primary focus:text-primary" :class="{'text-primary font-bold' : active === 'index'}"><font-awesome-icon class="" icon="home"></font-awesome-icon><span class="text-xs tracking-tight mt-1">Home</span></nuxt-link>
       <nuxt-link class="flex flex-col items-center hover:text-primary focus:text-primary" to="/history" :class="{'text-primary font-bold' : active === 'history'}"><font-awesome-icon class="" icon="calendar"></font-awesome-icon><span class="text-xs mt-1">History</span></nuxt-link>
-      <nuxt-link class="flex flex-col items-center hover:text-primary focus:text-primary" to="/track" :class="{'text-primary font-bold' : active.includes('track')}"><font-awesome-icon class="text-3xl text-secondary" icon="plus-circle"></font-awesome-icon><span class="text-xs mt-1">Track</span></nuxt-link>
+      <nuxt-link class="flex flex-col items-center hover:text-primary focus:text-primary" to="/track" :class="{'text-primary font-bold' : active.includes('track')}">
+        <font-awesome-icon class="text-3xl" :class="{'text-primary' : active.includes('track'), 'text-tertiary': !active.includes('track')}" icon="plus-circle"></font-awesome-icon>
+        <span class="text-xs mt-1">Track</span>
+      </nuxt-link>
       <nuxt-link class="flex flex-col items-center hover:text-primary focus:text-primary" to="/trends" :class="{'text-primary font-bold' : active === 'trends'}"><font-awesome-icon class="" icon="chart-line"></font-awesome-icon><span class="text-xs mt-1">Trends</span></nuxt-link>
       <nuxt-link class="flex flex-col items-center hover:text-primary focus:text-primary" to="/profile" :class="{'text-primary font-bold' : active === 'profile'}"><font-awesome-icon class="" icon="user-cog"></font-awesome-icon><span class="text-xs mt-1">Profile</span></nuxt-link>
     </div>

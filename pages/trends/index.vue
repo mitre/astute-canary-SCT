@@ -1,9 +1,13 @@
 <template>
-  <div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top min-h-screen pb-16">
-    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
-      <app-powered-by-statement/>
-      <h1 class="px-4 text-2xl md:text-3xl text-white font-light pt-12">Here's what's been <span class="font-bold">happening</span>:</h1>
-      <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-4 md:mt-12 text-primary">
+  <div class="w-full h-full flex flex-col min-h-screen pb-16">
+    <div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-bottom">
+      <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8 pb-32">
+        <app-powered-by-statement/>
+        <h1 class="px-4 text-2xl md:text-3xl text-primary font-light pt-12">Here's what's been <span class="font-bold">happening</span>:</h1>
+      </div>
+    </div>
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
+      <div class="flex-grow p-4  text-primary">
         <!-- <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-8 text-primary"> -->
         <div class="w-full mt-8">
           <h2 class="text-primary font-bold uppercase">Symptoms</h2>
@@ -140,25 +144,25 @@ export default {
                     ret.datasets[0].data.push(1)
                     ret.datasets[1].data.push(0)
                     ret.datasets[2].data.push(0)
-                    ret.datasets[0].backgroundColor.push('#312E81')
-                    ret.datasets[1].backgroundColor.push('#4F46E5')
-                    ret.datasets[2].backgroundColor.push('#818CF8')
+                    ret.datasets[0].backgroundColor.push('#092d5d')
+                    ret.datasets[1].backgroundColor.push('#1464CC')
+                    ret.datasets[2].backgroundColor.push('#5899EE')
                 } else if (this.$moment(this.history[i].date).format('MM') === lastMonth) {
                     ret.labels.push(this.history[i].symptomsReported.Symptoms[j])
                     ret.datasets[0].data.push(0)
                     ret.datasets[1].data.push(1)
                     ret.datasets[2].data.push(0)
-                    ret.datasets[0].backgroundColor.push('#312E81')
-                    ret.datasets[1].backgroundColor.push('#4F46E5')
-                    ret.datasets[2].backgroundColor.push('#818CF8')
+                    ret.datasets[0].backgroundColor.push('#092d5d')
+                    ret.datasets[1].backgroundColor.push('#1464CC')
+                    ret.datasets[2].backgroundColor.push('#5899EE')
                 } else if (this.$moment(this.history[i].date).format('MM') === twoMonth) {
                     ret.labels.push(this.history[i].symptomsReported.Symptoms[j])
                     ret.datasets[0].data.push(0)
                     ret.datasets[1].data.push(0)
                     ret.datasets[2].data.push(1)
-                    ret.datasets[0].backgroundColor.push('#312E81')
-                    ret.datasets[1].backgroundColor.push('#4F46E5')
-                    ret.datasets[2].backgroundColor.push('#818CF8')
+                    ret.datasets[0].backgroundColor.push('#092d5d')
+                    ret.datasets[1].backgroundColor.push('#1464CC')
+                    ret.datasets[2].backgroundColor.push('#5899EE')
                 }
               }
             }

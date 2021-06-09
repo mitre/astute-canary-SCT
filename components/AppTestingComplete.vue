@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-grow flex flex-col justify-start text-center bg-light-background p-8 rounded-t-4xl mt-4 text-primary">
+  <div class="flex-grow flex flex-col justify-start text-center p-8 text-primary">
     <h2 class="text-2xl text-dark-text font-light">Need to <span class="font-bold">track</span> something else?</h2>
     <div class="flex flex-row mx-auto mt-12">
       <app-icon-button class="w-full" type="tertiary" size="large" icon="thermometer-full" text="Symptoms" @clicked="goToSymptoms"></app-icon-button>

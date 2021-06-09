@@ -1,23 +1,26 @@
 <template>
-<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top min-h-screen pb-18">
-  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
-    <app-powered-by-statement/>
-    <h2 class="px-4 text-2xl md:text-4xl text-white font-light pt-12">Your <span class="font-bold">history</span></h2>
-    <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-4 text-primary pb-24">
+<div class="w-full h-full flex flex-col min-h-screen pb-18">
+  <div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-bottom">
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8 pb-32">
+      <app-powered-by-statement/>
+      <h2 class="px-4 text-3xl text-primary font-light pt-12">Your <span class="font-bold">history</span></h2>
+    </div>
+  </div>
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
+    <div class="flex-grow my-auto p-4 text-primary pb-24">
       <div v-if="attributes.length > 0" class="">
         <v-calendar
           class="w-128 mx-auto"
-          color="#081E3A"
+          color="#ffffff"
           :attributes="attributes"
           :max-date="new Date()"
           @dayclick='dayClicked'
           is-expanded
-          is-dark
         >
           <template v-slot:day-content="{ day, dayEvents, attributes }">
             <div class="h-full z-10 overflow-hidden brounded cursor-pointer" v-on="dayEvents">
               <div class="w-full overflow-y-auto overflow-x-auto">
-                <span class="day-label text-xs text-gray-200 flex flex-col justify-center text-center h-6 w-6 mx-auto" :class="{'bg-white text-dark-text rounded font-bold' : day.id ==( $moment(todaysDate).format('YYYY') + '-' + $moment(todaysDate).format('MM') + '-' + $moment(todaysDate).format('DD') )}">
+                <span class="day-label text-xs text-gray-600 flex flex-col justify-center text-center h-6 w-6 mx-auto" :class="{'bg-accent text-dark-text rounded font-bold' : day.id ==( $moment(todaysDate).format('YYYY') + '-' + $moment(todaysDate).format('MM') + '-' + $moment(todaysDate).format('DD') )}">
                   <span >{{ day.day }} </span>
                 </span>
                 <span class="content block mx-auto text-center">
@@ -80,7 +83,7 @@
               <font-awesome-icon :icon="['fa', 'syringe']" class="mr-1 text-tertiary"></font-awesome-icon> You received the {{ selectedDay.vaccinationReported['Dose'] }} dose of <span class="font-bold">{{ selectedDay.vaccinationReported['Vaccination Type'] }}</span>.
             </span>
             <span v-if="Object.keys(selectedDay.testingReported).length > 0" class="block mt-4">
-              <font-awesome-icon :icon="['fa', 'microscope']" class="mr-1 text-tertiary"></font-awesome-icon> You received a <span class="lowercase font-bold">{{ selectedDay.testingReported['Testing Type'] }}</span> at a/an {{ selectedDay.testingReported['Location'] }}:
+              <font-awesome-icon :icon="['fa', 'microscope']" class="mr-1 text-tertiary"></font-awesome-icon> You received a <span class="lowercase font-bold">{{ selectedDay.testingReported['Testing Type'] }}</span> at a/an {{ selectedDay.testingReported['Location'] }}
               <span v-if="selectedDay.testingReported['Results Received'] === 'no'">and did not reveive a result at this time</span>
               <span v-if="selectedDay.testingReported['Results Received'] === 'yes'">you received a 
                 <span class="lowercase">{{ selectedDay.testingReported['Results'] }}</span> result
