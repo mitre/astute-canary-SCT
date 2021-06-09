@@ -10,7 +10,7 @@
             <div class="text-xl mt-4"> {{ profile.location.city }}, {{ profile.location.state }}</div>
           </div>
           <div class="ml-12 w-auto">
-            <app-button type="tertiary" @clicked="editProfile">Edit</app-button>
+            <app-button type="secondary" @clicked="editProfile">Edit</app-button>
           </div>
         </div>
       </div>
