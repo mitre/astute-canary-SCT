@@ -1,9 +1,13 @@
 <template>
-  <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-page-pattern bg-no-repeat bg-cover bg-right-top pb-18">
-    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
-      <app-powered-by-statement/>
-      <h2 class="text-3xl text-white font-light pt-12 px-4">What would you like to <span class="font-bold">track</span> today?</h2>
-      <div class="flex-grow my-auto bg-light-background p-4 rounded-t-4xl mt-16 pb-24">
+  <div class="w-full h-full flex flex-col min-h-screen mx-auto  pb-18">
+    <div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-bottom">
+      <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8 pb-32">
+        <app-powered-by-statement/>
+        <h2 class="text-3xl text-primary font-light pt-12 px-4">What would you like to <span class="font-bold">track</span> today?</h2>
+      </div>
+    </div>
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
+      <div class="flex-grow my-auto p-4 pb-24">
         <div class="mx-auto mt-12" style="width:300px;">
           <div class="grid grid-cols-2 gap-4">
             <app-icon-button type="tertiary" size="large" @clicked="reportSymptoms" icon="thermometer-full" text="Symptoms"></app-icon-button>

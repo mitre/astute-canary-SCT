@@ -20,22 +20,22 @@ export default {
 
     // style the survey 
     var myCss = {
-      errors: "text-white",
+      errors: "text-secondary",
       headerText: "text-xl",
       navigationButton: "border py-2 px-4 rounded mt-4 right",
       navigation: {
         complete: "bg-secondary border-none text-white"
       },
       question: {
-        header: "text-2xl text-light-text px-4",
-        content: "px-8 text-lg"
+        header: "text-2xl text-primary px-4",
+        content: "px-8 text-lg mt-24"
       },
       checkbox: {
-        label: "inline-block text-sm items-center bg-accent py-2 px-4 text-primary rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
+        label: "inline-block text-sm items-center bg-accent py-2 px-4 text-primary bg-opacity-50 rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
         itemControl: "form-tick appearance-none w-0 bg-accent focus:bg-secondary checked:bg-secondary"
       },
       radiogroup: {
-        label: "inline-block text-sm items-center bg-accent py-2 px-4 text-primary rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
+        label: "inline-block text-sm items-center bg-accent py-2 px-4 text-primary bg-opacity-50 rounded-lg mb-2 hover:bg-opacity-75 focus:bg-opacity-75 checked:bg-highlight",
         itemControl: "opacity-0 fixed w-0 bg-accent focus:bg-secondary checked:bg-secondary"
       },
       input: {
@@ -104,7 +104,11 @@ export default {
   @apply font-thin;
   @apply italic;
   @apply mb-4;
-  @apply text-light-text
+  @apply text-primary
+}
+textarea {
+  @apply border;
+  @apply rounded;
 }
 </style>
 

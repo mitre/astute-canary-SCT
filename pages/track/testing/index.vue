@@ -1,12 +1,16 @@
 <template>
-<div class="h-full w-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top min-h-screen">
-  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
-    <div class="flex flex-row w-full justify-between items-center mx-auto pt-8 px-4">
-      <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
-      <app-powered-by-statement/>
+<div class="h-full w-full flex flex-col min-h-screen">
+  <div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-bottom">
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8 pb-48">
+      <div class="flex flex-row w-full justify-between items-center mx-auto pt-8 px-4">
+        <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
+        <app-powered-by-statement/>
+      </div>
     </div>
-    <div class="w-auto mx-auto mt-8 pb-24" v-if="surveyCreated && !checkInComplete">
-      <p class="px-4 text-sm text-gray-200 font-light mb-4">
+  </div>
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full -mt-40">
+    <div class="w-auto mx-auto pb-24" v-if="surveyCreated && !checkInComplete">
+      <p class="px-4 text-sm text-dark-text font-light mb-4">
         Filling in testing information for 
         <span v-if="todayDate === activeDate">
           <span class="font-bold"> today:</span>
@@ -21,7 +25,7 @@
       </client-only>
     </div>
     
-    <h2 class="mt-12 text-2xl text-gray-200 font-light px-4" v-if="checkInComplete"  style="margin-top: 20%">Thank you for logging your testing activity.</h2>
+    <h2 class="text-2xl text-dark-text font-light px-4" v-if="checkInComplete">Thank you for logging your testing activity.</h2>
     <testing-complete class="mt-24" v-if="checkInComplete" />
   </div>
 </div>

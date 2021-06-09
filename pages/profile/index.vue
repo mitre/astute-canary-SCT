@@ -1,19 +1,23 @@
 <template>
-<div class="w-full h-full flex flex-col bg-page-pattern bg-no-repeat bg-cover bg-right-top min-h-screen">
-  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
-    <app-powered-by-statement/>
-    <div class="flex flex-row items-center w-full">
-      <div class="mx-auto flex flex-row mt-12">
-        <div class="w-auto text-light-text flex-col">
-          <div class="text-2xl font-bold">{{ profile.firstname }} {{ profile.lastname }}</div>
-          <div class="text-xl mt-4"> {{ profile.location.city }}, {{ profile.location.state }}</div>
-        </div>
-        <div class="ml-12 w-auto">
-          <app-button type="tertiary" @clicked="editProfile">Edit</app-button>
+<div class="w-full h-full flex flex-col min-h-screen pb-16">
+  <div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-bottom">
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8 pb-32">
+      <app-powered-by-statement/>
+      <div class="flex flex-row items-center w-full">
+        <div class="mx-auto flex flex-row mt-12">
+          <div class="w-auto text-primary flex-col">
+            <div class="text-2xl font-bold">{{ profile.firstname }} {{ profile.lastname }}</div>
+            <div class="text-xl mt-4"> {{ profile.location.city }}, {{ profile.location.state }}</div>
+          </div>
+          <div class="ml-12 w-auto">
+            <app-button type="tertiary" @clicked="editProfile">Edit</app-button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="flex-grow flex flex-col w-full bg-light-background py-8 px-16 text-lg text-center rounded-t-4xl mt-16 text-primary pb-24">
+  </div>
+  <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
+    <div class="flex-grow flex flex-col w-full px-16 text-lg text-center  mt-16 text-primary pb-24">
       <settings-menu-option icon="sign-out-alt" @clicked="logout">
         <span class="ml-4">Logout</span>
       </settings-menu-option>

@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="390" height="844" viewBox="0 0 390 844">
-  <defs>
-    <clipPath id="clip-_1.1_Home_Screen_57">
-      <rect width="390" height="844"/>
-    </clipPath>
-  </defs>
-  <g id="_1.1_Home_Screen_57" data-name="1.1 Home Screen – 57" clip-path="url(#clip-_1.1_Home_Screen_57)">
-    <rect id="Rectangle_1719" data-name="Rectangle 1719" width="390" height="844" fill="rgba(8,30,58,0.69)"/>
-    <path id="Path_423" data-name="Path 423" d="M-.011,0H388.55V268.862c0,39.525,19.536,75.158,0,90.343-29.741,23.118-70.675,44.767-119.38,48.438-58.253,4.391-118.645-22.8-171.684-15.633C.346,405.134-3.093,450.949-3.093,450.949Z" transform="translate(3.093 -3.449)" fill="#081e3a" opacity="0.313"/>
-    <path id="Path_424" data-name="Path 424" d="M0,0H390V286.486c0,39.378,35.313,97.765,23.742,118.65-.661,1.2-17.09,19.9-18.364,20.952-21.632,17.851-59.561-29.6-120.848-32.25-62.346-3.853-101.827,34.866-167.249,44.25-93.706,2.819-108.892-57.4-108.892-57.4Z" transform="translate(0 -13.5)" fill="#081e3a" opacity="0.53"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 393.08 451.18"><defs><style>.cls-1,.cls-2{fill:#3585eb;isolation:isolate;}.cls-1{opacity:0.12;}.cls-2{opacity:0.19;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_375" data-name="Group 375"><path id="Path_423" data-name="Path 423" class="cls-1" d="M.34.13l391.3.1S390,94.87,390,269c0,26.28.07,52,.16,70.16-.18,8.84,6.55,15.43,0,20.52-29.74,23.11-47.83,53.48-96.54,57.15-58.25,4.39-140-31.74-193.08-24.57C3.44,405.37,0,451.18,0,451.18Z"/><path id="Path_424" data-name="Path 424" class="cls-2" d="M.2,0,393,.18V295.05c0,22.13,0,51.74-.12,77.06,0,20.77.13,37.05.15,49,0,5.53,0,11.48,0,15.88,0,1.57,0,2.45,0,3.73,0,.91.15.77-.09,1a18,18,0,0,1-3.82,2.48c-21.43,10.54-53.75-36.06-112-38.64-62.56-4-102.19,35.89-167.85,45.55C15.24,454,0,392,0,392Z"/></g></g></g></svg>

@@ -21,11 +21,11 @@ module.exports = {
         // The main color used for calendar background etc
         primary: '#081E3A',
         // used for links 
-        secondary: '#3951FF',
+        secondary: '#3585EB',
         // color used to call attention to important things
         highlight: '#FFDF49',
         // a tertiary color used for button alternatives
-        tertiary: '#7485FC',
+        tertiary: '#6DA9EF',
         // the color used to represent feeling "poor"
         danger: '#EA1313',
         // the color used to represent feeling "fair"
@@ -33,7 +33,7 @@ module.exports = {
         // the color used to represent feeling "good"
         success: '#2FC74D',
         // used for survey answer selection buttons
-        accent: '#DDE1FD',
+        accent: '#8DBCF2',
         // used to represent items in the "symptoms" category
         symptom: '#785EAC',
         // used to represent items in the "vaccination" category

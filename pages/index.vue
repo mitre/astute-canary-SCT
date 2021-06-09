@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full h-full flex flex-col min-h-screen mx-auto bg-home-pattern bg-no-repeat bg-cover bg-center pb-16">
+  <div class="w-full h-full flex flex-col min-h-screen mx-auto pb-16">
+    <div class="bg-home-pattern bg-no-repeat bg-cover bg-bottom w-full pb-24">
       <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8">
         <app-powered-by-statement/>
         <div class="mt-8 w-full" v-show="weekOfDates.length > 0">
@@ -19,8 +20,8 @@
           </span>
           <div class="flex flex-row justify-center items-center w-full mt-4" v-if="!daySelected.overallFeeling">
             <app-feeling-button @clicked="setFeeling('good')" icon="smile" type="success" prefix="fa" text="Good"></app-feeling-button>
-            <app-feeling-button class="ml-4" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="fa" text="Fair"></app-feeling-button>
-            <app-feeling-button class="ml-4" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="fa" text="Poor"></app-feeling-button>
+            <app-feeling-button class="ml-8" @clicked="setFeeling('fair')" icon="meh" type="warning" prefix="fa" text="Fair"></app-feeling-button>
+            <app-feeling-button class="ml-8" @clicked="setFeeling('poor')" icon="frown" type="danger" prefix="fa" text="Poor"></app-feeling-button>
           </div>
           <div class="flex flex-col justify-center h-full w-full text-dark-text text-lg py-2" v-else>
             <span class="text-2xl font-light">
@@ -34,7 +35,10 @@
             </div>
           </div>
         </div>
-        <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-4 text-primary pb-24">
+      </div>
+    </div>
+    <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
+        <div class="flex-grow p-4 mt-4 text-primary pb-24">
           <div class="">
               <h2 class="text-xl px-4 pt-4 tracking-wide text-dark-text letter font-light">Need to <span class="font-bold">track</span>?</h2> 
               <div class="mt-4 flex flex-col justify-center self-center my-auto">
