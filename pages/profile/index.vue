@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
-    <div class="flex-grow flex flex-col w-full px-16 text-lg text-center  mt-16 text-primary pb-24">
+    <div class="flex-grow flex flex-col w-full px-16 text-lg text-center text-primary pb-24">
       <settings-menu-option icon="sign-out-alt" @clicked="logout">
         <span class="ml-4">Logout</span>
       </settings-menu-option>

@@ -38,9 +38,9 @@
       </div>
     </div>
     <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
-        <div class="flex-grow p-4 mt-4 text-primary pb-24">
+        <div class="flex-grow p-4 text-primary pb-24">
           <div class="">
-              <h2 class="text-xl px-4 pt-4 tracking-wide text-dark-text letter font-light">Need to <span class="font-bold">track</span>?</h2> 
+              <h2 class="text-xl px-4 tracking-wide text-dark-text letter font-light">Need to <span class="font-bold">track</span>?</h2> 
               <div class="mt-4 flex flex-col justify-center self-center my-auto">
                 <div class="flex flex-row flex-wrap w-full items-center justify-center">
                   <app-icon-button class="mt-4" type="tertiary" @clicked="reportSymptoms" icon="thermometer-full" text="Symptoms"></app-icon-button>

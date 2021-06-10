@@ -8,7 +8,7 @@
     </div>
     <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
       <div class="flex-grow my-auto p-4 pb-24">
-        <div class="mx-auto mt-12" style="width:300px;">
+        <div class="mx-auto mt-4" style="width:300px;">
           <div class="grid grid-cols-2 gap-4">
             <app-icon-button type="tertiary" size="large" @clicked="reportSymptoms" icon="thermometer-full" text="Symptoms"></app-icon-button>
             <app-icon-button type="tertiary" size="large" icon="syringe" @clicked="reportVaccination" text="Vaccination">Vaccination Experience</app-icon-button>

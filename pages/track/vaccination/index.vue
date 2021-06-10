@@ -2,7 +2,7 @@
 <div class="h-full flex flex-col min-h-screen">
   <div class="w-full bg-page-pattern bg-no-repeat bg-cover bg-bottom">
     <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full pt-8 pb-48">
-      <div class="flex flex-row w-full justify-between items-center mx-auto pt-8 px-4">
+      <div class="flex flex-row w-full justify-between items-center mx-auto px-4">
         <app-back-button type="secondary" @clicked="goBack">Back</app-back-button>
         <app-powered-by-statement/>
       </div>

@@ -9,7 +9,7 @@
     <div class="max-w-md mx-auto flex flex-col flex-grow h-full w-full">
       <div class="flex-grow p-4  text-primary">
         <!-- <div class="flex-grow bg-light-background p-4 rounded-t-4xl mt-8 text-primary"> -->
-        <div class="w-full mt-8">
+        <div class="w-full">
           <h2 class="text-primary font-bold uppercase">Symptoms</h2>
           <p class="pb-2 text-gray-600 text-sm">Symptoms recorded during the past three months</p>
           <client-only>
