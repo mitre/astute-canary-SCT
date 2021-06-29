@@ -3,6 +3,8 @@ Welcome to the Astute Canary - Smart Community Tracker. This provides the front-
 While this was built with the COVID-19 pandemic in mind, it could easily be adapted for other health crisis or general use. 
 At this time, this source code is front-end only, and will require building out of any kind of backend, database and authentication needed for your use case. 
 
+**This is a prototype and may be used for commercial use.**
+
 ## Demo
 A demo of the frontend can be found here: <a href="https://mitre.github.io/astute-canary-SCT/">https://mitre.github.io/astute-canary-SCT/</a>
 
